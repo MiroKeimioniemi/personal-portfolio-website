@@ -1,0 +1,78 @@
+h1 {
+    display: inline-block;
+    margin: 0;
+    text-align: left;
+}
+
+h2 {
+    display: inline-block;
+    overflow-wrap: normal;
+    width: 50%;
+}
+
+article {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    width: 85%;
+    padding: 1rem;
+}
+
+img {
+    max-width: 100%;
+}
+
+footer {
+    margin-top: 4rem;
+}
+
+.composite-h2 {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    align-items: center;
+}
+
+.slim-heading {
+    font-weight: 100;
+    margin: 0;
+    margin-left: 0.6rem;
+}
+
+.composite-heading {
+    margin-left: 4%;
+    margin-top: -1.36rem;
+    max-width: 80.1vw;
+}
+
+.see-portfolio-button{
+    width: 50%;
+    text-align: right;
+    margin-left: auto;
+}
+
+.thumbnail {
+    width: 100%;
+}
+
+
+@media screen and (min-width: 768px) {
+
+.content {
+    max-width: 64rem;
+}
+
+.composite-heading {
+    margin-top: 2rem;
+    margin-left: 0rem;
+    padding-left: 0;
+}
+
+article {
+    width: 40rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+    
+}

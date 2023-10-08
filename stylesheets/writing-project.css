@@ -1,0 +1,165 @@
+h1 {
+    text-align: left;
+    font-size: 1.953rem;
+    font-weight: 100;
+    margin-bottom: 2rem;
+    margin-top: -1.5rem;
+    width: 79vw;
+}
+
+h3 {
+    color: #DDDDDD;
+    margin-top: -3.5rem;
+    margin-bottom: -0.5rem;
+    padding-left: 1rem;
+    font-weight: lighter;
+    text-shadow: 0rem 0.1rem 0.15rem #000000;
+    text-align: left;
+}
+
+article {
+    margin-bottom: -3rem;
+}
+
+h3:hover {
+    text-decoration: underline;
+}
+
+li {
+    color: white;
+    text-align: left;
+    margin-bottom: 1rem;
+    overflow-wrap: break-word;
+}
+
+img {
+    max-width: 100%;
+    margin-bottom: 2rem;
+}
+
+.content {
+    width: 85%;
+}
+
+.hyperlink-style {
+    color: #AAAAAA;
+}
+
+.hyperlink-style:hover {
+    text-decoration: underline;
+}
+
+.file-variant {
+    margin-top: 4rem;
+}
+
+.grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.file-column {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    text-align: center;
+}
+
+.grid-img {
+    max-height: 20rem;
+}
+
+.text-column {
+    width: 100%;
+    margin-bottom: 2rem;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+}
+
+@media screen and (min-width: 768px) {
+
+h1 {
+    width: 100%;
+    display: inline-block;
+    margin: 0;
+    font-size: 1.953rem;
+    font-weight: 100;
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+}
+
+h2 {
+    display: inline-block;
+    overflow-wrap: normal;
+}
+
+.body-text {
+    text-align: left;
+    order: -1;
+}
+
+footer {
+    margin-top: 4rem;
+}
+
+.slim-heading {
+    font-weight: 100;
+    margin: 0;
+    margin-left: 0.6rem;
+}
+
+.composite-heading {
+    margin-left: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    text-align: center;
+    padding: 0;
+}
+
+.file-column {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    margin-bottom: 2rem;
+    width: 45%;
+    margin-left: 5%;
+}
+
+.text-column {
+    display: flex;
+    position: relative;
+    order: -1;
+    flex-direction: column;
+    margin-bottom: 2rem;
+    width: 50%;
+}
+
+.grid-img {
+    max-height: 20rem;
+}
+
+}
+
+@media screen and (min-width: 1360px) {
+
+.grid-item {
+    max-width: 26rem;
+}
+
+.grid-img {
+    max-height: 25rem;
+}
+
+}

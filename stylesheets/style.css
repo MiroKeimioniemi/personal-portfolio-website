@@ -1,0 +1,502 @@
+body {
+    background-color: #000000;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    font-family: 'Open Sans', Roboto, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+}
+
+h1 {
+    color: #DDDDDD;
+    text-align: center;
+    font-weight: 700;
+    font-size: 2.2rem;
+}
+
+h2 {
+    font-size: 1.953rem;
+    color: #DDDDDD;
+    font-weight: lighter;
+}
+
+p {
+    color: #EEEEEE;
+    font-size: 1rem;
+    max-width: 44rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+footer {
+    display: block;
+    background-color: #171717;
+    box-sizing: border-box;
+    padding: 1em 1.953rem;
+    width: 100%;
+    height: auto;
+    flex-shrink: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #EEEEEE;
+}
+
+
+/* Element-specific classes */
+
+.content {
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 auto;
+    margin: 0;
+    margin-top: 3rem;
+    width: 100%;
+}
+
+.hamburger {
+    position: fixed;
+    right: 0;
+    top: 0;
+    margin: 0;
+    z-index: 100;
+}
+
+.hamburger:hover {
+    cursor: pointer;
+}
+
+.mobile-nav {
+    position: fixed;
+    right: 0;
+    background-color: #171717;
+    width: 60%;
+    max-width: 15rem;
+    height: 100vh;
+    z-index: 101;
+    box-shadow: -0.2rem 0rem 0.4rem 0.01rem rgba(0, 0, 0, 0.8);
+}
+
+.mobile-flex-nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 75vh;
+    padding-bottom: 1rem;
+}
+
+.mobile-nav-cross {
+    position: absolute;
+    top: 0;
+    right: 0;
+    filter: drop-shadow(0rem 0.2rem 0.2rem #000000);
+}
+
+.mobile-nav-element {
+    display: block;
+    margin: 0;
+    text-shadow: 0rem 0.4rem 0.4rem rgba(0, 0, 0, 0.75);
+    font-size: 1.25rem;
+    padding-left: 3.052rem;
+    max-width: 10rem;
+    overflow-wrap: normal;
+}
+
+.mobile-nav-element:hover {
+    color: #FFFFFF;
+    text-shadow: 0rem 0rem 0.2rem rgba(255, 255, 255, 0.75);
+}
+
+.mobile-nav-heading {
+    font-weight: 300;
+    font-size: 1.953rem;
+    margin-left: -1.6rem;
+}
+
+.mobile-nav-social-media-icons {
+    display: flex;
+    position: fixed;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    bottom: 2rem;
+}
+
+.desktop-nav {
+    display: none;
+}
+
+.desktop-nav {
+    display: none;
+}
+
+.general-button {
+    position: relative;
+    display: inline-block;
+
+    width: 15rem;
+    height: 3rem;
+
+    max-width: 100%;
+
+    background: radial-gradient(71.3% 71.3% at 50% 50%, rgba(119, 119, 119, 0.65) 0%, rgba(17, 17, 17, 0.5) 100%);
+    box-shadow: 0rem 0rem 0.3rem 0.12rem rgba(255, 255, 255, 0.4);
+    border-radius: 5rem;
+    border-width: 0;
+}
+
+.general-button:hover {
+    cursor: pointer;
+    box-shadow: 0rem 0rem 0.3rem 0.12rem rgba(255, 255, 255, 0.8);
+}
+
+.first-button-layer {
+
+    margin: 0;
+    padding: 0;
+
+    position: absolute;
+    left: 1.82%;
+    right: 1.45%;
+    top: 7.41%;
+    bottom: 7.41%;
+
+    background: #111111;
+    border-radius: 5rem;
+}
+
+.first-button-layer:active {
+    filter: brightness(50%);
+}
+
+.second-button-layer {
+
+    margin: 0;
+    padding: 0;
+
+    left: 1.09%;
+    right: 0.73%;
+    top: 3.7%;
+    bottom: 3.7%;
+
+    background: #222222;
+    box-shadow: inset 0rem 0rem 0.25rem 0.15rem rgba(0, 0, 0, 0.75);
+    border-radius: 5rem;
+}
+
+.button-text {
+    margin-top: 0.4rem;
+    margin-bottom: auto;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.25rem;
+    text-align: center;
+
+    color: #EEEEEE;
+
+    text-shadow: 0rem 0.1rem 0.4rem rgba(255, 255, 255, 0.25);
+}
+
+.social-media-icons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem;
+    margin-top: 1rem;
+}
+
+.social-media-row-1 {
+    display: flex;
+    width: 55%;
+    justify-content: center;
+}
+
+.social-media-row-2 {
+    display: flex;
+    width: 55%;
+    justify-content: center;
+}
+
+.social-media-icon {
+    width: 1.953rem;
+    height: 1.953rem;
+    flex-grow: 0;
+    flex-shrink: 0;
+    margin: 0.4rem;
+}
+
+.social-media-icon:hover {
+    transform-origin: center;
+    margin: 0.275rem;
+    width: 2.2rem;
+    height: 2.2rem;
+    filter: drop-shadow(0 0 0.12rem #AAAAAA);
+}
+
+.copyright-text {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.64rem;
+    color: #444444;
+}
+
+::-webkit-scrollbar {
+    background-color: #000000;
+    width: 0.64rem;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #222222;
+    border-radius: 5rem;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #666666;
+}
+
+
+/* Utility classes */
+
+.centered {
+    text-align: center;
+}
+
+.align-center {
+    display: block;
+    justify-content: center;
+}
+
+.pad-x {
+    padding-left: 1.953rem;
+    padding-right: 1.953rem;
+}
+
+.pad-y {
+    padding-top: 1.953rem;
+    padding-bottom: 1.953rem;
+}
+
+.margin-x {
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.margin-y {
+    margin-top: 1.953rem;
+    margin-bottom: 1.953rem;
+}
+
+.margin-y-small {
+    margin-top: 1.4rem;
+    margin-bottom: 1.4rem;
+}
+
+.portfolio-item-frame {
+    border: solid 0.1rem white;
+    max-width: 100%;
+    mask-image: linear-gradient(to top, rgba(0,0,0,0) 0rem, rgba(0,0,0,0.4) 1rem, rgba(0,0,0,1) 2rem);
+    -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,0) 0rem, rgba(0,0,0,0.4) 1rem, rgba(0,0,0,1) 2rem);
+}
+
+.hidden {
+    display: none;
+}
+
+.disable-pointer-effects {
+    pointer-events: none;
+}
+
+
+
+
+@media screen and (min-width: 420px) {
+
+footer {
+    text-align: center;
+}
+
+}
+
+
+
+@media screen and (min-width: 768px) {
+
+h1 {
+    font-size: 3.815rem;
+    font-weight: 700;
+}
+
+/* Element-specific classes */
+
+.content {
+    width: 80%;
+    max-width: 75rem;
+}
+
+.hamburger {
+    display: none;
+}
+
+.mobile-nav {
+    display: none;
+}
+
+.social-media-row-1 {
+    width: 50%;
+    justify-content: right;
+}
+
+.social-media-row-2 {
+    width: 50%;
+    justify-content: left;
+}
+
+.desktop-nav-container {
+    display: flex;
+    position: fixed;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #000000;
+    height: 3rem;
+    width: 100%;
+    left: 50%;
+    transform: translate(-50%);
+    box-shadow: 0rem 0.2rem 0.4rem 0.2rem rgba(0, 0, 0, 0.75);
+    z-index: 1000;
+}
+
+.desktop-nav {
+    display: flex;
+    position: fixed;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #000000;
+    height: 3rem;
+    width: 87%;
+    max-width: 68rem;
+    left: 50%;
+    transform: translate(-50%);
+    z-index: 1000;
+}
+
+.desktop-nav-element {
+    margin: 1rem 1rem;
+    display: inline;
+}
+
+.desktop-nav-element:hover {
+    color: #BBBBBB;
+    cursor: pointer;
+}
+
+.desktop-nav-first-half {
+    width: 50%;
+    position: relative;
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 0 1rem;
+}
+
+.desktop-nav-second-half {
+    width: 50%;
+    position: relative;
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 1rem;
+}
+
+.portfolio-nav {
+    margin: 0;
+}
+
+.dropdown-triangle {
+    display: inline;
+    margin-top: 0.3rem;
+    margin-left: 0.5rem;;
+    margin-right: 1rem;
+}
+
+.dropdown-triangle:hover {
+    cursor: pointer;
+    fill: #BBBBBB;
+}
+
+.desktop-nav-button {
+    width: 8rem;
+    height: 2.1rem;
+    margin: 0;
+}
+
+.desktop-nav-button-text {
+    font-size: 1rem;
+    margin-top: 0.2rem;
+}
+
+.dropdown-menu {
+    position: fixed;
+    width: 10rem;
+    right: 9.26rem;
+    top: -0.16rem;
+    background-color: #000000;
+    box-shadow: 0rem 0.2rem 0.4rem 0.2rem rgba(0, 0, 0, 0.75);
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
+
+.dropdown-element {
+    width: 5rem;
+    overflow-wrap: normal;
+    margin-bottom: 1.5rem;
+}
+
+.dropdown-element:hover {
+    color: #BBBBBB;
+    cursor: pointer;
+}
+
+.portfolio-dropdown {
+    display: inline-block;
+    margin-left: 2.5rem;
+    margin-bottom: 0.6rem;
+    margin-right: 0;
+    width: auto;
+}
+
+.dropdown-triangle-inv {
+    display: inline;
+    margin-bottom: 0.05rem;
+    margin-left: 0.3rem;;
+    margin-right: 1rem;
+}
+
+.dropdown-triangle-inv:hover {
+    cursor: pointer;
+    fill: #BBBBBB;
+}
+
+}
+
+@media screen and (min-width: 1024px) {
+    :root {
+        font-size: 20px;
+    }
+
+    .dropdown-menu {
+        right: 9.16rem;
+        top: -0.16rem;
+    }
+}

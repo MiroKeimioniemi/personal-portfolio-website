@@ -1,0 +1,122 @@
+.profile-pic {
+    width: 90%;
+    max-width: 26rem;
+    margin-top: -2rem;
+}
+
+.profile-pic-div {
+    text-align: center;
+}
+
+.sk-instagram-feed {
+    margin: auto;
+}
+
+.ig-feed {
+    max-width: 44rem;
+    margin: auto;
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+}
+
+.social-media-icons-body {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem;
+}
+
+
+@media screen and (min-width: 768px) {
+
+.section1 {
+    width: 100%;
+    max-width: 63rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: left;
+    align-self: center;
+    padding: 0;
+    margin-bottom: 2rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.section2 {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+}
+
+h1 {
+    display: inline-block;
+    order: -2;
+    width: 100%;
+    text-align: left;
+    align-self: flex-start;
+    justify-self: flex-start;
+    margin: 2rem 0;
+}
+
+.social-media-icons-body {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 3rem;
+}
+
+.short-desc {
+    display: inline-block;
+    width: 50%;
+    order: -1;
+    max-width: 60%;
+}
+
+.profile-pic-div {
+    display: inline-block;
+    align-self: flex-end;
+    height: 20rem;
+    width: 50%;
+    flex-grow: 2;
+}
+
+.profile-pic {
+    position: relative;
+    bottom: 4rem;
+    margin-top: 1.953rem;
+}
+
+.dropdown-menu {
+    right: 9.52rem;
+}
+
+@media screen and (min-width: 1024px) {
+
+.dropdown-menu {
+    right: 9.41rem;
+}
+
+}
+
+}
+
+@media screen and (min-width: 1360px) {
+
+.short-desc {
+    width: 59%;
+}
+
+.profile-pic-div {
+    width: 40%;
+}
+
+.profile-pic {
+    bottom: 8rem;
+    width: 150%;
+    left: 4rem;
+}
+
+}

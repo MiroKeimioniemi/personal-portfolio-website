@@ -1,0 +1,56 @@
+h1 {
+    display: inline-block;
+    margin: 0;
+    text-align: left;
+}
+
+h3 {
+    color: #DDDDDD;
+    margin-top: -1rem;
+    margin-bottom: 1rem;
+    padding-left: 1rem;
+    font-weight: lighter;
+    text-shadow: 0rem 0.1rem 0.15rem #000000;
+}
+
+article {
+    align-self: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    max-width: 80%;
+}
+
+img {
+    object-fit: cover;
+}
+
+footer {
+    margin-top: 4rem;
+}
+
+.slim-heading {
+    font-weight: 100;
+    margin: 0;
+    margin-left: 0.6rem;
+}
+
+.composite-heading {
+    margin-left: 4%;
+    margin-top: -1.36rem;
+    max-width: 80.1vw;
+}
+
+@media screen and (min-width: 768px) {
+
+.content {
+    max-width: 60rem;
+}
+
+.composite-heading {
+    margin-left: 0rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+
+}
