@@ -1,0 +1,199 @@
+@charset "utf-8";
+/* CSS Document */
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+
+html {
+	background-image: url(Images/randy-tarampi-U2eUlPEKIgU-unsplash.jpg);
+	background-repeat: no-repeat;
+	background-size: 120% auto;
+	background-position: 20% 65%;
+	background-attachment: fixed;
+}
+
+.links {
+	position: absolute;
+	top: 100px;
+	left: 0;
+	right: 0;
+	margin: auto;
+	text-align: center;
+	width: 1180px;
+	height: 120px;
+	overflow-x: scroll;
+	overflow-y: hidden;
+	white-space: nowrap;
+}
+
+.links::-webkit-scrollbar {
+  display: none;
+}
+
+.linkItem {
+	position: relative;
+	display: inline-block;
+	list-style: none;
+	width: 120px;
+	height: 120px;
+	border-radius: 20px;
+	background-color: #FFFFFF;
+	margin: 0 12px;
+	overflow: hidden;
+	filter: drop-shadow(0 2px 4px #000000);
+}
+
+.squares {
+	border-radius: 12px;
+}
+
+img {
+	width: 80%;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+    margin: auto;
+}
+
+#ManageBac {
+	width: 200%;
+    top: -9950px;
+  	left: -9999px;
+  	right: -9999px;
+ 	bottom: -9999px;
+  	margin: auto;
+}
+
+#Office {
+	width: 65%;
+}
+
+#Tampere {
+	width: 300%;
+    top: 0;
+  	left: 9px;
+  	right: 0;
+ 	bottom: 0;
+  	margin: auto;
+}
+
+#Voimia {
+	width: 252%;
+	top: 0;
+	left: 8px;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+}
+
+#Nordea {
+	width: 90%;
+}
+
+#Nordnet {
+	width: 90%;
+}
+
+#extras {
+	position: fixed;
+	bottom: 12px;
+	right: 12px;
+}
+
+.extras {
+	position: relative;
+	display: inline-block;
+	list-style: none;
+	width: 60px;
+	height: 60px;
+	border-radius: 10px;
+	background-color: #FFFFFF;
+	margin: 12px 12px;
+	overflow: hidden;
+	filter: drop-shadow(0 2px 4px #000000);
+}
+
+@media (max-aspect-ratio: 15/9) {
+	
+	html {
+		background: #ffffff url(Images/randy-tarampi-U2eUlPEKIgU-unsplash.jpg);
+		background-repeat: no-repeat;
+		background-size: auto 120%;
+		background-position: 70% 35%;
+		background-attachment: fixed;
+	}
+}
+
+@media (max-aspect-ratio: 9/10) {
+	
+	html {
+		background: #ffffff url(Images/randy-tarampi-U2eUlPEKIgU-unsplash.jpg);
+		background-repeat: no-repeat;
+		background-size: auto 120%;
+		background-position: 75% 35%;
+		background-attachment: fixed;
+	}
+}
+
+@media (max-width: 1180px) {
+	.links {
+		width: 1036px;
+	}
+}
+
+@media (max-width: 1036px) {
+	.links {
+		width: 892px;
+	}
+}
+
+@media (max-width: 892px) {
+	.links {
+		width: 748px;
+	}
+}
+
+@media (max-width: 748px) {
+	.links {
+		width: 604px;
+	}
+}
+
+@media (max-width: 604px) {
+	.links {
+		position: absolute;
+		top: 20px;
+		left: 0;
+		right: 0;
+		margin: auto;
+		text-align: center;
+		width: 312px;
+		height: auto;
+		overflow-x: visible;
+		overflow-y: visible;
+		white-space: normal;
+	}
+	
+	html::-webkit-scrollbar {
+  		display: none;
+	}
+	
+	.linkItem {
+		margin: 12px 12px;
+	}
+	
+	#extras {
+		position: fixed;
+		top: 20px;
+		left: 12px;
+	}
+}
