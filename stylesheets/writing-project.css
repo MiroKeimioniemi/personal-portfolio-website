@@ -59,6 +59,12 @@ img {
     align-items: center;
 }
 
+.reverse-grid {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+}
+
 .file-column {
     display: flex;
     position: relative;
@@ -136,7 +142,7 @@ footer {
     margin-bottom: 2rem;
 }
 
-.grid {
+.grid, .reverse-grid {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
