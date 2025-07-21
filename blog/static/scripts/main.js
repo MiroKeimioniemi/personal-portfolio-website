@@ -1,26 +1,20 @@
-// Mobile navigation functionality
-document.addEventListener('DOMContentLoaded', function() {
-    const hamburger = document.querySelector('.hamburger');
-    const mobileNav = document.querySelector('.mobile-nav');
-    const mobileNavCross = document.querySelector('.mobile-nav-cross');
+const hamburger = document.querySelector(".hamburger");
+const mobileNav = document.querySelector(".mobile-nav");
+const dropdownMenu = document.querySelector(".dropdown-menu");
 
-    if (hamburger && mobileNav) {
-        hamburger.addEventListener('click', function() {
-            mobileNav.classList.remove('hidden');
-        });
-    }
+document.onclick = (element) => {
 
-    if (mobileNavCross && mobileNav) {
-        mobileNavCross.addEventListener('click', function() {
-            mobileNav.classList.add('hidden');
-        });
-    }
+    if (element.target.classList.contains("hamburger")) {
+        mobileNav.classList.toggle("hidden");
 
-    // Close mobile nav when clicking on a link
-    const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
-    mobileNavLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            mobileNav.classList.add('hidden');
-        });
-    });
-}); 
+    } else if (!mobileNav.classList.contains("hidden") && !element.target.classList.contains("mobile-nav")) {
+        mobileNav.classList.toggle("hidden");
+    
+    } else if (element.target.classList.contains("dropdown-triangle-content")) {
+        dropdownMenu.classList.toggle("hidden");
+
+    } else if ((!dropdownMenu.classList.contains("hidden") && !element.target.classList.contains("dropdown-triangle-content")) || element.target.classList.contains("dropdown-triangle-inv-content")) {
+        dropdownMenu.classList.toggle("hidden");
+    };
+
+}
