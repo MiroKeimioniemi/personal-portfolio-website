@@ -1,32 +1,20 @@
 [[main]]
-    identifier = "home"
-    name = "Home"
+    identifier = "blog"
+    name = "Blog"
     url = "/"
     weight = 1
 
 [[main]]
-    identifier = "about"
-    name = "About me"
-    url = "/about"
+    identifier = "creative-writing"
+    name = "Creative Writing"
+    url = "/creative-writing"
     weight = 2
 
 [[main]]
-    identifier = "categories"
-    name = "Categories"
-    url = "/categories"
+    identifier = "academic-writing"
+    name = "Academic Writing"
+    url = "/academic-writing"
     weight = 3
-
-[[main]]
-    identifier = "tags"
-    name = "Tags"
-    url = "/tags"
-    weight = 4
-
-[[main]]
-    identifier = "donate"
-    name = "Donate"
-    url = "https://ko-fi.com/nixentric"
-    weight = 5
     
 # Social Media Configuration
 

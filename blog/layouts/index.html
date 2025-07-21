@@ -1,0 +1,92 @@
+{{ define "main" }}
+<div class="w-full max-w-lg flex-1 flex flex-col gap-8 px-2 md:px-0 mx-auto">
+  <!-- Recent Posts -->
+  <section class="pt-2">
+    <h2 class="text-lg font-semibold text-gray-200 mb-2">Recent Posts</h2>
+    <div class="flex flex-col gap-6">
+      {{ range first 3 (where .Site.RegularPages "Type" "posts") }}
+      <article class="border-b border-[#232b39] pb-4">
+        <div class="flex items-center gap-2 mb-1">
+          <span class="text-xs text-gray-400">{{ .Date.Format "2.1.2006" }}</span>
+          {{ if .Params.tags }}
+          <div class="flex gap-1">
+            {{ range .Params.tags }}
+            <span class="bg-[#232b39] text-gray-300 px-2 py-0.5 rounded text-[11px]">{{ . }}</span>
+            {{ end }}
+          </div>
+          {{ end }}
+        </div>
+        <a href="{{ .RelPermalink }}" class="block text-base font-bold text-white hover:underline leading-tight mb-1">{{ .Title }}</a>
+        <p class="text-gray-300 text-sm leading-snug">{{ .Summary }}</p>
+      </article>
+      {{ end }}
+    </div>
+    <div class="mt-2">
+      <a href="/posts/" class="text-emerald-400 text-sm hover:underline">See more...</a>
+    </div>
+  </section>
+
+  <!-- Latest Thoughts -->
+  <section>
+    <h2 class="text-lg font-semibold text-gray-200 mb-2">Latest Thoughts</h2>
+    <div class="bg-[#181f2a] rounded-lg p-4 border border-[#232b39] flex items-center gap-3">
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <circle cx="16" cy="16" r="16" fill="#666"/>
+        <path d="M16 8c-2.2 0-4 1.8-4 4s1.8 4 4 4 4-1.8 4-4-1.8-4-4-4zm0 10c-3.3 0-6 1.3-6 3v1h12v-1c0-1.7-2.7-3-6-3z" fill="#fff"/>
+      </svg>
+      <div>
+        <div class="flex items-center gap-2 text-xs text-gray-400 mb-1">
+          <span class="font-medium text-gray-300">marou @mirokeimioniemi.com</span>
+          <span>• 23h</span>
+        </div>
+        <p class="text-gray-100 text-sm leading-snug">Practice without focus is just procrastination all the same</p>
+        <div class="flex gap-3 pt-1 text-xs text-gray-500">
+          <button class="hover:text-gray-300">Reply</button>
+          <button class="hover:text-gray-300">Retweet</button>
+          <button class="hover:text-gray-300">Like</button>
+          <button class="hover:text-gray-300">Share</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Highlights -->
+  <section>
+    <h2 class="text-lg font-semibold text-gray-200 mb-2">Highlights</h2>
+    <div class="flex flex-col gap-6">
+      {{ range first 2 (where .Site.RegularPages "Type" "posts") }}
+      <article class="bg-[#181f2a] rounded-lg p-4 border border-[#232b39] flex flex-col">
+        {{ if .Params.image }}
+        <img src="{{ .Params.image }}" alt="{{ .Title }}" class="mb-2 rounded-lg max-h-40 object-cover w-full" />
+        {{ end }}
+        <div class="flex items-center gap-2 mb-1">
+          <span class="text-xs text-gray-400">{{ .Date.Format "2.1.2006" }}</span>
+          {{ if .Params.tags }}
+          <div class="flex gap-1">
+            {{ range .Params.tags }}
+            <span class="bg-[#232b39] text-gray-300 px-2 py-0.5 rounded text-[11px]">{{ . }}</span>
+            {{ end }}
+          </div>
+          {{ end }}
+        </div>
+        <a href="{{ .RelPermalink }}" class="block text-base font-bold text-white hover:underline leading-tight mb-1">{{ .Title }}</a>
+        <p class="text-gray-300 text-sm leading-snug">{{ .Summary }}</p>
+      </article>
+      {{ end }}
+    </div>
+  </section>
+
+  <!-- Past Posts -->
+  <section>
+    <h2 class="text-lg font-semibold text-gray-200 mb-2">Past Posts</h2>
+    <div class="flex flex-col gap-1">
+      {{ range first 4 (after 3 (where .Site.RegularPages "Type" "posts")) }}
+      <div class="flex justify-between items-center border-b border-[#232b39] py-1">
+        <a href="{{ .RelPermalink }}" class="text-emerald-400 text-sm hover:underline">{{ .Title }}</a>
+        <span class="text-gray-400 text-xs">{{ .Date.Format "2.1.2006" }}</span>
+      </div>
+      {{ end }}
+    </div>
+  </section>
+</div>
+{{ end }} 

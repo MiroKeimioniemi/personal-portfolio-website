@@ -1,0 +1,12 @@
+---
+title: "Different Title"
+date: 2024-04-03
+type: "creative"
+category: "Poem"
+summary: "A short poem about change and transformation."
+---
+
+The wind whispers through the trees,
+Carrying secrets on the breeze.
+Change is constant, ever new,
+As the world transforms in view. 

@@ -1,0 +1,53 @@
+{{ define "main" }}
+<div class="blog-homepage">
+  <section class="creative-writing">
+    <h1 class="section-title">Creative Writing</h1>
+    <div class="creative-posts-list">
+      {{ range where .Site.RegularPages "Type" "posts" }}
+        {{ if .Params.categories }}
+        <div class="creative-post-item">
+          <a href="{{ .RelPermalink }}" class="creative-post-title">{{ .Title }}</a>
+          <div class="creative-post-categories">
+            {{ range .Params.categories }}
+            <span class="category-tag">{{ . }}</span>
+            {{ end }}
+          </div>
+        </div>
+        {{ end }}
+      {{ end }}
+    </div>
+  </section>
+</div>
+
+<style>
+.creative-writing {
+  @apply mb-12;
+}
+
+.creative-posts-list {
+  @apply space-y-4;
+}
+
+.creative-post-item {
+  @apply flex justify-between items-center py-4 border-b border-gray-700 last:border-b-0;
+}
+
+.creative-post-title {
+  @apply text-gray-100 no-underline font-medium hover:text-white transition-colors;
+}
+
+.creative-post-categories {
+  @apply flex gap-2;
+}
+
+.category-tag {
+  @apply px-3 py-1 rounded-full text-xs bg-gray-700 text-gray-300;
+}
+
+@media (max-width: 767px) {
+  .creative-post-item {
+    @apply flex-col items-start gap-2;
+  }
+}
+</style>
+{{ end }} 
