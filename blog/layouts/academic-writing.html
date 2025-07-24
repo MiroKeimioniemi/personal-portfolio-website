@@ -1,76 +1,12 @@
 {{ define "main" }}
 <div class="blog-homepage">
-  <section class="academic-writing">
-    <h1 class="section-title">Academic Writing</h1>
-    <div class="academic-posts-grid">
-      {{ range where .Site.RegularPages "Type" "posts" }}
-        {{ if .Params.academic }}
-        <article class="academic-post-card">
-          {{ if .Params.image }}
-          <div class="academic-post-image">
-            <img src="{{ .Params.image }}" alt="{{ .Title }}">
-          </div>
-          {{ end }}
-          <div class="academic-post-content">
-            <h3 class="academic-post-title">
-              <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-            </h3>
-            {{ if .Params.excerpt }}
-            <p class="academic-post-excerpt">{{ .Params.excerpt }}</p>
-            {{ end }}
-          </div>
-        </article>
-        {{ end }}
+  <h2 class="blog-list-title">Academic Writing</h2>
+  <div class="blog-list blog-list-tile-grid">
+    {{ range where .Site.RegularPages "Type" "posts" }}
+      {{ if .Params.academic }}
+        {{ partial "list-tiles/academic-post-tile.html" . }}
       {{ end }}
-    </div>
-  </section>
+    {{ end }}
+  </div> 
 </div>
-
-<style>
-.academic-writing {
-  @apply mb-12;
-}
-
-.academic-posts-grid {
-  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
-}
-
-.academic-post-card {
-  @apply bg-gray-800 rounded-lg border border-gray-700 hover:border-gray-600 transition-colors overflow-hidden;
-}
-
-.academic-post-image {
-  @apply aspect-video bg-gray-700 overflow-hidden;
-}
-
-.academic-post-image img {
-  @apply w-full h-full object-cover;
-}
-
-.academic-post-content {
-  @apply p-6;
-}
-
-.academic-post-title {
-  @apply text-lg font-semibold text-gray-100 mb-3 no-underline;
-}
-
-.academic-post-title:hover {
-  @apply text-white;
-}
-
-.academic-post-excerpt {
-  @apply text-gray-300 text-sm leading-relaxed;
-}
-
-@media (max-width: 767px) {
-  .academic-posts-grid {
-    @apply grid-cols-1;
-  }
-  
-  .academic-post-content {
-    @apply p-4;
-  }
-}
-</style>
 {{ end }} 

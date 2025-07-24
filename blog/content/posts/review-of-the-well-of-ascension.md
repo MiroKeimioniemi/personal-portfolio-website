@@ -2,6 +2,7 @@
 title: "Review of The Well of Ascension"
 date: 2025-07-17
 tags: ["Book Review", "Cosmere"]
+highlight: true
 summary: "A detailed review of Brandon Sanderson's second Mistborn novel, exploring themes of leadership and trust."
 ---
 

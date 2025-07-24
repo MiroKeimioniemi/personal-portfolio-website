@@ -1,0 +1,13 @@
+{{/* Recent Post Tile Partial */}}
+<article class="blog-list-tile-item">
+  <span class="blog-list-tile-date">{{ .Date.Format "2.1.2006" }}</span>
+  <a href="{{ .RelPermalink }}" class="blog-list-tile-link">{{ .Title }}</a>
+  <p class="blog-list-tile-summary">{{ .Summary }}</p>
+  {{ if .Params.tags }}
+    <div class="blog-list-tile-tags">
+      {{ range .Params.tags }}
+      <span class="blog-list-tile-tag">{{ . }}</span>
+      {{ end }}
+    </div>
+    {{ end }}
+</article> 

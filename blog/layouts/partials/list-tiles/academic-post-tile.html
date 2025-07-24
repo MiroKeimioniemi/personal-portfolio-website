@@ -1,0 +1,14 @@
+{{/* Academic Writing Post Tile Partial */}}
+<article class="blog-list-tile-item blog-list-tile-academic">
+  {{ if .Params.image }}
+  <div class="blog-list-tile-image">
+    <img src="{{ .Params.image }}" alt="{{ .Title }}">
+  </div>
+  {{ end }}
+  <div class="blog-list-tile-content">
+    <a href="{{ .RelPermalink }}" class="blog-list-tile-link blog-list-title">{{ .Title }}</a>
+    {{ if .Params.excerpt }}
+    <p class="blog-list-tile-summary">{{ .Params.excerpt }}</p>
+    {{ end }}
+  </div>
+</article> 
