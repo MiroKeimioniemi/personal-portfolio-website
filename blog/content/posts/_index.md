@@ -1,5 +1,5 @@
 ---
-title: "Post"
-header: "Latest Posts" # Optional
+title: "All Posts"
+header: "All Posts"
 ---
-See What I’ve Written Lately
+All my written content in one place

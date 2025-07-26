@@ -1,0 +1,167 @@
+{{/* Latest Thoughts Carousel Partial - Bluesky API Integration */}}
+<section class="latest-thoughts-section">
+  <h2 class="latest-thoughts-title">Latest Thoughts</h2>
+  <div class="latest-thoughts-container">
+    <!-- Navigation Arrows -->
+    <button id="prev-thought" class="latest-thoughts-nav-btn prev">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M15 18l-6-6 6-6"/>
+      </svg>
+    </button>
+    <button id="next-thought" class="latest-thoughts-nav-btn next">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M9 18l6-6-6-6"/>
+      </svg>
+    </button>
+
+    <!-- Carousel Container -->
+    <div id="bluesky-latest-thoughts" class="latest-thoughts-carousel">
+      <div class="latest-thoughts-loading">Loading latest thoughts from Bluesky...</div>
+    </div>
+  </div>
+
+  <!-- Hidden template for generating posts -->
+  <template id="bluesky-post-template">
+    {{ partial "list-tiles/bluesky-post.html" (dict "author" "TEMPLATE_AUTHOR" "handle" "TEMPLATE_HANDLE" "text" "TEMPLATE_TEXT" "timeAgo" "TEMPLATE_TIME" "avatar" "TEMPLATE_AVATAR" "uri" "TEMPLATE_URI" "postId" "TEMPLATE_POST_ID") }}
+  </template>
+
+  <script>
+    let currentThoughtIndex = 0;
+    let thoughts = [];
+
+    async function fetchBlueskyPosts() {
+      const container = document.getElementById('bluesky-latest-thoughts');
+      try {
+        const res = await fetch('https://public.api.bsky.app/xrpc/app.bsky.feed.getAuthorFeed?actor=mirokeimioniemi.com&limit=10');
+        const data = await res.json();
+        if (!data.feed || !data.feed.length) {
+          container.innerHTML = '<div class="latest-thoughts-loading">No recent posts found.</div>';
+          return;
+        }
+        
+        thoughts = data.feed.map(item => {
+          const post = item.post;
+          // Extract post ID from URI (format: at://did:plc:mirokeimioniemi/app.bsky.feed.post/[post-id])
+          const postId = post.uri.split('/').pop();
+          return {
+            author: post.author.displayName || post.author.handle,
+            handle: post.author.handle,
+            text: post.record.text,
+            date: new Date(post.indexedAt),
+            avatar: post.author.avatar || null,
+            uri: post.uri,
+            postId: postId
+          };
+        });
+
+        showThought(currentThoughtIndex);
+        updateNavigationButtons();
+      } catch (e) {
+        container.innerHTML = '<div class="latest-thoughts-error">Failed to load Bluesky posts.</div>';
+      }
+    }
+
+    function showThought(index) {
+      const container = document.getElementById('bluesky-latest-thoughts');
+      if (!thoughts.length) return;
+
+      const thought = thoughts[index];
+      const timeAgo = timeSince(thought.date);
+
+      // Create post data
+      const postData = {
+        author: escapeHtml(thought.author),
+        handle: escapeHtml(thought.handle),
+        text: escapeHtml(thought.text),
+        timeAgo: timeAgo,
+        avatar: thought.avatar,
+        uri: thought.uri,
+        postId: thought.postId
+      };
+
+      // Generate post HTML using the template
+      container.innerHTML = generateBlueskyPostHTML(postData);
+    }
+
+    function generateBlueskyPostHTML(postData) {
+      // Get the template and replace placeholders
+      const template = document.getElementById('bluesky-post-template').innerHTML;
+      
+      return template
+        .replace(/TEMPLATE_AUTHOR/g, postData.author)
+        .replace(/TEMPLATE_HANDLE/g, postData.handle)
+        .replace(/TEMPLATE_TEXT/g, postData.text)
+        .replace(/TEMPLATE_TIME/g, postData.timeAgo)
+        .replace(/TEMPLATE_AVATAR/g, postData.avatar || '')
+        .replace(/TEMPLATE_URI/g, postData.uri)
+        .replace(/TEMPLATE_POST_ID/g, postData.postId);
+    }
+
+    function updateNavigationButtons() {
+      const prevBtn = document.getElementById('prev-thought');
+      const nextBtn = document.getElementById('next-thought');
+      
+      prevBtn.style.opacity = currentThoughtIndex === 0 ? '0.5' : '1';
+      nextBtn.style.opacity = currentThoughtIndex === thoughts.length - 1 ? '0.5' : '1';
+      
+      prevBtn.disabled = currentThoughtIndex === 0;
+      nextBtn.disabled = currentThoughtIndex === thoughts.length - 1;
+    }
+
+    function nextThought() {
+      if (currentThoughtIndex < thoughts.length - 1) {
+        currentThoughtIndex++;
+        showThought(currentThoughtIndex);
+        updateNavigationButtons();
+      }
+    }
+
+    function prevThought() {
+      if (currentThoughtIndex > 0) {
+        currentThoughtIndex--;
+        showThought(currentThoughtIndex);
+        updateNavigationButtons();
+      }
+    }
+
+    // Event listeners
+    document.getElementById('next-thought').addEventListener('click', nextThought);
+    document.getElementById('prev-thought').addEventListener('click', prevThought);
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') {
+        prevThought();
+      } else if (e.key === 'ArrowRight') {
+        nextThought();
+      }
+    });
+
+    // Helper to format time ago
+    function timeSince(date) {
+      const seconds = Math.floor((new Date() - date) / 1000);
+      const intervals = [
+        { label: 'y', seconds: 31536000 },
+        { label: 'mo', seconds: 2592000 },
+        { label: 'd', seconds: 86400 },
+        { label: 'h', seconds: 3600 },
+        { label: 'm', seconds: 60 },
+        { label: 's', seconds: 1 }
+      ];
+      for (const interval of intervals) {
+        const count = Math.floor(seconds / interval.seconds);
+        if (count >= 1) return `${count}${interval.label}`;
+      }
+      return 'just now';
+    }
+
+    // Helper to escape HTML
+    function escapeHtml(text) {
+      const div = document.createElement('div');
+      div.innerText = text;
+      return div.innerHTML;
+    }
+
+    fetchBlueskyPosts();
+  </script>
+</section>
