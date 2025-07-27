@@ -1,4 +1,4 @@
-baseURL = 'http://example.org/'
+baseURL = 'https://mirokeimioniemi.com/writing'
 copyright = "{year}" # To make 2007 - 2022. Just add before {year} example: 2007 - {year}
 languageCode = 'en-US'
 defaultContentLanguage = 'en'
@@ -6,6 +6,7 @@ theme = 'enchanted-lowkey'
 title = 'marou'
 enableRobotsTXT = true
 summaryLength = 15
+publishDir = '../writing'
 
 [pagination]
   pagerSize = 5
