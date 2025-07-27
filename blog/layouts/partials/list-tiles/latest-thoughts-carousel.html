@@ -32,14 +32,26 @@
     async function fetchBlueskyPosts() {
       const container = document.getElementById('bluesky-latest-thoughts');
       try {
-        const res = await fetch('https://public.api.bsky.app/xrpc/app.bsky.feed.getAuthorFeed?actor=mirokeimioniemi.com&limit=10');
+        const res = await fetch('https://public.api.bsky.app/xrpc/app.bsky.feed.getAuthorFeed?actor=mirokeimioniemi.com&limit=20');
         const data = await res.json();
         if (!data.feed || !data.feed.length) {
           container.innerHTML = '<div class="latest-thoughts-loading">No recent posts found.</div>';
           return;
         }
         
-        thoughts = data.feed.map(item => {
+        // Filter out replies and only keep original posts
+        const originalPosts = data.feed.filter(item => {
+          const post = item.post;
+          // Check if this is a reply (has reply property) or a repost (has repost property)
+          return !post.record.reply && !post.record.repost;
+        });
+        
+        if (originalPosts.length === 0) {
+          container.innerHTML = '<div class="latest-thoughts-loading">No original posts found.</div>';
+          return;
+        }
+        
+        thoughts = originalPosts.map(item => {
           const post = item.post;
           // Extract post ID from URI (format: at://did:plc:mirokeimioniemi/app.bsky.feed.post/[post-id])
           const postId = post.uri.split('/').pop();
