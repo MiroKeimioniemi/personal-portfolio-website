@@ -66,6 +66,8 @@
   padding: 0.75rem;
   border: 1px solid #232b39;
   margin: 0 1rem;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .latest-thoughts-loading {
@@ -83,6 +85,8 @@
   display: flex;
   align-items: flex-start;
   gap: 0.5rem;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .latest-thoughts-avatar {
@@ -105,6 +109,8 @@
 .latest-thoughts-content {
   flex: 1;
   min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .latest-thoughts-user-info {
