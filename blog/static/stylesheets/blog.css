@@ -170,7 +170,7 @@
 }
 
 .blog-main-content {
-  width: 95%;
+  width: 80%;
   max-width: 44rem;
   margin-left: auto;
   margin-right: auto;
@@ -183,8 +183,5 @@
   }
   .blog-list-tile-content {
     padding: 0.7rem;
-  }
-  .blog-list-title {
-    font-size: 1.1rem;
   }
 } 

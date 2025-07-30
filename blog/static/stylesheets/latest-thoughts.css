@@ -115,6 +115,7 @@
   color: #9ca3af;
   margin-bottom: 0;
   line-height: 1;
+  flex-wrap: wrap;
 }
 
 .latest-thoughts-username {
