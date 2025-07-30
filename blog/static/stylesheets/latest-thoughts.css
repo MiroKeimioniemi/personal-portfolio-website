@@ -140,6 +140,65 @@
   margin-top: 0.125rem;
 }
 
+.clickable-text {
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.clickable-text:hover {
+  opacity: 0.8;
+}
+
+.latest-thoughts-link {
+  color: #60a5fa;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.latest-thoughts-link:hover {
+  color: #93c5fd;
+  text-decoration: underline;
+}
+
+/* Images Section */
+.latest-thoughts-images {
+  margin-bottom: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.latest-thoughts-image-container {
+  border-radius: 0.5rem;
+  overflow: hidden;
+  background-color: #232b39;
+  border: 1px solid #374151;
+  max-width: 100%;
+}
+
+.clickable-image {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.clickable-image:hover {
+  transform: scale(1.02);
+}
+
+.latest-thoughts-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  max-height: 300px;
+  max-width: 100%;
+  object-fit: contain;
+  transition: opacity 0.2s ease;
+}
+
+.latest-thoughts-image:hover {
+  opacity: 0.9;
+}
+
 /* Profile Links */
 .latest-thoughts-profile-link {
   text-decoration: none;
@@ -221,5 +280,9 @@
   .latest-thoughts-action-btn svg {
     width: 11px;
     height: 11px;
+  }
+  
+  .latest-thoughts-image {
+    max-height: 250px;
   }
 } 

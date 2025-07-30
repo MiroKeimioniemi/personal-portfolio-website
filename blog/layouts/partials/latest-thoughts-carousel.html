@@ -55,6 +55,17 @@
           const post = item.post;
           // Extract post ID from URI (format: at://did:plc:mirokeimioniemi/app.bsky.feed.post/[post-id])
           const postId = post.uri.split('/').pop();
+          
+          // Extract images from embed if present
+          let images = [];
+          if (post.embed && post.embed.images) {
+            images = post.embed.images.map(img => ({
+              url: img.fullsize,
+              alt: img.alt || 'Image from Bluesky post',
+              aspectRatio: img.aspectRatio
+            }));
+          }
+          
           return {
             author: post.author.displayName || post.author.handle,
             handle: post.author.handle,
@@ -62,7 +73,8 @@
             date: new Date(post.indexedAt),
             avatar: post.author.avatar || null,
             uri: post.uri,
-            postId: postId
+            postId: postId,
+            images: images
           };
         });
 
@@ -88,25 +100,52 @@
         timeAgo: timeAgo,
         avatar: thought.avatar,
         uri: thought.uri,
-        postId: thought.postId
+        postId: thought.postId,
+        images: thought.images
       };
 
       // Generate post HTML using the template
       container.innerHTML = generateBlueskyPostHTML(postData);
+      
+      // Add click listeners after content is loaded
+      addClickListeners();
     }
 
     function generateBlueskyPostHTML(postData) {
       // Get the template and replace placeholders
       const template = document.getElementById('bluesky-post-template').innerHTML;
       
-      return template
+      // Process text to make links clickable
+      const processedText = processTextWithLinks(postData.text);
+      
+      let html = template
         .replace(/TEMPLATE_AUTHOR/g, postData.author)
         .replace(/TEMPLATE_HANDLE/g, postData.handle)
-        .replace(/TEMPLATE_TEXT/g, postData.text)
+        .replace(/TEMPLATE_TEXT/g, processedText)
         .replace(/TEMPLATE_TIME/g, postData.timeAgo)
         .replace(/TEMPLATE_AVATAR/g, postData.avatar || '')
         .replace(/TEMPLATE_URI/g, postData.uri)
         .replace(/TEMPLATE_POST_ID/g, postData.postId);
+      
+      // Handle images separately since they're more complex
+      if (postData.images && postData.images.length > 0) {
+        const imagesHTML = postData.images.map(img => 
+          `<div class="latest-thoughts-image-container clickable-image" data-post-url="https://bsky.app/profile/${postData.handle}/post/${postData.postId}">
+            <img src="${img.url}" alt="${img.alt}" class="latest-thoughts-image" loading="lazy">
+          </div>`
+        ).join('');
+        
+        const imagesSection = `
+          <div class="latest-thoughts-images">
+            ${imagesHTML}
+          </div>
+        `;
+        
+        // Insert images section after the text
+        html = html.replace('</p>', '</p>' + imagesSection);
+      }
+      
+      return html;
     }
 
     function updateNavigationButtons() {
@@ -172,6 +211,73 @@
       const div = document.createElement('div');
       div.innerText = text;
       return div.innerHTML;
+    }
+
+    // Process text to make links clickable
+    function processTextWithLinks(text) {
+      // URL regex pattern
+      const urlRegex = /(https?:\/\/[^\s]+)/g;
+      
+      return text.replace(urlRegex, (url) => {
+        // Extract domain for display
+        let displayUrl = url;
+        try {
+          const urlObj = new URL(url);
+          displayUrl = urlObj.hostname + urlObj.pathname;
+          if (displayUrl.length > 50) {
+            displayUrl = displayUrl.substring(0, 47) + '...';
+          }
+        } catch (e) {
+          // If URL parsing fails, use original
+          displayUrl = url.length > 50 ? url.substring(0, 47) + '...' : url;
+        }
+        
+        return `<a href="${url}" target="_blank" class="latest-thoughts-link">${displayUrl}</a>`;
+      });
+    }
+
+    // Add click event listeners after content is loaded
+    function addClickListeners() {
+      // Add click listeners for text
+      const clickableTexts = document.querySelectorAll('.clickable-text');
+      clickableTexts.forEach(element => {
+        let isSelecting = false;
+        let startY = 0;
+        
+        element.addEventListener('mousedown', function(e) {
+          startY = e.clientY;
+          isSelecting = false;
+        });
+        
+        element.addEventListener('mousemove', function(e) {
+          if (Math.abs(e.clientY - startY) > 5) {
+            isSelecting = true;
+          }
+        });
+        
+        element.addEventListener('click', function(e) {
+          // Don't navigate if text is selected or if user is selecting
+          if (isSelecting || window.getSelection().toString().length > 0) {
+            return;
+          }
+          
+          const postUrl = this.getAttribute('data-post-url');
+          if (postUrl) {
+            window.open(postUrl, '_blank');
+          }
+        });
+      });
+
+      // Add click listeners for images
+      const clickableImages = document.querySelectorAll('.clickable-image');
+      clickableImages.forEach(element => {
+        element.addEventListener('click', function() {
+          const postUrl = this.getAttribute('data-post-url');
+          if (postUrl) {
+            window.open(postUrl, '_blank');
+          }
+        });
+      });
     }
 
     fetchBlueskyPosts();

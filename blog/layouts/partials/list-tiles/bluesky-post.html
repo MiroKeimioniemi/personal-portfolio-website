@@ -22,7 +22,7 @@
       </a>
       <span class="latest-thoughts-timestamp">• {{ .timeAgo }}</span>
     </div>
-    <p class="latest-thoughts-text">{{ .text }}</p>
+    <p class="latest-thoughts-text clickable-text" data-post-url="https://bsky.app/profile/{{ .handle }}/post/{{ .postId }}">{{ .text }}</p>
     <div class="latest-thoughts-actions">
       <a href="https://bsky.app/profile/{{ .handle }}/post/{{ .postId }}" target="_blank" class="latest-thoughts-action-btn" title="Reply">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
