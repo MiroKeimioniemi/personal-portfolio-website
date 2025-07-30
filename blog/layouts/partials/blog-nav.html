@@ -1,0 +1,16 @@
+{{/* Blog Navigation Bar */}}
+<nav class="blog-nav">
+  <div class="blog-nav-container">
+    <a href="{{ .Site.BaseURL }}" class="blog-nav-item {{ if eq .Kind "home" }}active{{ end }}">
+      <span class="blog-nav-text">Blog</span>
+    </a>
+    <span class="blog-nav-separator">/</span>
+    <a href="{{ .Site.BaseURL }}creative-writing/" class="blog-nav-item {{ if eq .Section "creative-writing" }}active{{ end }}">
+      <span class="blog-nav-text">Creative Writing</span>
+    </a>
+    <span class="blog-nav-separator">/</span>
+    <a href="{{ .Site.BaseURL }}academic-writing/" class="blog-nav-item {{ if eq .Section "academic-writing" }}active{{ end }}">
+      <span class="blog-nav-text">Academic Writing</span>
+    </a>
+  </div>
+</nav> 
