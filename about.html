@@ -327,9 +327,12 @@
             </div>      
         </div>
         <p class="centered copyright-text">
-            Copyright © 2022 Miro Keimiöniemi.<br>
-            All rights reserved.
-        </p>
+    Copyright © <span id="current-year">2022</span> Miro Keimiöniemi.<br>
+    All rights reserved.
+  </p>
+  <script>
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+  </script>
     </footer>
 </body>
 </html>
