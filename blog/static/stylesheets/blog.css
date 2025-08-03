@@ -133,12 +133,21 @@
 }
 
 .blog-list-tile-tag, .blog-list-tile-category {
-  background: #232b39;
+  background: #222222;
   color: #d1d5db;
   padding: 0.2em 0.7em;
   border-radius: 0.75em;
   font-size: 0.7rem;
   margin-top: 0;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  display: inline-block;
+}
+
+.blog-list-tile-tag:hover {
+  background: #333333;
+  color: #e5e7eb;
+  transform: translateY(-1px);
 }
 
 .blog-list-tile-link {

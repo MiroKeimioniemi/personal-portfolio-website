@@ -6,6 +6,9 @@ enableRobotsTXT = true
 summaryLength = 15
 publishDir = '../writing'
 
+[taxonomies]
+  tag = "tags"
+
 [pagination]
   pagerSize = 5
 

@@ -1,6 +1,8 @@
 ---
 title: "An Interesting Title"
-date: 2025-07-18
+date: 2025-07-19
+type: "blog"
+categories: ["article"]
 tags: ["Topic", "Tag"]
 summary: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
 ---

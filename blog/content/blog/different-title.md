@@ -2,7 +2,7 @@
 title: "Different Title"
 date: 2024-04-03
 type: "creative"
-category: "Poem"
+categories: ["Poem"]
 summary: "A short poem about change and transformation."
 ---
 

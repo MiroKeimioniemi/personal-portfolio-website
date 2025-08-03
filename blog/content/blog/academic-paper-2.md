@@ -1,10 +1,10 @@
 ---
 title: "Determining the optimal timing for insulin injection to minimize glucose level variability after a meal in ideal conditions"
 date: 2021-06-20
+type: "academic"
+categories: ["paper"]
 tags: ["Mathematics", "Biology", "Optimization"]
-academic: true
 image: "/images/academic-paper-2.jpg"
-excerpt: "A mathematical exploration of insulin timing optimization for diabetes management."
 summary: "A mathematical exploration of insulin timing optimization for diabetes management, using differential equations to model glucose-insulin dynamics."
 ---
 

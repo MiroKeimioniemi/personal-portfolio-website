@@ -7,14 +7,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:100,400,700,900&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" sizes="48x48" href="./images/favicon.ico">
+    <link rel="icon" type="image/x-icon" sizes="48x48" href="{{ "images/favicon.ico" | relURL }}">
     <title>{{ .Site.Title }}</title>
     {{- partial "head/index" . -}}
-    <script src="./scripts/main.js" defer></script>
-    <link rel="stylesheet" type="text/css" href="./stylesheets/style.css">
-    <link rel="stylesheet" type="text/css" href="./stylesheets/home.css">
-    <link rel="stylesheet" type="text/css" href="./stylesheets/blog.css">
-    <link rel="stylesheet" type="text/css" href="./stylesheets/latest-thoughts.css">
+    <script src="{{ "scripts/main.js" | relURL }}" defer></script>
+    <link rel="stylesheet" type="text/css" href="{{ "stylesheets/style.css" | relURL }}">
+    <link rel="stylesheet" type="text/css" href="{{ "stylesheets/home.css" | relURL }}">
+    <link rel="stylesheet" type="text/css" href="{{ "stylesheets/blog.css" | relURL }}">
+    <link rel="stylesheet" type="text/css" href="{{ "stylesheets/latest-thoughts.css" | relURL }}">
 </head>
 <body>
     {{ partial "header.html" . }}

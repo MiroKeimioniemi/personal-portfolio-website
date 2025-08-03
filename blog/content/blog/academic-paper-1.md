@@ -1,10 +1,10 @@
 ---
 title: "The Pricing of Digital Goods in the Music Production Software Industry"
 date: 2022-01-15
+type: "academic"
+categories: ["thesis"]
 tags: ["Economics", "Digital Goods", "Music Industry"]
-academic: true
 image: "/images/academic-paper-1.jpg"
-excerpt: "An analysis of pricing strategies in the digital music production software market."
 summary: "An analysis of pricing strategies in the digital music production software market, examining the relationship between software piracy and pricing decisions."
 ---
 
