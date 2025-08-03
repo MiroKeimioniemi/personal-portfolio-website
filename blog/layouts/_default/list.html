@@ -1,0 +1,151 @@
+{{ define "main" }}
+
+{{ $pages := .Pages }}
+{{ $paginator := .Paginate $pages }}
+
+<!-- Include the blog list CSS -->
+<link rel="stylesheet" href="/writing/stylesheets/blog-list.css">
+
+<div class="blog-main-content">
+    <div class="blog-header">
+        <a href="/writing/" class="back-arrow">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M19 12H5M12 19L5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </a>
+        <h2 class="blog-list-title">All Posts</h2>
+    </div>
+    
+    {{ with .Content }}
+        {{ . }}
+    {{ end }}
+
+    <div class="blog-list">
+        {{ range $pages.ByDate.Reverse }}
+            {{ partial "list-tiles/expanded-blog-post-tile.html" . }}
+        {{ end }}
+    </div>
+
+    <!-- Load more button -->
+    <div id="load-more-container" class="load-more-container" style="display: none;">
+        <button id="load-more-btn" class="load-more-button">
+            Load More Posts
+        </button>
+    </div>
+
+    <!-- Loading spinner -->
+    <div id="loading-spinner" class="loading-spinner" style="display: none;">
+        <div class="spinner"></div>
+        <p>Loading more posts...</p>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const postsContainer = document.querySelector('.blog-list');
+    const loadMoreBtn = document.getElementById('load-more-btn');
+    const loadingSpinner = document.getElementById('loading-spinner');
+    const loadMoreContainer = document.getElementById('load-more-container');
+    
+    let currentPage = 1;
+    const postsPerPage = 10;
+    let allPosts = [];
+    let isLoading = false;
+
+    // Get all posts from the page
+    function getAllPosts() {
+        const postElements = postsContainer.querySelectorAll('.blog-list-tile-item');
+        return Array.from(postElements);
+    }
+
+    // Initialize posts array
+    allPosts = getAllPosts();
+    
+    // Hide posts beyond the first page
+    function hidePostsBeyondFirstPage() {
+        allPosts.forEach((post, index) => {
+            if (index >= postsPerPage) {
+                post.style.display = 'none';
+            }
+        });
+    }
+
+    // Show posts for current page
+    function showPostsForCurrentPage() {
+        const startIndex = (currentPage - 1) * postsPerPage;
+        const endIndex = startIndex + postsPerPage;
+        
+        allPosts.forEach((post, index) => {
+            if (index >= startIndex && index < endIndex) {
+                post.style.display = 'block';
+            }
+        });
+    }
+
+    // Check if there are more posts to load
+    function hasMorePosts() {
+        return currentPage * postsPerPage < allPosts.length;
+    }
+
+    // Load more posts
+    function loadMorePosts() {
+        if (isLoading || !hasMorePosts()) return;
+        
+        isLoading = true;
+        loadingSpinner.style.display = 'block';
+        loadMoreContainer.style.display = 'none';
+        
+        // Simulate loading delay for better UX
+        setTimeout(() => {
+            currentPage++;
+            showPostsForCurrentPage();
+            
+            isLoading = false;
+            loadingSpinner.style.display = 'none';
+            
+            if (hasMorePosts()) {
+                loadMoreContainer.style.display = 'block';
+            }
+        }, 500);
+    }
+
+    // Initialize the page
+    hidePostsBeyondFirstPage();
+    showPostsForCurrentPage();
+    
+    if (hasMorePosts()) {
+        loadMoreContainer.style.display = 'block';
+    }
+
+    // Event listeners
+    loadMoreBtn.addEventListener('click', loadMorePosts);
+
+    // Endless scroll with intersection observer
+    const observerOptions = {
+        root: null,
+        rootMargin: '100px',
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && hasMorePosts() && !isLoading) {
+                loadMorePosts();
+            }
+        });
+    }, observerOptions);
+
+    // Observe the load more button for endless scroll
+    if (loadMoreBtn) {
+        observer.observe(loadMoreBtn);
+    }
+
+    // Also observe the last post for endless scroll
+    const lastPost = allPosts[allPosts.length - 1];
+    if (lastPost) {
+        observer.observe(lastPost);
+    }
+});
+</script>
+
+{{ end }} 

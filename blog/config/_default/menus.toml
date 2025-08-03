@@ -1,20 +1,26 @@
 [[main]]
-    identifier = "blog"
-    name = "Blog"
+    identifier = "writing"
+    name = "Writing"
     url = "/"
     weight = 1
+
+[[main]]
+    identifier = "blog"
+    name = "Blog"
+    url = "/writing/blog/"
+    weight = 2
 
 [[main]]
     identifier = "creative-writing"
     name = "Creative Writing"
     url = "/creative-writing"
-    weight = 2
+    weight = 3
 
 [[main]]
     identifier = "academic-writing"
     name = "Academic Writing"
     url = "/academic-writing"
-    weight = 3
+    weight = 4
     
 # Social Media Configuration
 

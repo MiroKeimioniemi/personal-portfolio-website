@@ -1,6 +1,6 @@
 baseURL = 'https://mirokeimioniemi.com/writing/'
-languageCode = 'en-us'
-title = 'My New Hugo Site'
+languageCode = 'en-US'
+title = 'Writing by Marou'
 theme = 'enchanted-lowkey'
 enableRobotsTXT = true
 summaryLength = 15

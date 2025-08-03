@@ -1,7 +1,7 @@
 {{/* Blog Navigation Bar */}}
 <nav class="blog-nav">
   <div class="blog-nav-container">
-    <a href="{{ .Site.BaseURL }}" class="blog-nav-item {{ if eq .Kind "home" }}active{{ end }}">
+    <a href="{{ .Site.BaseURL }}" class="blog-nav-item {{ if or (eq .Kind "home") (eq .Section "blog") }}active{{ end }}">
       <span class="blog-nav-text">Blog</span>
     </a>
     <span class="blog-nav-separator">/</span>

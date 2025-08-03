@@ -3,12 +3,12 @@
   <!-- Recent Posts -->
   <h2 class="blog-list-title">Recent Posts</h2>
   <div class="blog-list">
-    {{ range first 3 (where .Site.RegularPages "Type" "posts") }}
+    {{ range first 3 (where .Site.RegularPages "Section" "blog") }}
       {{ partial "list-tiles/expanded-blog-post-tile.html" . }}
     {{ end }}
   </div>
   <div class="blog-list-footer">
-    <a href="/posts/" class="blog-list-more">See more...</a>
+    <a href="/writing/blog/" class="blog-list-more">See more...</a>
   </div>
 
   <!-- Latest Thoughts -->
@@ -17,7 +17,7 @@
   <!-- Highlights -->
   <h2 class="blog-list-title">Highlights</h2>
   <div class="blog-list">
-    {{ range first 2 (where (where .Site.RegularPages "Type" "posts") ".Params.highlight" true) }}
+    {{ range first 2 (where (where .Site.RegularPages "Section" "blog") ".Params.highlight" true) }}
       {{ partial "list-tiles/expanded-blog-post-tile.html" . }}
     {{ end }}
   </div> 
@@ -25,7 +25,7 @@
   <!-- Past Posts -->
   <h2 class="blog-list-title">Past Posts</h2>
   <div class="blog-list">
-    {{ range first 4 (after 3 (where .Site.RegularPages "Type" "posts")) }}
+    {{ range first 4 (after 3 (where .Site.RegularPages "Section" "blog")) }}
       {{ partial "list-tiles/minimal-blog-post-tile.html" . }}
     {{ end }}
   </div>
