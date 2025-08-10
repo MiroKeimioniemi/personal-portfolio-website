@@ -1,5 +1,5 @@
 ---
-title: "The Pricing of Digital Goods in the Music Production Software Industry"
+title: The Pricing of Digital Goods in the Music Production Software Industry
 date: 2022-01-15
 type: "academic"
 categories: ["thesis"]
