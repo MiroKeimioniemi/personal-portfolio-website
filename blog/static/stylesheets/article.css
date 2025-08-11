@@ -1,0 +1,213 @@
+/* Scoped blog article styles to avoid global overrides */
+.article-content {
+  color: #d1d5db;
+  line-height: 1.7;
+  font-size: 1.05rem;
+  padding: 1rem 0.5rem;
+}
+
+.article-content .article-title {
+  color: #e5e7eb;
+  font-weight: 800;
+  font-size: 2rem;
+  line-height: 1.25;
+  margin: 0 0 0.25rem 0;
+  text-align: left;
+  position: static;
+  top: auto;
+  letter-spacing: normal;
+  text-shadow: none;
+}
+
+.article-content .article-meta {
+  color: #9ca3af;
+  font-size: 0.9rem;
+  margin-bottom: 2rem;
+}
+
+.article-content .article-meta a {
+  color: #9ca3af;
+  text-decoration: none;
+}
+.article-content .article-meta a:hover {
+  color: #e5e7eb;
+  text-decoration: underline;
+}
+
+/* Typography inside article body */
+.article-content .article-body h1,
+.article-content .article-body h2,
+.article-content .article-body h3,
+.article-content .article-body h4,
+.article-content .article-body h5,
+.article-content .article-body h6 {
+  color: #e5e7eb;
+  font-weight: 700;
+  line-height: 1.35;
+  margin-top: 1.4rem;
+  margin-bottom: 0.6rem;
+  position: static;
+  top: auto;
+  letter-spacing: normal;
+  text-shadow: none;
+}
+
+.article-content .article-body h1 { font-size: 1.9rem; text-align: left; }
+.article-content .article-body h2 { font-size: 1.6rem; }
+.article-content .article-body h3 { font-size: 1.4rem; margin-left: 0; padding-left: 0; }
+.article-content .article-body h4 { font-size: 1.25rem; }
+.article-content .article-body h5 { font-size: 1.1rem; }
+.article-content .article-body h6 { font-size: 1rem; }
+
+.article-content .article-body p {
+  margin: 0.8rem 0;
+}
+
+.article-content .article-body a { color: #cbd5e1; text-decoration: underline; }
+.article-content .article-body a:hover { color: #e5e7eb; }
+
+.article-content .article-body ul,
+.article-content .article-body ol {
+  padding-left: 1.3rem;
+  margin: 0.8rem 0;
+}
+
+.article-content .article-body li { margin: 0.25rem 0; }
+
+.article-content .article-body blockquote {
+  border-left: 3px solid #4b5563;
+  padding-left: 0.9rem;
+  color: #cbd5e1;
+  margin: 1rem 0;
+}
+
+/* Space for tags group */
+.article-tags { margin-top: 0.5rem; margin-bottom: 0.5rem; }
+
+.article-content .article-body code {
+  background: #111111 !important;
+  border: 1px solid #222222 !important;
+  color: #e5e7eb !important;
+  padding: 0.15rem 0.35rem;
+  border-radius: 0.25rem;
+}
+
+.article-content .article-body pre {
+  background: #0f0f0f !important;
+  border: 1px solid #222222 !important;
+  border-radius: 0.5rem;
+  padding: 0.75rem 0.9rem;
+  overflow-x: auto;
+  color: #e5e7eb;
+}
+.article-content .article-body pre code {
+  display: block;
+  background: transparent !important;
+  padding: 0;
+  border-radius: 0;
+  border: 0 !important;
+}
+
+/* Ensure no stray borders inside code blocks from nested elements */
+.article-content .article-body pre * { border: 0 !important; box-shadow: none !important; }
+
+.article-content .article-body img,
+.article-content .article-body figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+}
+
+.article-content .article-body figure { margin: 1rem 0; }
+.article-content .article-body figcaption { color: #9ca3af; font-size: 0.9rem; margin-top: 0.5rem; }
+
+.article-content .article-body table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 1rem 0;
+  font-size: 0.95rem;
+  border: 1px solid #222222;
+  background: #111111;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+.article-content .article-body table th,
+.article-content .article-body table td {
+  border: 1px solid #222222;
+  padding: 0.5rem 0.75rem;
+}
+.article-content .article-body table th {
+  background: #151515;
+}
+
+/* Alerts (shortcodes) – grayscale look */
+.article-content .article-body .alert-box {
+  background: #101010;
+  border: 1px solid #222222;
+  color: #e5e7eb;
+  border-left: 3px solid #2a2a2a;
+  padding: 0.6rem 0.8rem;
+  border-radius: 0.4rem;
+  margin: 1rem 0;
+  line-height: 1.4;
+}
+.article-content .article-body .alert-box .alert-title {
+  font-weight: 700;
+  font-size: 1rem;
+  margin: 0 0 0.2rem 0;
+  padding-top: 0;
+}
+.article-content .article-body .alert-box .alert-icon { width: 0.95rem; height: 0.95rem; }
+.article-content .article-body .alert-box p { margin: 0; display: flex; align-items: center; column-gap: 0.35rem; }
+.article-content .article-body .alert-box.warning,
+.article-content .article-body .alert-box.info,
+.article-content .article-body .alert-box.success,
+.article-content .article-body .alert-box.error {
+  background: #111111;
+  border-color: #222222;
+  border-left-color: #2a2a2a;
+}
+
+.article-content .article-body hr {
+  border: 0;
+  border-top: 1px solid #222222;
+  margin: 1.5rem 0;
+}
+
+/* Alerts/shortcodes basic spacing */
+.article-content .article-body .alert { margin: 1rem 0; }
+
+/* Tag styling to match list tile chips */
+.article-tags a,
+.article-content .taxonomy-list a,
+.article-content .article-body .tags a {
+  background: #222222;
+  color: #d1d5db;
+  padding: 0.2em 0.7em;
+  border-radius: 0.75em;
+  font-size: 0.8rem;
+  margin-right: 0.25rem;
+}
+.article-tags a:hover,
+.article-content .taxonomy-list a:hover,
+.article-content .article-body .tags a:hover {
+  background: #333333;
+  color: #e5e7eb;
+}
+
+/* Avoid section overlap: ensure blocks have spacing */
+.article-content .article-body > * + * { margin-top: 0.9rem; }
+/* Ensure a bit more space before large headings */
+.article-content .article-body h1 { margin-top: 1.8rem; }
+.article-content .article-body h2 { margin-top: 1.6rem; }
+
+/* Constrain content width to match list layout and provide space under blog nav */
+.blog-main-content { width: 80%; max-width: 44rem; margin-left: auto; margin-right: auto; padding-top: 1.5rem; }
+
+
+
+@media screen and (min-width: 1024px) {
+  .article-content p { font-size: 18px; }
+}
