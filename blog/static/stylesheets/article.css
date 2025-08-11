@@ -208,6 +208,29 @@
 
 
 
+/* Spoiler effect (Goodreads-like) */
+.article-content .article-body spoiler, /* plain HTML */
+.article-content .article-body .spoiler { /* shortcode fallback */
+  display: inline;
+  filter: blur(6px);
+  transition: filter 0.2s ease;
+  background: transparent;
+  border-radius: 0;
+  padding: 0;
+  cursor: pointer;
+}
+.article-content .article-body spoiler:hover,
+.article-content .article-body spoiler:focus,
+.article-content .article-body .spoiler:hover,
+.article-content .article-body .spoiler:focus {
+  filter: blur(4px);
+  outline: none;
+}
+.article-content .article-body spoiler.revealed,
+.article-content .article-body .spoiler.revealed {
+  filter: none;
+}
+
 @media screen and (min-width: 1024px) {
   .article-content p { font-size: 18px; }
 }

@@ -18,3 +18,21 @@ document.onclick = (element) => {
     };
 
 }
+
+// Spoiler toggle: click to reveal/hide
+document.addEventListener('DOMContentLoaded', function () {
+  const spoilers = document.querySelectorAll('.article-content .article-body spoiler, .article-content .article-body .spoiler');
+  spoilers.forEach((el) => {
+    el.setAttribute('tabindex', '0');
+    el.setAttribute('role', 'button');
+    el.setAttribute('aria-label', 'Reveal spoiler');
+    const toggle = () => el.classList.toggle('revealed');
+    el.addEventListener('click', toggle);
+    el.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggle();
+      }
+    });
+  });
+});
