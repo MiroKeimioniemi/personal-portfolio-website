@@ -195,6 +195,7 @@
 .article-content .article-body .tags a:hover {
   background: #333333;
   color: #e5e7eb;
+  text-decoration: none !important;
 }
 
 /* Avoid section overlap: ensure blocks have spacing */
@@ -232,5 +233,5 @@
 }
 
 @media screen and (min-width: 1024px) {
-  .article-content p { font-size: 18px; }
+  .article-content p, .article-content li, .article-content code { font-size: 18px; }
 }
