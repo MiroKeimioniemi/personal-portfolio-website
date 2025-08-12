@@ -60,7 +60,7 @@
 .article-content .article-body h6 { font-size: 1rem; }
 
 .article-content .article-body p {
-  margin: 0.8rem 0;
+  margin: 1.4rem 0;
 }
 
 .article-content .article-body a { color: #cbd5e1; text-decoration: underline; }
@@ -221,10 +221,8 @@
   cursor: pointer;
 }
 .article-content .article-body spoiler:hover,
-.article-content .article-body spoiler:focus,
-.article-content .article-body .spoiler:hover,
-.article-content .article-body .spoiler:focus {
-  filter: blur(4px);
+.article-content .article-body .spoiler:hover {
+  filter: blur(3px);
   outline: none;
 }
 .article-content .article-body spoiler.revealed,

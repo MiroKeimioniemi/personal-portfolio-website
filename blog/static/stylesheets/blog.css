@@ -106,6 +106,7 @@
   font-weight: 600;
   margin-bottom: 1.5rem;
   margin-top: 1.5rem;
+  padding-right: 1rem;
 }
 
 .blog-list {
@@ -123,7 +124,6 @@
 }
 
 .blog-list-tile-date {
-  padding-left: 1rem;
   color: #9ca3af;
   font-size: 0.85rem;
 }
@@ -209,7 +209,8 @@
 .blog-list-tile-past {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: center; /* keep vertical middle alignment */
+  gap: 1rem;       /* horizontal space between title and date */
   border-bottom: 0;
   padding: 0;
 }
@@ -217,10 +218,13 @@
   color: #e5e7eb;
   font-size: 1rem;
   font-weight: 500;
+  flex: 1 1 auto; /* let title take remaining width and wrap cleanly */
+  min-width: 0;
 }
 .blog-list-tile-date-past {
   color: #9ca3af;
   font-size: 0.85rem;
+  white-space: nowrap; /* keep date on one line */
 }
 
 /* Creative posts specific */

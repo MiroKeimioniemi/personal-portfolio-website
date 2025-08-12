@@ -1,6 +1,6 @@
 ---
 title: "An Interesting Title"
-date: 2025-07-19
+date: 2025-06-01
 type: "blog"
 categories: ["article"]
 tags: ["Topic", "Tag"]
