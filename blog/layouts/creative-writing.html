@@ -1,9 +1,9 @@
 {{ define "main" }}
-<div class="blog-homepage">
+<div class="blog-main-content">
   <h2 class="blog-list-title">Creative Writing</h2>
   <div class="blog-list">
-    {{ range where .Site.RegularPages "Type" "posts" }}
-      {{ if .Params.categories }}
+    {{ range .Pages }}
+      {{ if eq .Type "creative" }}
         {{ partial "list-tiles/creative-post-tile.html" . }}
       {{ end }}
     {{ end }}
