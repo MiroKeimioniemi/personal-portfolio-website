@@ -238,9 +238,10 @@
 .blog-list-tile-creative {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: 1rem 0;
-  border-bottom: 1px solid #232b39;
+  align-items: center; /* keep vertical middle alignment */
+  gap: 1rem;       /* horizontal space between title and date */
+  border-bottom: 0;
+  padding: 0;
 }
 .blog-list-tile-creative:last-child {
   border-bottom: none;

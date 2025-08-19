@@ -4,6 +4,7 @@ date: 2025-08-08
 type: "blog"
 categories: ["Book Review"]
 tags: ["Book Review", "Fantasy", "Cosmere", "Mistborn"]
+highlight: true
 ---
 
 Epic ending for a masterfully crafted trilogy! 

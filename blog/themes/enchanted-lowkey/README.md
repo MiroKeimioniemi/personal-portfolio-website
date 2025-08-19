@@ -11,6 +11,7 @@ First, I am very grateful to the first Contributor who has made a significant co
 Special Metion:
 - 🥇 [@diegopaiva1](https://github.com/diegopaiva1) - [entusiasta.dev](https://entusiasta.dev)
 
+<br>
 
 And also to the other contributors 💌:
 
@@ -18,6 +19,7 @@ And also to the other contributors 💌:
   <img src="https://contrib.rocks/image?repo=nixentric/Lowkey-Hugo-Theme" />
 </a>
 
+<br>
 
 ## Demo
 
