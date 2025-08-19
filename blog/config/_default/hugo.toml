@@ -8,6 +8,10 @@ enableRobotsTXT = true
 summaryLength = 15
 publishDir = '../writing'
 
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+
 [pagination]
   pagerSize = 5
 

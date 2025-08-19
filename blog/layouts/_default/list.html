@@ -17,6 +17,8 @@
             {{ if eq .Kind "term" }}
                 {{ if eq .Data.Singular "tag" }}
                     Tag: {{ .Title }}
+                {{ else if eq .Data.Singular "category" }}
+                    Category: {{ .Title }}
                 {{ else }}
                     {{ .Title }}
                 {{ end }}
