@@ -17,6 +17,11 @@
       {{ .Content }}
     </section>
   </article>
+
+  {{ if .Params.bsky }}
+  <div id="comments-section" data-bsky-uri="{{ .Params.bsky }}"></div>
+  <script src="{{ "scripts/comments.js" | relURL }}"></script>
+  {{ end }}
 </div>
 {{ end }}
 
