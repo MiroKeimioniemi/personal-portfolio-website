@@ -1,9 +1,89 @@
+#comments-section {
+    max-width: 100%;
+    overflow-x: hidden;
+    font-size: 0.9rem;
+    padding: 1rem 0.5rem;
+}
+
+#comments-section * {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+#comments-section h2 {
+    font-size: 1.4rem;
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+    color: #e5e7eb;
+}
+
+.post-stats {
+    font-size: 0.8rem;
+    font-weight: 300;
+    color: #9ca3af;
+    margin-bottom: 0.5rem;
+}
+
+.post-stats a {
+    color: #9ca3af;
+    text-decoration: none;
+}
+
+.post-stats a:hover {
+    color: #d1d5db;
+    text-decoration: underline;
+}
+
+.bluesky-link {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 300;
+    color: #9ca3af;
+    text-decoration: none;
+    margin-bottom: 1rem;
+}
+
+.bluesky-link:hover {
+    color: #d1d5db;
+    text-decoration: underline;
+}
+
+#comments-section hr {
+    border: 0;
+    border-top: 1px solid #222222;
+    margin: 0.75rem 0;
+}
+
 .comment {
-    padding: 10px 0;
+    padding: 1rem 0;
 }
 
 .author {
-    font-weight: bold;
+    font-weight: 600;
+    font-size: 1rem;
+    color: #e5e7eb;
+    margin-bottom: 0.25rem;
+}
+
+.author a {
+    color: #e5e7eb;
+    text-decoration: none;
+}
+
+.author a:hover {
+    color: #cbd5e1;
+    text-decoration: underline;
+}
+
+.author span {
+    font-size: 0.8rem;
+    color: #9ca3af;
+    margin-left: 0.5rem;
+}
+
+.avatar-link {
+    display: inline-block;
+    margin-right: 6px;
 }
 
 .avatar {
@@ -11,20 +91,27 @@
     height: 24px;
     border-radius: 50%;
     vertical-align: middle;
-    margin-right: 8px;
+}
+
+.comment p {
+    font-size: 0.8rem;
+    color: #d1d5db;
+    line-height: 1.5;
+    margin: 0.5rem 0;
 }
 
 .nested-replies {
-    margin-left: 20px;
-    padding-left: 10px;
-}
-
-.actions {
-    font-size: 12px;
-    color: #666;
+    margin-left: 16px;
+    padding-left: 8px;
 }
 
 .nested-replies .comment {
-    margin-bottom: 0;
+    padding: 1rem 0;
+}
+
+.actions {
+    font-size: 0.7em;
+    color: #9ca3af;
+    margin-top: 0.25rem;
 }
 

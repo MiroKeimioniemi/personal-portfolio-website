@@ -101,27 +101,25 @@ function renderComments(thread, container) {
 
   const postUrl = `https://bsky.app/profile/${thread.post.author.did}/post/${thread.post.uri.split("/").pop()}`;
 
+  const commentsHeader = document.createElement("h2");
+  commentsHeader.textContent = "Comments";
+  container.appendChild(commentsHeader);
+
   const metaDiv = document.createElement("div");
+  metaDiv.className = "post-stats";
   const link = document.createElement("a");
   link.href = postUrl;
   link.target = "_blank";
   link.textContent = `${thread.post.likeCount ?? 0} likes | ${thread.post.repostCount ?? 0} reposts | ${thread.post.replyCount ?? 0} replies`;
   metaDiv.appendChild(link);
-
   container.appendChild(metaDiv);
 
-  const commentsHeader = document.createElement("h2");
-  commentsHeader.textContent = "Comments";
-  container.appendChild(commentsHeader);
-
-  const replyText = document.createElement("p");
-  replyText.textContent = "Reply on Bluesky ";
   const replyLink = document.createElement("a");
   replyLink.href = postUrl;
   replyLink.target = "_blank";
-  replyLink.textContent = "here";
-  replyText.appendChild(replyLink);
-  container.appendChild(replyText);
+  replyLink.className = "bluesky-link";
+  replyLink.textContent = "Join the conversation on Bluesky";
+  container.appendChild(replyLink);
 
   const divider = document.createElement("hr");
   container.appendChild(divider);
@@ -156,11 +154,16 @@ function renderComment(comment) {
   authorDiv.className = "author";
 
   if (author.avatar) {
+    const avatarLink = document.createElement("a");
+    avatarLink.href = `https://bsky.app/profile/${author.did}`;
+    avatarLink.target = "_blank";
+    avatarLink.className = "avatar-link";
     const avatarImg = document.createElement("img");
     avatarImg.src = author.avatar;
     avatarImg.alt = "avatar";
     avatarImg.className = "avatar";
-    authorDiv.appendChild(avatarImg);
+    avatarLink.appendChild(avatarImg);
+    authorDiv.appendChild(avatarLink);
   }
 
   const authorLink = document.createElement("a");
@@ -168,10 +171,6 @@ function renderComment(comment) {
   authorLink.target = "_blank";
   authorLink.textContent = author.displayName ?? author.handle;
   authorDiv.appendChild(authorLink);
-
-  const handleSpan = document.createElement("span");
-  handleSpan.textContent = `@${author.handle}`;
-  authorDiv.appendChild(handleSpan);
 
   commentDiv.appendChild(authorDiv);
 
@@ -181,7 +180,7 @@ function renderComment(comment) {
 
   const actionsDiv = document.createElement("div");
   actionsDiv.className = "actions";
-  actionsDiv.textContent = `${post.replyCount ?? 0} replies | ${post.repostCount ?? 0} reposts | ${post.likeCount ?? 0} likes`;
+  actionsDiv.textContent = `${post.likeCount ?? 0} likes | ${post.replyCount ?? 0} replies`;
   commentDiv.appendChild(actionsDiv);
 
   if (comment.replies && comment.replies.length > 0) {
