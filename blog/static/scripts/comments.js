@@ -174,9 +174,15 @@ function renderComment(comment) {
 
   commentDiv.appendChild(authorDiv);
 
+  const postUrl = `https://bsky.app/profile/${author.did}/post/${post.uri.split("/").pop()}`;
+  const contentLink = document.createElement("a");
+  contentLink.href = postUrl;
+  contentLink.target = "_blank";
+  
   const contentP = document.createElement("p");
   contentP.textContent = post.record.text;
-  commentDiv.appendChild(contentP);
+  contentLink.appendChild(contentP);
+  commentDiv.appendChild(contentLink);
 
   const actionsDiv = document.createElement("div");
   actionsDiv.className = "actions";

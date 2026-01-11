@@ -3,6 +3,7 @@
     overflow-x: hidden;
     font-size: 0.9rem;
     padding: 1rem 0.5rem;
+    margin-bottom: 2rem;
 }
 
 #comments-section * {
@@ -55,10 +56,17 @@
 }
 
 .comment {
-    padding: 1rem 0;
+    padding: 0;
+    margin-bottom: 0.75rem;
+}
+
+.comment:last-child {
+    margin-bottom: 0;
 }
 
 .author {
+    display: flex;
+    align-items: center;
     font-weight: 600;
     font-size: 1rem;
     color: #e5e7eb;
@@ -83,7 +91,8 @@
 
 .avatar-link {
     display: inline-block;
-    margin-right: 6px;
+    margin-right: 8px;
+    flex-shrink: 0;
 }
 
 .avatar {
@@ -97,21 +106,42 @@
     font-size: 0.8rem;
     color: #d1d5db;
     line-height: 1.5;
-    margin: 0.5rem 0;
+    margin: 0.25rem 0;
+}
+
+.comment a[target="_blank"] {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.comment a[target="_blank"]:hover {
+    opacity: 0.8;
 }
 
 .nested-replies {
     margin-left: 16px;
     padding-left: 8px;
+    margin-top: 0.75rem;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
 }
 
 .nested-replies .comment {
-    padding: 1rem 0;
+    padding: 0;
+    margin-bottom: 0.75rem;
+}
+
+.nested-replies .comment:last-child {
+    margin-bottom: 0;
 }
 
 .actions {
     font-size: 0.7em;
     color: #9ca3af;
-    margin-top: 0.25rem;
+    margin-top: 0.15rem;
 }
 
