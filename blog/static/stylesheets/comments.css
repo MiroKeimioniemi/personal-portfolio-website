@@ -1,3 +1,41 @@
+.share-links {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.8rem;
+    font-weight: 300;
+    color: #9ca3af;
+    padding: 0 0.5rem;
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+}
+
+.share-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #9ca3af;
+    text-decoration: none;
+    transition: color 0.2s, opacity 0.2s;
+    opacity: 0.8;
+    width: 20px;
+    height: 20px;
+    line-height: 0;
+    vertical-align: middle;
+}
+
+.share-link:hover {
+    color: #d1d5db;
+    opacity: 1;
+}
+
+.share-link svg {
+    width: 20px;
+    height: 20px;
+    display: block;
+    flex-shrink: 0;
+}
+
 #comments-section {
     max-width: 100%;
     overflow-x: hidden;
@@ -13,7 +51,6 @@
 
 #comments-section h2 {
     font-size: 1.4rem;
-    margin-top: 2rem;
     margin-bottom: 0.5rem;
     color: #e5e7eb;
 }
