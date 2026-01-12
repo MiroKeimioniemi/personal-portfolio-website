@@ -11,6 +11,11 @@
   margin-bottom: 0.5rem;
   padding-top: 1.5rem;
   padding-bottom: 1rem;
+  transition: color 0.3s ease;
+}
+
+body.light-mode .latest-thoughts-title {
+  color: #111111;
 }
 
 .latest-thoughts-container {
@@ -68,6 +73,12 @@
   margin: 0 1rem;
   max-width: 100%;
   overflow: hidden;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+body.light-mode .latest-thoughts-carousel {
+  background-color: #f5f5f5;
+  border-color: #d1d5db;
 }
 
 .latest-thoughts-loading {
@@ -122,20 +133,40 @@
   margin-bottom: 0;
   line-height: 1;
   flex-wrap: wrap;
+  transition: color 0.3s ease;
+}
+
+body.light-mode .latest-thoughts-user-info {
+  color: #636363;
 }
 
 .latest-thoughts-username {
   font-weight: 600;
   color: #d1d5db;
+  transition: color 0.3s ease;
+}
+
+body.light-mode .latest-thoughts-username {
+  color: #333333;
 }
 
 .latest-thoughts-handle {
   font-weight: 400;
   color: #6b7280;
+  transition: color 0.3s ease;
+}
+
+body.light-mode .latest-thoughts-handle {
+  color: #555555;
 }
 
 .latest-thoughts-timestamp {
   color: #9ca3af;
+  transition: color 0.3s ease;
+}
+
+body.light-mode .latest-thoughts-timestamp {
+  color: #636363;
 }
 
 .latest-thoughts-text {
@@ -145,6 +176,11 @@
   margin-bottom: 0.5rem;
   font-weight: 400;
   margin-top: 0.125rem;
+  transition: color 0.3s ease;
+}
+
+body.light-mode .latest-thoughts-text {
+  color: #111111;
 }
 
 .clickable-text {

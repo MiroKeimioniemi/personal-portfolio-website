@@ -8,6 +8,11 @@
     padding: 0 0.5rem;
     margin-bottom: 2rem;
     margin-top: 1rem;
+    transition: color 0.3s ease;
+}
+
+body.light-mode .share-links {
+    color: #636363;
 }
 
 .share-link {
@@ -24,9 +29,17 @@
     vertical-align: middle;
 }
 
+body.light-mode .share-link {
+    color: #636363;
+}
+
 .share-link:hover {
     color: #d1d5db;
     opacity: 1;
+}
+
+body.light-mode .share-link:hover {
+    color: #333333;
 }
 
 .share-link svg {
@@ -53,6 +66,11 @@
     font-size: 1.4rem;
     margin-bottom: 0.5rem;
     color: #e5e7eb;
+    transition: color 0.3s ease;
+}
+
+body.light-mode #comments-section h2 {
+    color: #222222;
 }
 
 .post-stats {
@@ -60,16 +78,30 @@
     font-weight: 300;
     color: #9ca3af;
     margin-bottom: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+body.light-mode .post-stats {
+    color: #636363;
 }
 
 .post-stats a {
     color: #9ca3af;
     text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+body.light-mode .post-stats a {
+    color: #636363;
 }
 
 .post-stats a:hover {
     color: #d1d5db;
     text-decoration: underline;
+}
+
+body.light-mode .post-stats a:hover {
+    color: #333333;
 }
 
 .bluesky-link {
@@ -79,6 +111,11 @@
     color: #9ca3af;
     text-decoration: none;
     margin-bottom: 1rem;
+    transition: color 0.3s ease;
+}
+
+body.light-mode .bluesky-link {
+    color: #636363;
 }
 
 .bluesky-link:hover {
@@ -86,10 +123,19 @@
     text-decoration: underline;
 }
 
+body.light-mode .bluesky-link:hover {
+    color: #333333;
+}
+
 #comments-section hr {
     border: 0;
     border-top: 1px solid #222222;
     margin: 0.75rem 0;
+    transition: border-color 0.3s ease;
+}
+
+body.light-mode #comments-section hr {
+    border-top-color: #d1d5db;
 }
 
 .comment {
@@ -108,11 +154,21 @@
     font-size: 1rem;
     color: #e5e7eb;
     margin-bottom: 0.25rem;
+    transition: color 0.3s ease;
+}
+
+body.light-mode .author {
+    color: #111111;
 }
 
 .author a {
     color: #e5e7eb;
     text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+body.light-mode .author a {
+    color: #111111;
 }
 
 .author a:hover {
@@ -120,10 +176,19 @@
     text-decoration: underline;
 }
 
+body.light-mode .author a:hover {
+    color: #333333;
+}
+
 .author span {
     font-size: 0.8rem;
     color: #9ca3af;
     margin-left: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+body.light-mode .author span {
+    color: #636363;
 }
 
 .avatar-link {
@@ -144,6 +209,11 @@
     color: #d1d5db;
     line-height: 1.5;
     margin: 0.25rem 0;
+    transition: color 0.3s ease;
+}
+
+body.light-mode .comment p {
+    color: #333333;
 }
 
 .comment a[target="_blank"] {
@@ -180,5 +250,10 @@
     font-size: 0.7em;
     color: #9ca3af;
     margin-top: 0.15rem;
+    transition: color 0.3s ease;
+}
+
+body.light-mode .actions {
+    color: #636363;
 }
 

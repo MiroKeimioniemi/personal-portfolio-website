@@ -4,6 +4,11 @@
   line-height: 1.7;
   font-size: 1.05rem;
   padding: 1rem 0.5rem;
+  transition: color 0.3s ease;
+}
+
+body.light-mode .article-content {
+  color: #333333;
 }
 
 .article-content .article-title {
@@ -17,21 +22,41 @@
   top: auto;
   letter-spacing: normal;
   text-shadow: none;
+  transition: color 0.3s ease;
+}
+
+body.light-mode .article-content .article-title {
+  color: #111111;
 }
 
 .article-content .article-meta {
   color: #9ca3af;
   font-size: 0.9rem;
   margin-bottom: 2rem;
+  transition: color 0.3s ease;
+}
+
+body.light-mode .article-content .article-meta {
+  color: #636363;
 }
 
 .article-content .article-meta a {
   color: #9ca3af;
   text-decoration: none;
+  transition: color 0.3s ease;
 }
+
+body.light-mode .article-content .article-meta a {
+  color: #636363;
+}
+
 .article-content .article-meta a:hover {
   color: #e5e7eb;
   text-decoration: underline;
+}
+
+body.light-mode .article-content .article-meta a:hover {
+  color: #333333;
 }
 
 /* Typography inside article body */
@@ -50,6 +75,16 @@
   top: auto;
   letter-spacing: normal;
   text-shadow: none;
+  transition: color 0.3s ease;
+}
+
+body.light-mode .article-content .article-body h1,
+body.light-mode .article-content .article-body h2,
+body.light-mode .article-content .article-body h3,
+body.light-mode .article-content .article-body h4,
+body.light-mode .article-content .article-body h5,
+body.light-mode .article-content .article-body h6 {
+  color: #222222;
 }
 
 .article-content .article-body h1 { font-size: 1.9rem; text-align: left; }
@@ -61,10 +96,18 @@
 
 .article-content .article-body p {
   margin: 1.4rem 0;
+  color: #d1d5db;
+  transition: color 0.3s ease;
 }
 
-.article-content .article-body a { color: #cbd5e1; text-decoration: underline; }
+body.light-mode .article-content .article-body p {
+  color: #333333;
+}
+
+.article-content .article-body a { color: #cbd5e1; text-decoration: underline; transition: color 0.3s ease; }
 .article-content .article-body a:hover { color: #e5e7eb; }
+body.light-mode .article-content .article-body a { color: #333333; }
+body.light-mode .article-content .article-body a:hover { color: #111111; }
 
 .article-content .article-body ul,
 .article-content .article-body ol {
@@ -79,6 +122,12 @@
   padding-left: 0.9rem;
   color: #cbd5e1;
   margin: 1rem 0;
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+body.light-mode .article-content .article-body blockquote {
+  border-left-color: #9ca3af;
+  color: #333333;
 }
 
 /* Space for tags group */
@@ -90,6 +139,7 @@
   color: #e5e7eb !important;
   padding: 0.15rem 0.35rem;
   border-radius: 0.25rem;
+  transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 }
 
 .article-content .article-body pre {
@@ -99,6 +149,13 @@
   padding: 0.75rem 0.9rem;
   overflow-x: auto;
   color: #e5e7eb;
+  transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+body.light-mode .article-content .article-body pre {
+  background: #0f0f0f !important;
+  border-color: #222222 !important;
+  color: #e5e7eb !important;
 }
 .article-content .article-body pre code {
   display: block;
@@ -120,7 +177,11 @@
 }
 
 .article-content .article-body figure { margin: 1rem 0; }
-.article-content .article-body figcaption { color: #9ca3af; font-size: 0.9rem; margin-top: 0.5rem; }
+.article-content .article-body figcaption { color: #9ca3af; font-size: 0.9rem; margin-top: 0.5rem; transition: color 0.3s ease; }
+
+body.light-mode .article-content .article-body figcaption {
+  color: #636363;
+}
 
 .article-content .article-body table {
   width: 100%;
@@ -132,14 +193,34 @@
   background: #111111;
   border-radius: 0.5rem;
   overflow: hidden;
+  transition: background 0.3s ease, border-color 0.3s ease;
 }
+
+body.light-mode .article-content .article-body table {
+  border-color: #d1d5db;
+  background: #f9f9f9;
+}
+
 .article-content .article-body table th,
 .article-content .article-body table td {
   border: 1px solid #222222;
   padding: 0.5rem 0.75rem;
+  transition: border-color 0.3s ease, background 0.3s ease, color 0.3s ease;
 }
+
+body.light-mode .article-content .article-body table th,
+body.light-mode .article-content .article-body table td {
+  border-color: #d1d5db;
+  color: #111111;
+}
+
 .article-content .article-body table th {
   background: #151515;
+  transition: background 0.3s ease;
+}
+
+body.light-mode .article-content .article-body table th {
+  background: #e8e8e8;
 }
 
 /* Alerts (shortcodes) – grayscale look */
@@ -152,7 +233,16 @@
   border-radius: 0.4rem;
   margin: 1rem 0;
   line-height: 1.4;
+  transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 }
+
+body.light-mode .article-content .article-body .alert-box {
+  background: #f9f9f9;
+  border-color: #d1d5db;
+  color: #111111;
+  border-left-color: #9ca3af;
+}
+
 .article-content .article-body .alert-box .alert-title {
   font-weight: 700;
   font-size: 1rem;
@@ -168,12 +258,27 @@
   background: #111111;
   border-color: #222222;
   border-left-color: #2a2a2a;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+body.light-mode .article-content .article-body .alert-box.warning,
+body.light-mode .article-content .article-body .alert-box.info,
+body.light-mode .article-content .article-body .alert-box.success,
+body.light-mode .article-content .article-body .alert-box.error {
+  background: #f9f9f9;
+  border-color: #d1d5db;
+  border-left-color: #9ca3af;
 }
 
 .article-content .article-body hr {
   border: 0;
   border-top: 1px solid #222222;
   margin: 1.5rem 0;
+  transition: border-color 0.3s ease;
+}
+
+body.light-mode .article-content .article-body hr {
+  border-top-color: #d1d5db;
 }
 
 /* Alerts/shortcodes basic spacing */
@@ -189,13 +294,29 @@
   border-radius: 0.75em;
   font-size: 0.8rem;
   margin-right: 0.25rem;
+  transition: background 0.3s ease, color 0.3s ease;
 }
+
+body.light-mode .article-tags a,
+body.light-mode .article-content .taxonomy-list a,
+body.light-mode .article-content .article-body .tags a {
+  background: #e8e8e8;
+  color: #333333;
+}
+
 .article-tags a:hover,
 .article-content .taxonomy-list a:hover,
 .article-content .article-body .tags a:hover {
   background: #333333;
   color: #e5e7eb;
   text-decoration: none !important;
+}
+
+body.light-mode .article-tags a:hover,
+body.light-mode .article-content .taxonomy-list a:hover,
+body.light-mode .article-content .article-body .tags a:hover {
+  background: #d1d5db;
+  color: #111111;
 }
 
 /* Avoid section overlap: ensure blocks have spacing */

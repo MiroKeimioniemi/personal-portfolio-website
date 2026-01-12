@@ -14,6 +14,12 @@ body {
     width: 100%;
     max-width: 100%;
     overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Light mode - swap colors */
+body.light-mode {
+    background-color: #ffffff;
 }
 
 * {
@@ -51,9 +57,25 @@ footer {
     flex-shrink: 0;
 }
 
+footer,
+footer *,
+footer a {
+    color: #EEEEEE !important;
+}
+
+footer a {
+    text-decoration: none;
+}
+
 a {
     text-decoration: none;
     color: #EEEEEE;
+}
+
+footer a,
+.desktop-nav-element,
+.mobile-nav-element {
+    color: inherit;
 }
 
 
@@ -80,6 +102,14 @@ a {
     cursor: pointer;
 }
 
+body.light-mode .hamburger svg rect[fill="#000000"] {
+    fill: #ffffff !important;
+}
+
+body.light-mode .hamburger svg rect[fill="#EEEEEE"] {
+    fill: #111111 !important;
+}
+
 .mobile-nav {
     position: fixed;
     right: 0;
@@ -89,6 +119,12 @@ a {
     height: 100vh;
     z-index: 101;
     box-shadow: -0.2rem 0rem 0.4rem 0.01rem rgba(0, 0, 0, 0.8);
+    transition: background-color 0.3s ease;
+}
+
+body.light-mode .mobile-nav {
+    background-color: #ffffff;
+    box-shadow: -0.2rem 0rem 0.4rem 0.01rem rgba(0, 0, 0, 0.15);
 }
 
 .mobile-flex-nav {
@@ -114,11 +150,23 @@ a {
     padding-left: 3.052rem;
     max-width: 10rem;
     overflow-wrap: normal;
+    color: #EEEEEE;
+    transition: color 0.3s ease;
+}
+
+body.light-mode .mobile-nav-element {
+    color: #111111;
+    text-shadow: none;
 }
 
 .mobile-nav-element:hover {
     color: #FFFFFF;
     text-shadow: 0rem 0rem 0.2rem rgba(255, 255, 255, 0.75);
+}
+
+body.light-mode .mobile-nav-element:hover {
+    color: #333333;
+    text-shadow: none;
 }
 
 .mobile-nav-heading {
@@ -135,6 +183,19 @@ a {
     align-items: center;
     margin: auto;
     bottom: 2rem;
+}
+
+.mobile-nav-social-media-icons .social-media-icon {
+    opacity: 1;
+    filter: brightness(1.2);
+}
+
+.mobile-nav-social-media-icons .social-media-icon path {
+    fill: #FFFFFF !important;
+}
+
+body.light-mode .mobile-nav-social-media-icons .social-media-icon path {
+    fill: #111111 !important;
 }
 
 .desktop-nav {
@@ -163,6 +224,14 @@ a {
 .general-button:hover {
     cursor: pointer;
     box-shadow: 0rem 0rem 0.3rem 0.12rem rgba(255, 255, 255, 0.8);
+}
+
+body.light-mode .general-button {
+    box-shadow: 0rem 0rem 0.3rem 0.12rem rgba(0, 0, 0, 0.4);
+}
+
+body.light-mode .general-button:hover {
+    box-shadow: 0rem 0rem 0.3rem 0.12rem rgba(0, 0, 0, 0.6);
 }
 
 .first-button-layer {
@@ -260,15 +329,41 @@ a {
 ::-webkit-scrollbar {
     background-color: #000000;
     width: 0.64rem;
+    transition: background-color 0.3s ease;
+}
+
+body.light-mode::-webkit-scrollbar {
+    background-color: #ffffff !important;
+}
+
+html body.light-mode ::-webkit-scrollbar {
+    background-color: #ffffff !important;
 }
 
 ::-webkit-scrollbar-thumb {
     background-color: #222222;
     border-radius: 5rem;
+    transition: background-color 0.3s ease;
+}
+
+body.light-mode::-webkit-scrollbar-thumb {
+    background-color: #d1d5db !important;
+}
+
+html body.light-mode ::-webkit-scrollbar-thumb {
+    background-color: #d1d5db !important;
 }
 
 ::-webkit-scrollbar-thumb:hover {
     background-color: #666666;
+}
+
+body.light-mode::-webkit-scrollbar-thumb:hover {
+    background-color: #9ca3af !important;
+}
+
+html body.light-mode ::-webkit-scrollbar-thumb:hover {
+    background-color: #9ca3af !important;
 }
 
 
@@ -381,6 +476,12 @@ h1 {
     transform: translate(-50%);
     box-shadow: 0rem 0.2rem 0.4rem 0.2rem rgba(0, 0, 0, 0.75);
     z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+body.light-mode .desktop-nav-container {
+    background-color: #ffffff;
+    box-shadow: 0rem 0.2rem 0.4rem 0.2rem rgba(255, 255, 255, 0.5);
 }
 
 .desktop-nav {
@@ -396,16 +497,32 @@ h1 {
     left: 50%;
     transform: translate(-50%);
     z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+body.light-mode .desktop-nav {
+    background-color: #ffffff;
+    box-shadow: 0rem 0.2rem 0.4rem 0.2rem rgba(255, 255, 255, 0.5);
 }
 
 .desktop-nav-element {
     margin: 1rem 1rem;
     display: inline;
+    transition: color 0.3s ease;
+    color: #EEEEEE;
+}
+
+body.light-mode .desktop-nav-element {
+    color: #111111;
 }
 
 .desktop-nav-element:hover {
     color: #BBBBBB;
     cursor: pointer;
+}
+
+body.light-mode .desktop-nav-element:hover {
+    color: #333333;
 }
 
 .desktop-nav-first-half {
@@ -427,6 +544,42 @@ h1 {
     padding: 0 1rem;
 }
 
+.theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.25rem;
+    color: #EEEEEE;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s ease;
+    margin: 0;
+}
+
+body.light-mode .theme-toggle {
+    color: #111111;
+}
+
+.theme-toggle:hover {
+    color: #BBBBBB;
+}
+
+body.light-mode .theme-toggle:hover {
+    color: #333333;
+}
+
+.theme-toggle-desktop {
+    margin-left: 1rem;
+    display: none;
+}
+
+@media screen and (min-width: 768px) {
+    .theme-toggle-desktop {
+        display: inline-flex;
+    }
+}
+
 .portfolio-nav {
     margin: 0;
 }
@@ -436,11 +589,20 @@ h1 {
     margin-top: 0.3rem;
     margin-left: 0.5rem;;
     margin-right: 1rem;
+    transition: fill 0.3s ease;
+}
+
+body.light-mode .dropdown-triangle {
+    fill: #111111 !important;
 }
 
 .dropdown-triangle:hover {
     cursor: pointer;
     fill: #BBBBBB;
+}
+
+body.light-mode .dropdown-triangle:hover {
+    fill: #333333;
 }
 
 .desktop-nav-button {
@@ -457,23 +619,39 @@ h1 {
 .dropdown-menu {
     position: fixed;
     width: 10rem;
-    right: 9.26rem;
+    right: 10.96rem;
     top: -0.16rem;
     background-color: #000000;
     box-shadow: 0rem 0.2rem 0.4rem 0.2rem rgba(0, 0, 0, 0.75);
     border-bottom-left-radius: 1rem;
     border-bottom-right-radius: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+body.light-mode .dropdown-menu {
+    background-color: #ffffff;
+    box-shadow: 0rem 0.2rem 0.4rem 0.2rem rgba(255, 255, 255, 0.5);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .dropdown-element {
     width: 5rem;
     overflow-wrap: normal;
     margin-bottom: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+body.light-mode .dropdown-element {
+    color: #111111;
 }
 
 .dropdown-element:hover {
     color: #BBBBBB;
     cursor: pointer;
+}
+
+body.light-mode .dropdown-element:hover {
+    color: #333333;
 }
 
 .portfolio-dropdown {
@@ -489,11 +667,20 @@ h1 {
     margin-bottom: 0.05rem;
     margin-left: 0.3rem;;
     margin-right: 1rem;
+    transition: fill 0.3s ease;
+}
+
+body.light-mode .dropdown-triangle-inv {
+    fill: #111111 !important;
 }
 
 .dropdown-triangle-inv:hover {
     cursor: pointer;
     fill: #BBBBBB;
+}
+
+body.light-mode .dropdown-triangle-inv:hover {
+    fill: #333333;
 }
 
 }
@@ -504,7 +691,7 @@ h1 {
     }
 
     .dropdown-menu {
-        right: 9.16rem;
+        right: 10.56rem;
         top: -0.16rem;
     }
 }
