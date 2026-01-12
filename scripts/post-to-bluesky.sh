@@ -211,6 +211,12 @@ bsky: \"$safe_url\"
 process_post() {
     local file="$1"
     
+    # Skip creative writing posts
+    if echo "$file" | grep -q "creative-writing"; then
+        echo -e "${YELLOW}→ Skipping creative writing: $(basename "$file")${NC}"
+        return 0
+    fi
+    
     echo -e "${YELLOW}→ Processing: $(basename "$file")${NC}"
     
     # Skip if already has Bluesky URL
