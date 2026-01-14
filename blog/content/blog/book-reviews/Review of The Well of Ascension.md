@@ -3,7 +3,8 @@ title: Review of The Well of Ascension
 date: 2025-07-15
 type: "blog"
 categories: ["Book Review"]
-tags: ["Book Review", "Fantasy", "Cosmere", "Mistborn"]
+tags: ["Book Review", "Fiction", "Fantasy", "Cosmere", "Mistborn"]
+bsky: "https://bsky.app/profile/mirokeimioniemi.com/post/3mcg3gqmbnp2z"
 ---
 
 For some reason the name "The Well of Ascension" had been distantly familiar to me long before ever even hearing about Brandon Sanderson. I associated it with what I thought to be the great fantasy classics such as "The Wheel of Time" and the like and I am now more than happy to report that the association was not in vain. 

@@ -336,37 +336,60 @@ main() {
     local content_dirs=("blog/content/blog" "blog/content/creative-writing" "blog/content/academic-writing")
     local files=()
     
-    # Get all staged .md files at once to avoid subshell issues
-    local all_staged=$(git diff --cached --name-only 2>/dev/null | grep "\.md$" || true)
+    # Use temp file to collect files (avoids subshell issues)
+    local temp_list=$(mktemp 2>/dev/null || echo "/tmp/bluesky_list_$$")
+    > "$temp_list"
     
+    # Get staged files for each directory
     for dir in "${content_dirs[@]}"; do
         if [ -d "$dir" ]; then
-            # Filter for files in this directory (including subdirectories)
-            for file in $all_staged; do
-                # Check if file starts with our directory path
-                case "$file" in
-                    "$dir"/*)
-                        if [ -f "$file" ]; then
-                            # Skip _index.md files
-                            if [ "$(basename "$file")" != "_index.md" ]; then
-                                files+=("$file")
-                            fi
-                        fi
-                        ;;
-                esac
+            # Use grep to find files starting with this directory path (handles subfolders)
+            git diff --cached --name-only 2>/dev/null | grep "^$dir/" | grep "\.md$" | while IFS= read -r file || [ -n "$file" ]; do
+                [ -z "$file" ] && continue
+                if [ -f "$file" ] && [ "$(basename "$file")" != "_index.md" ]; then
+                    echo "$file" >> "$temp_list"
+                fi
             done
         fi
     done
     
-    # Remove duplicates
-    local unique_files=($(printf '%s\n' "${files[@]}" | sort -u))
+    # Read from temp file into array (handle spaces correctly)
+    if [ -s "$temp_list" ]; then
+        while IFS= read -r file || [ -n "$file" ]; do
+            [ -n "$file" ] && files+=("$file")
+        done < "$temp_list"
+    fi
+    rm -f "$temp_list" 2>/dev/null
+    
+    # Remove duplicates - use temp file to handle spaces correctly
+    local unique_files=()
+    if [ ${#files[@]} -gt 0 ]; then
+        # Use a temp file for deduplication to handle spaces
+        local temp_unique=$(mktemp 2>/dev/null || echo "/tmp/bluesky_unique_$$")
+        > "$temp_unique"
+        for file in "${files[@]}"; do
+            echo "$file" >> "$temp_unique"
+        done
+        # Sort and deduplicate, then read back into array
+        local temp_sorted=$(mktemp 2>/dev/null || echo "/tmp/bluesky_sorted_$$")
+        sort -u "$temp_unique" > "$temp_sorted"
+        while IFS= read -r file || [ -n "$file" ]; do
+            [ -n "$file" ] && unique_files+=("$file")
+        done < "$temp_sorted"
+        rm -f "$temp_unique" "$temp_sorted" 2>/dev/null
+    fi
     
     if [ ${#unique_files[@]} -eq 0 ]; then
         echo -e "${GREEN}No new posts to process${NC}"
         return 0
     fi
     
-    echo -e "${GREEN}Found ${#unique_files[@]} post(s) to process${NC}\n"
+    echo -e "${GREEN}Found ${#unique_files[@]} post(s) to process${NC}"
+    # Debug: show which files were found
+    for f in "${unique_files[@]}"; do
+        echo -e "${YELLOW}  - $f${NC}"
+    done
+    echo ""
     
     # Process each file
     local success=0
