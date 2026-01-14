@@ -1,6 +1,5 @@
 ---
 title: Review of Atomic Habits
-summary: Book Review of Atomic Habits by James Clear
 date: 2023-07-30
 type: "blog"
 categories: ["Book Review"]
