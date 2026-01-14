@@ -109,19 +109,18 @@ build_post_url() {
         slug=$(get_slug "$file")
     fi
     
-    # Build URL with subfolder if present
-    if [ -n "$subfolder" ]; then
-        if [ -n "$slug" ]; then
-            echo "$BASE_URL/$section/$subfolder/$slug/"
-        else
-            echo "$BASE_URL/$section/$subfolder/"
-        fi
+    # Build URL:
+    # - If filename is "index", use subfolder as the URL (e.g., /blog/markdown-cheat-sheet/)
+    # - If filename is not "index", ignore subfolder and use just the slug (e.g., /blog/review-of-thinking-fast-and-slow/)
+    if [ "$filename" = "index" ] && [ -n "$subfolder" ]; then
+        # index.md in subfolder: use subfolder as URL
+        echo "$BASE_URL/$section/$subfolder/"
+    elif [ -n "$slug" ]; then
+        # Regular file: ignore subfolder, use slug directly
+        echo "$BASE_URL/$section/$slug/"
     else
-        if [ -n "$slug" ]; then
-            echo "$BASE_URL/$section/$slug/"
-        else
-            echo "$BASE_URL/$section/"
-        fi
+        # Fallback
+        echo "$BASE_URL/$section/"
     fi
 }
 
@@ -220,8 +219,8 @@ update_front_matter() {
     local file="$1"
     local bsky_url="$2"
     
-    # Escape URL for sed
-    local safe_url=$(echo "$bsky_url" | sed 's/[[\.*^$()+?{|]/\\&/g')
+    # Escape URL for sed (escape backslashes first, then other special chars)
+    local safe_url=$(echo "$bsky_url" | sed 's/\\/\\\\/g' | sed 's/[[\.*^$()+?{|]/\\&/g')
     
     # Check if bsky field exists
     if grep -q "^bsky:" "$file"; then
@@ -232,16 +231,33 @@ update_front_matter() {
             sed -i "s|^bsky:.*|bsky: \"$safe_url\"|" "$file"
         fi
     else
-        # Add new field before closing ---
-        local last_dash=$(grep -n "^---" "$file" | tail -1 | cut -d: -f1)
-        local insert_line=$((last_dash - 1))
+        # Add new field before closing --- of front matter
+        # Find the line number of the SECOND --- (closing front matter, not the last one in file)
+        local dash_lines=$(grep -n "^---" "$file" | cut -d: -f1)
+        local first_dash=$(echo "$dash_lines" | head -1)
+        local second_dash=$(echo "$dash_lines" | head -2 | tail -1)
         
-        if [[ "$OSTYPE" == "darwin"* ]]; then
-            sed -i '' "${insert_line}a\\
-bsky: \"$safe_url\"
-" "$file"
+        if [ -z "$second_dash" ] || [ "$second_dash" -le "$first_dash" ]; then
+            echo -e "${RED}  ✗ No valid front matter found in file (missing closing ---)${NC}"
+            return 1
+        fi
+        
+        # Insert before the second --- (which closes the front matter)
+        local insert_line=$((second_dash - 1))
+        
+        # Use awk for more reliable insertion
+        local temp_file="${file}.tmp"
+        awk -v line="$insert_line" -v url="$bsky_url" '
+            NR == line { print; print "bsky: \"" url "\""; next }
+            { print }
+        ' "$file" > "$temp_file"
+        
+        if [ $? -eq 0 ] && [ -f "$temp_file" ]; then
+            mv "$temp_file" "$file"
         else
-            sed -i "${insert_line}a\\bsky: \"$safe_url\"" "$file"
+            echo -e "${RED}  ✗ Failed to update front matter${NC}"
+            rm -f "$temp_file" 2>/dev/null
+            return 1
         fi
     fi
 }
@@ -305,6 +321,9 @@ process_post() {
     update_front_matter "$file" "$bsky_url"
     echo -e "${GREEN}  ✓ Updated front matter${NC}"
     
+    # Stage the updated file so it's included in the same commit
+    git add "$file" 2>/dev/null || true
+    
     return 0
 }
 
@@ -317,20 +336,24 @@ main() {
     local content_dirs=("blog/content/blog" "blog/content/creative-writing" "blog/content/academic-writing")
     local files=()
     
+    # Get all staged .md files at once to avoid subshell issues
+    local all_staged=$(git diff --cached --name-only 2>/dev/null | grep "\.md$" || true)
+    
     for dir in "${content_dirs[@]}"; do
         if [ -d "$dir" ]; then
-            # Get staged files recursively - match files in directory and all subdirectories
-            # git diff --cached returns paths relative to repo root, so we match any path starting with $dir/
-            local staged=$(git diff --cached --name-only 2>/dev/null | grep "^$dir/" | grep "\.md$" || true)
-            
-            # Process staged files
-            for file in $staged; do
-                if [ -f "$file" ]; then
-                    # Skip _index.md files
-                    if [ "$(basename "$file")" != "_index.md" ]; then
-                        files+=("$file")
-                    fi
-                fi
+            # Filter for files in this directory (including subdirectories)
+            for file in $all_staged; do
+                # Check if file starts with our directory path
+                case "$file" in
+                    "$dir"/*)
+                        if [ -f "$file" ]; then
+                            # Skip _index.md files
+                            if [ "$(basename "$file")" != "_index.md" ]; then
+                                files+=("$file")
+                            fi
+                        fi
+                        ;;
+                esac
             done
         fi
     done
