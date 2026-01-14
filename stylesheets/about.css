@@ -27,6 +27,22 @@
     margin: 2rem;
 }
 
+/* Make links more distinct on about page */
+.short-desc a,
+.section2 a {
+    color: #BBBBBB;
+    text-decoration: underline;
+    text-decoration-color: #666666;
+    text-underline-offset: 0.2em;
+    transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+
+.short-desc a:hover,
+.section2 a:hover {
+    color: #FFFFFF;
+    text-decoration-color: #FFFFFF;
+}
+
 
 @media screen and (min-width: 768px) {
 
