@@ -1,5 +1,6 @@
 ---
 title: Review of Thinking, Fast and Slow
+summary: Book Review of Thinking, Fast and Slow by Daniel Kahneman
 date: 2021-01-03
 type: "blog"
 categories: ["Book Review"]
