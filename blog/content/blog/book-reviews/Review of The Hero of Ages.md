@@ -1,10 +1,11 @@
 ---
-title: Review of A Hero of Ages
+title: Review of The Hero of Ages
 date: 2025-08-08
 type: "blog"
 categories: ["Book Review"]
-tags: ["Book Review", "Fantasy", "Cosmere", "Mistborn"]
+tags: ["Book Review", "Fiction", "Fantasy", "Cosmere", "Mistborn"]
 highlight: true
+bsky: "https://bsky.app/profile/mirokeimioniemi.com/post/3mcgak6t56t2p"
 ---
 
 Epic ending for a masterfully crafted trilogy! 

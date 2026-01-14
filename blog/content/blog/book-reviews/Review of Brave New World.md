@@ -3,7 +3,7 @@ title: Review of Brave New World
 date: 2024-01-01
 type: "blog"
 categories: ["Book Review"]
-tags: ["Book Review", "Fiction", "Classics", "Utopia", "Dystopia", "Philosophy"]
+tags: ["Book Review", "Fiction", "Sci-Fi", "Classics", "Utopia", "Dystopia", "Philosophy"]
 highlight: false
 bsky: "https://bsky.app/profile/mirokeimioniemi.com/post/3mcg4udhhgf2k"
 ---

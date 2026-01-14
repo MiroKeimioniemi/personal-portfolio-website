@@ -3,7 +3,8 @@ title: Review of Mistborn (The Final Empire)
 date: 2025-06-22
 type: "blog"
 categories: ["Book Review"]
-tags: ["Book Review", "Fantasy", "Cosmere", "Mistborn"]
+tags: ["Book Review", "Fiction", "Fantasy", "Cosmere", "Mistborn"]
+bsky: "https://bsky.app/profile/mirokeimioniemi.com/post/3mcgaj5rekl2p"
 ---
 
 Brandon Sanderson's Mistborn is a great piece of Dune-esque fiction with fantastic world building, a very original and interesting hard magic system that is simple enough on the surface but poses near limitless fascinating combinatorial possibilities, plenty of mystery, and a great cast of characters whom I would absolutely love to hang out with warmly bantering at a safe house kitchen after a successful gig. This was an integral part to the story too, which I always love, as it is often these moments that you can most relate to in any world - no matter how magical - and where often all the relationships between characters, but also their internal reflection, goals, hopes, dreams, as well as their successes and failures with respect to them are best expressed.  
