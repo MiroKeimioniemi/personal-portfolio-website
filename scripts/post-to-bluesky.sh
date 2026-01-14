@@ -66,6 +66,28 @@ get_section() {
     fi
 }
 
+# Get subfolder path relative to content directory (e.g., "book-reviews" from "blog/content/blog/book-reviews/file.md")
+get_subfolder_path() {
+    local file="$1"
+    local section=$(get_section "$file")
+    
+    # Extract path after blog/content/{section}/
+    if echo "$file" | grep -q "blog/content/$section/"; then
+        # Get everything after blog/content/{section}/
+        local subpath=$(echo "$file" | sed "s|.*blog/content/$section/||")
+        # Remove the filename, keep only directory path
+        local dirpath=$(dirname "$subpath")
+        # If dirpath is ".", return empty (file is in root of section)
+        if [ "$dirpath" = "." ]; then
+            echo ""
+        else
+            echo "$dirpath"
+        fi
+    else
+        echo ""
+    fi
+}
+
 # Convert filename to URL slug
 get_slug() {
     local file="$1"
@@ -78,8 +100,29 @@ get_slug() {
 build_post_url() {
     local file="$1"
     local section=$(get_section "$file")
-    local slug=$(get_slug "$file")
-    echo "$BASE_URL/$section/$slug/"
+    local subfolder=$(get_subfolder_path "$file")
+    local filename=$(basename "$file" .md)
+    local slug=""
+    
+    # Only include slug if filename is not "index"
+    if [ "$filename" != "index" ]; then
+        slug=$(get_slug "$file")
+    fi
+    
+    # Build URL with subfolder if present
+    if [ -n "$subfolder" ]; then
+        if [ -n "$slug" ]; then
+            echo "$BASE_URL/$section/$subfolder/$slug/"
+        else
+            echo "$BASE_URL/$section/$subfolder/"
+        fi
+    else
+        if [ -n "$slug" ]; then
+            echo "$BASE_URL/$section/$slug/"
+        else
+            echo "$BASE_URL/$section/"
+        fi
+    fi
 }
 
 # ============================================================================
@@ -270,20 +313,23 @@ process_post() {
 # ============================================================================
 
 main() {
-    # Find all markdown files in content directories
+    # Find all markdown files in content directories (including all subfolders)
     local content_dirs=("blog/content/blog" "blog/content/creative-writing" "blog/content/academic-writing")
     local files=()
     
     for dir in "${content_dirs[@]}"; do
         if [ -d "$dir" ]; then
-            # Get staged, modified, and untracked files
-            local staged=$(git diff --cached --name-only 2>/dev/null | grep "^$dir/.*\.md$" || true)
-            local modified=$(git diff HEAD --name-only 2>/dev/null | grep "^$dir/.*\.md$" || true)
-            local untracked=$(git ls-files --others --exclude-standard "$dir"/*.md "$dir"/*/*.md 2>/dev/null || true)
+            # Get staged files recursively - match files in directory and all subdirectories
+            # git diff --cached returns paths relative to repo root, so we match any path starting with $dir/
+            local staged=$(git diff --cached --name-only 2>/dev/null | grep "^$dir/" | grep "\.md$" || true)
             
-            for file in $staged $modified $untracked; do
+            # Process staged files
+            for file in $staged; do
                 if [ -f "$file" ]; then
-                    files+=("$file")
+                    # Skip _index.md files
+                    if [ "$(basename "$file")" != "_index.md" ]; then
+                        files+=("$file")
+                    fi
                 fi
             done
         fi
