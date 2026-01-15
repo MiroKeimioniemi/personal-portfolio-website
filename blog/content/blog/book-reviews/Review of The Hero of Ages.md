@@ -4,7 +4,7 @@ date: 2025-08-08
 type: "blog"
 categories: ["Book Review"]
 tags: ["Book Review", "Fiction", "Fantasy", "Cosmere", "Mistborn"]
-highlight: true
+highlight: false
 bsky: "https://bsky.app/profile/mirokeimioniemi.com/post/3mcgak6t56t2p"
 ---
 

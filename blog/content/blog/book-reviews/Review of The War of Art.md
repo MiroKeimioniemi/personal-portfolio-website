@@ -1,6 +1,6 @@
 ---
 title: "Review of The War of Art"
-date: 2021-30-01
+date: 2021-01-30
 type: "blog"
 categories: ["Book Review"]
 tags: ["Book Review", "Non-Fiction"]
