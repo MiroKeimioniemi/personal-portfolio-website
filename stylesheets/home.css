@@ -155,6 +155,7 @@ h1 {
     margin-bottom: 3rem;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
 .profile-pic {
@@ -168,7 +169,7 @@ h1 {
 .profile-pic-div {
     display: block;
     position: absolute;
-    top: 5rem;
+    top: 2rem;
 }
 
 .social-media-icons-body {
@@ -236,7 +237,7 @@ h1 {
 .profile-pic-div {
     display: block;
     position: absolute;
-    top: 7vw;
+    top: 3.6vw;
     width: 98vw;
 }
 

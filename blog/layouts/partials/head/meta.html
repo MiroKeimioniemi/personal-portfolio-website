@@ -1,0 +1,81 @@
+{{- $title := .Title | default .Site.Title -}}
+{{- $description := .Description | default .Summary | default .Site.Params.description | default .Site.Title -}}
+{{- $description := $description | plainify | truncate 200 -}}
+{{- $url := .Permalink | absURL -}}
+{{- $siteName := .Site.Title -}}
+{{- $locale := .Site.LanguageCode | default "en_US" -}}
+
+{{- if .IsPage -}}
+  {{- $image := "" -}}
+  {{- if .Params.image -}}
+    {{- $image = .Params.image | absURL -}}
+  {{- else if .Site.Params.image -}}
+    {{- $image = .Site.Params.image | absURL -}}
+  {{- end -}}
+  
+  <!-- Open Graph / Facebook / LinkedIn -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="{{ $url }}">
+  <meta property="og:title" content="{{ $title }}">
+  <meta property="og:description" content="{{ $description }}">
+  <meta property="og:site_name" content="{{ $siteName }}">
+  <meta property="og:locale" content="{{ $locale }}">
+  {{- if $image -}}
+  <meta property="og:image" content="{{ $image }}">
+  <meta property="og:image:alt" content="{{ $title }}">
+  {{- end -}}
+  {{- if .Date -}}
+  <meta property="article:published_time" content="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+  {{- end -}}
+  {{- if .Lastmod -}}
+  <meta property="article:modified_time" content="{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}">
+  {{- end -}}
+  {{- if .Params.tags -}}
+    {{- range .Params.tags -}}
+    <meta property="article:tag" content="{{ . }}">
+    {{- end -}}
+  {{- end -}}
+  {{- if .Section -}}
+  <meta property="article:section" content="{{ .Section }}">
+  {{- end -}}
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="{{ if $image }}summary_large_image{{ else }}summary{{ end }}">
+  <meta name="twitter:url" content="{{ $url }}">
+  <meta name="twitter:title" content="{{ $title }}">
+  <meta name="twitter:description" content="{{ $description }}">
+  {{- if $image -}}
+  <meta name="twitter:image" content="{{ $image }}">
+  <meta name="twitter:image:alt" content="{{ $title }}">
+  {{- end -}}
+{{- else -}}
+  {{- $image := .Site.Params.image | default "" -}}
+  {{- if $image -}}
+    {{- $image = $image | absURL -}}
+  {{- end -}}
+  
+  <!-- Open Graph for non-page content (homepage, lists, etc.) -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ $url }}">
+  <meta property="og:title" content="{{ $title }}">
+  <meta property="og:description" content="{{ $description }}">
+  <meta property="og:site_name" content="{{ $siteName }}">
+  <meta property="og:locale" content="{{ $locale }}">
+  {{- if $image -}}
+  <meta property="og:image" content="{{ $image }}">
+  <meta property="og:image:alt" content="{{ $title }}">
+  {{- end -}}
+  
+  <!-- Twitter Card for non-page content -->
+  <meta name="twitter:card" content="{{ if $image }}summary_large_image{{ else }}summary{{ end }}">
+  <meta name="twitter:url" content="{{ $url }}">
+  <meta name="twitter:title" content="{{ $title }}">
+  <meta name="twitter:description" content="{{ $description }}">
+  {{- if $image -}}
+  <meta name="twitter:image" content="{{ $image }}">
+  <meta name="twitter:image:alt" content="{{ $title }}">
+  {{- end -}}
+{{- end -}}
+
+<!-- Standard meta tags -->
+<meta name="description" content="{{ $description }}">

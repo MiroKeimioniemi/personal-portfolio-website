@@ -1,0 +1,3 @@
+[submodule "blog/Lowkey-Hugo-Theme"]
+	path = blog/Lowkey-Hugo-Theme
+	url = https://github.com/nixentric/Lowkey-Hugo-Theme

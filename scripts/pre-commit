@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Pre-commit hook: Post new blog posts to Bluesky before committing
+# Copy this file to .git/hooks/pre-commit and make it executable
+
+# Run the Bluesky posting script
+./scripts/post-to-bluesky.sh
+
+# The script already stages files with git add, but stage all modified .md files as backup
+# This ensures any front matter updates are included in the commit
+git add -u blog/content/ 2>/dev/null || true

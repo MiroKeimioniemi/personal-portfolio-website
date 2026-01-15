@@ -1,0 +1,15 @@
+---
+title: Review of Adventures of Huckleberry Finn
+date: 2021-08-23
+type: "blog"
+categories: ["Book Review"]
+tags: ["Book Review", "Fiction", "Classics"]
+highlight: false
+bsky: "https://bsky.app/profile/mirokeimioniemi.com/post/3mcgahyyymg2q"
+---
+
+I had high expectations for this one as Mark Twain has been described as one of the greats and I have heard the name Huckleberry Finn so many times without really knowing anything else about it than that there is a boy sailing down the Missisippi river with a raft in it and that it is a great story. I got that first part right but I'm not that confident about the exceptionally great story, which might just be due to the mismatch of expectations and reality. Don't get me wrong, it's an interesting story with a lot of funny elements but for me personally, those funny elements started to take away from the story as some of it was just so unbelievably ridiculously unrealistic. The story was pretty basic and where it wasn't, it actually often lost me as some occurrences and thought patterns were so ridiculously illogical and unrealistic that they made me cringe badly, crumbling the immersion.
+
+Those are just my thoughts from the perspective of a casual reader, which is how I read this one. As many classics, this too was quite mediocre in terms of entertainment and at times, engagement. However, there is surely a lot of interesting thematic material to delve upon. Most memorable to me, a modern reader, is Huck Finn's inner conflict of thinking about slaves as property and feeling guilty about traveling with "a runaway nigger" while really enjoying his company and talking about the deep questions of humanity with him. Still, for a long time it never explicitly crosses his mind that maybe he shouldn't have been a slave in the first place. Reading about a conflict with such an incredibly obvious answer in the modern day is almost infuriating. A lot of different themes are explored to various extents but a couple other ones would be lying and the line between reality and imagination.
+
+The story is good but not earth-shattering. The language is slightly on the tougher side as Twain writes all dialogue with their speakers' accents. For some characters, this means that their dialogue has to be read almost out loud to understand anything at all. For that, this is definitely for readers with higher proficiency in English and especially, accents. This makes the characters really interesting and distinct. In fact, the characters are perhaps the best this book has to offer. I would personally recommend it maybe just as a filler for someone's reading list. Of course, it will expand ones' historical and cultural knowledge and will surely serve as a great source of literary analysis but to me it feels like it neither added nor reduced anything to/from my life and thinking. Hence the neutral three. I might still have to re-read it one day from a more analytical point of view to appreciate it more, I might have missed something.

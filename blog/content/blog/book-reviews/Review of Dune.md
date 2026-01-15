@@ -1,0 +1,15 @@
+---
+title: Review of Dune
+date: 2022-08-08
+type: "blog"
+categories: ["Book Review"]
+tags: ["Book Review", "Fiction", "Sci-Fi", "Classics"]
+highlight: false
+bsky: "https://bsky.app/profile/mirokeimioniemi.com/post/3mcgaidy6nz26"
+---
+
+I found out about this book through the 2021 audiovisual masterpiece, Dune, which works as a fantastic trailer for this book. Frank Herbert's worldbuilding in Dune is very extensive - as demonstrated by the 20+ page glossary of related words and concepts - and overall excellent as everything truly serves a purpose. Epic knife fights in a world over twenty thousand years into the future is not at all obvious but it just works because it is well justified and allows for some very unique action and imagery.
+
+The world and the politics are really nailed down, although the latter still remained a bit unclear at times. However, the first half of the book is hindered by some inauthentic-sounding expositional dialogue that made me cringe even though all chapters are prefaced with future historical accounts and relevant quotations regarding the coming events. The book is written in the style of a sort of fictional historical narrative with all the good and the bad that might come with it. It really highlights the great world building and allows for the inclusion of all kinds of standalone pieces of information, exposition and quotations but it then neglects a lot of the interesting and important drama between and within characters. To me, even though I can often relate to more unusual characters as well, Paul does not feel like a relatable character. He does not appear to grow too much during the course of the book but is instead a mythical figure with all the right answers, respect and reverence from the beginning and everything seems to be working in his favor. For example, it is not obvious why the Fremen are so overpowered against the Sardaukar who are the supposed fighting elite as both are described to grow in similar circumstances with similar ethics. The story consists mainly of recounting events and often even skips the most interesting parts while not really explaining how and Why the events came about. The language of the book is varied and often quite complicated and difficult to understand due to its use of rare and specialized vocabulary which is sometimes really difficult to distinguish from the made-up terms of the Dune universe. Nevertheless, Arrakis and its characters are incredibly fascinating making it worth reading through.
+
+My recommendations go to all sci-fi fans as well as all those interested in topics and themes of politics and religion. If you can only get through a close to 600-page epic, Dune can be read entirely independently from its genre as two of its most important themes, perhaps surprisingly to some, center around ecology and religion. In fact, at times, the book is like a psychedelic experience. It explores themes of power, dependence, destiny, responsibility, humanity, exploitation and purpose and so certainly provides something for every reader. I got and remain captured by the world and so cannot wait to get to read the next one!

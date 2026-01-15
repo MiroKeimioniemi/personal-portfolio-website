@@ -1,0 +1,12 @@
+{{ define "main" }}
+<div class="blog-main-content">
+  <h2 class="blog-list-title">Academic Writing</h2>
+  <div class="blog-list blog-list-tile-grid">
+    {{ range where .Site.RegularPages "Type" "posts" }}
+      {{ if .Params.academic }}
+        {{ partial "list-tiles/academic-post-tile.html" . }}
+      {{ end }}
+    {{ end }}
+  </div> 
+</div>
+{{ end }} 

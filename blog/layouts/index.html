@@ -1,0 +1,42 @@
+{{ define "main" }}
+<div class="blog-main-content">
+  <!-- Recent Posts -->
+  <h2 class="blog-list-title">Recent Posts</h2>
+  <div class="blog-list">
+    {{ range first 3 (where .Site.RegularPages "Section" "blog") }}
+      {{ partial "list-tiles/expanded-blog-post-tile.html" . }}
+    {{ end }}
+  </div>
+  <div class="blog-list-footer">
+    <a href="/writing/blog/" class="blog-list-more">See more...</a>
+  </div>
+
+  <!-- Latest Thoughts -->
+  {{ partial "latest-thoughts-carousel.html" . }}
+
+  <br>
+
+  <!-- Highlights -->
+  <h2 class="blog-list-title">Highlights</h2>
+  <div class="blog-list">
+    {{ range first 2 (where (where .Site.RegularPages "Section" "blog") ".Params.highlight" true) }}
+      {{ partial "list-tiles/expanded-blog-post-tile.html" . }}
+    {{ end }}
+  </div> 
+
+  <br>
+
+  <!-- Past Posts -->
+  <h2 class="blog-list-title">Past Posts</h2>
+  <div class="blog-list">
+    {{ range first 4 (after 3 (where .Site.RegularPages "Section" "blog")) }}
+      {{ partial "list-tiles/minimal-blog-post-tile.html" . }}
+    {{ end }}
+  </div>
+
+  <br>
+
+</div>
+<br>
+<br>
+{{ end }} 

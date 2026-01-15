@@ -1,0 +1,259 @@
+.share-links {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.8rem;
+    font-weight: 300;
+    color: #9ca3af;
+    padding: 0 0.5rem;
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+    transition: color 0.3s ease;
+}
+
+body.light-mode .share-links {
+    color: #636363;
+}
+
+.share-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #9ca3af;
+    text-decoration: none;
+    transition: color 0.2s, opacity 0.2s;
+    opacity: 0.8;
+    width: 20px;
+    height: 20px;
+    line-height: 0;
+    vertical-align: middle;
+}
+
+body.light-mode .share-link {
+    color: #636363;
+}
+
+.share-link:hover {
+    color: #d1d5db;
+    opacity: 1;
+}
+
+body.light-mode .share-link:hover {
+    color: #333333;
+}
+
+.share-link svg {
+    width: 20px;
+    height: 20px;
+    display: block;
+    flex-shrink: 0;
+}
+
+#comments-section {
+    max-width: 100%;
+    overflow-x: hidden;
+    font-size: 0.9rem;
+    padding: 1rem 0.5rem;
+    margin-bottom: 2rem;
+}
+
+#comments-section * {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+#comments-section h2 {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+    color: #e5e7eb;
+    transition: color 0.3s ease;
+}
+
+body.light-mode #comments-section h2 {
+    color: #222222;
+}
+
+.post-stats {
+    font-size: 0.8rem;
+    font-weight: 300;
+    color: #9ca3af;
+    margin-bottom: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+body.light-mode .post-stats {
+    color: #636363;
+}
+
+.post-stats a {
+    color: #9ca3af;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+body.light-mode .post-stats a {
+    color: #636363;
+}
+
+.post-stats a:hover {
+    color: #d1d5db;
+    text-decoration: underline;
+}
+
+body.light-mode .post-stats a:hover {
+    color: #333333;
+}
+
+.bluesky-link {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 300;
+    color: #9ca3af;
+    text-decoration: none;
+    margin-bottom: 1rem;
+    transition: color 0.3s ease;
+}
+
+body.light-mode .bluesky-link {
+    color: #636363;
+}
+
+.bluesky-link:hover {
+    color: #d1d5db;
+    text-decoration: underline;
+}
+
+body.light-mode .bluesky-link:hover {
+    color: #333333;
+}
+
+#comments-section hr {
+    border: 0;
+    border-top: 1px solid #222222;
+    margin: 0.75rem 0;
+    transition: border-color 0.3s ease;
+}
+
+body.light-mode #comments-section hr {
+    border-top-color: #d1d5db;
+}
+
+.comment {
+    padding: 0;
+    margin-bottom: 0.75rem;
+}
+
+.comment:last-child {
+    margin-bottom: 0;
+}
+
+.author {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    font-size: 1rem;
+    color: #e5e7eb;
+    margin-bottom: 0.25rem;
+    transition: color 0.3s ease;
+}
+
+body.light-mode .author {
+    color: #111111;
+}
+
+.author a {
+    color: #e5e7eb;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+body.light-mode .author a {
+    color: #111111;
+}
+
+.author a:hover {
+    color: #cbd5e1;
+    text-decoration: underline;
+}
+
+body.light-mode .author a:hover {
+    color: #333333;
+}
+
+.author span {
+    font-size: 0.8rem;
+    color: #9ca3af;
+    margin-left: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+body.light-mode .author span {
+    color: #636363;
+}
+
+.avatar-link {
+    display: inline-block;
+    margin-right: 8px;
+    flex-shrink: 0;
+}
+
+.avatar {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+
+.comment p {
+    font-size: 0.8rem;
+    color: #d1d5db;
+    line-height: 1.5;
+    margin: 0.25rem 0;
+    transition: color 0.3s ease;
+}
+
+body.light-mode .comment p {
+    color: #333333;
+}
+
+.comment a[target="_blank"] {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.comment a[target="_blank"]:hover {
+    opacity: 0.8;
+}
+
+.nested-replies {
+    margin-left: 16px;
+    padding-left: 8px;
+    margin-top: 0.75rem;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.nested-replies .comment {
+    padding: 0;
+    margin-bottom: 0.75rem;
+}
+
+.nested-replies .comment:last-child {
+    margin-bottom: 0;
+}
+
+.actions {
+    font-size: 0.7em;
+    color: #9ca3af;
+    margin-top: 0.15rem;
+    transition: color 0.3s ease;
+}
+
+body.light-mode .actions {
+    color: #636363;
+}
+
