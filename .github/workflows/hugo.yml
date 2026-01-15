@@ -15,10 +15,6 @@ concurrency:
   group: "pages"
   cancel-in-progress: false
 
-defaults:
-  run:
-    working-directory: blog
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -36,6 +32,7 @@ jobs:
           extended: true
 
       - name: Build Hugo
+        working-directory: blog
         run: hugo --minify
 
       - name: Setup Pages
@@ -44,7 +41,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '..'
+          path: '.'
 
   deploy:
     environment:
