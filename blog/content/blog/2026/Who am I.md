@@ -4,7 +4,7 @@ date: 2026-01-15
 type: "blog"
 categories: []
 tags: []
-highlight: true
+highlight: false
 bsky: "https://bsky.app/profile/mirokeimioniemi.com/post/3mcgdxo5w6b27"
 ---
 

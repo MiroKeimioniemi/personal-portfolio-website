@@ -43,7 +43,8 @@
         const originalPosts = data.feed.filter(item => {
           const post = item.post;
           // Check if this is a reply (has reply property) or a repost (has repost property)
-          return !post.record.reply && !post.record.repost;
+          // Also skip posts that contain "mirokeimioniemi.com" in the text
+          return !post.record.reply && !post.record.repost && !post.record.text.includes('mirokeimioniemi.com');
         });
         
         if (originalPosts.length === 0) {
