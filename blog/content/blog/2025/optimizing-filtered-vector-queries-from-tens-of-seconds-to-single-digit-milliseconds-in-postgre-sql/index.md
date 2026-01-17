@@ -6,6 +6,7 @@ categories: ["Software Development"]
 tags: ["SQL", "PostgreSQL", "Optimization", "pgvector", "Python", "SQLAlchemy"]
 highlight: true
 bsky: "https://bsky.app/profile/mirokeimioniemi.com/post/3mcgdxhpe7z26"
+image: "SQLOptim.png"
 ---
 
 Vectors have exploded in popularity as the datatype enabling semantic search, which powers all kinds of AI applications ranging from standard RAG systems to fully agentic applications. Our job and candidate recommendation algorithms at [Clarvo](https://clarvo.ai) also get their input via filtered vector queries, which can, however, be notoriously difficult to work with due to how differently vector indexes work in comparison to the regular B-trees, hash maps, GIN indexes etc. 

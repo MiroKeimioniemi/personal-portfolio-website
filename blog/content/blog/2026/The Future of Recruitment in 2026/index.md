@@ -5,6 +5,7 @@ type: "blog"
 categories: []
 tags: []
 highlight: false
+image: "views-of-the-future-of-recruitment.jpg"
 ---
 
 2026 will be the year of revolution in recruitment.

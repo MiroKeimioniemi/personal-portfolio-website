@@ -328,6 +328,23 @@ body.light-mode .article-content .article-body .tags a:hover {
 /* Constrain content width to match list layout and provide space under blog nav */
 .blog-main-content { width: 80%; max-width: 44rem; margin-left: auto; margin-right: auto; padding-top: 1.5rem; }
 
+/* Cover image styling */
+.article-cover-image {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.article-cover-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+
 
 
 /* Spoiler effect (Goodreads-like) */

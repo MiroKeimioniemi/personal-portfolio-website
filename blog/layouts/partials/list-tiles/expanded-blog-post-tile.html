@@ -1,10 +1,17 @@
 {{/* Recent Post Tile Partial */}}
 <article class="blog-list-tile-item">
   {{/* Featured image (front matter `image` or first page resource image) */}}
-  {{ with .Params.image }}
-    <a href="{{ $.RelPermalink }}" class="blog-list-tile-image">
-      <img src="{{ . }}" alt="{{ $.Title }}" />
-    </a>
+  {{ if .Params.image }}
+    {{ $imgResource := .Resources.GetMatch .Params.image }}
+    {{ if $imgResource }}
+      <a href="{{ .RelPermalink }}" class="blog-list-tile-image">
+        <img src="{{ $imgResource.RelPermalink }}" alt="{{ .Title }}" />
+      </a>
+    {{ else }}
+      <a href="{{ .RelPermalink }}" class="blog-list-tile-image">
+        <img src="{{ .RelPermalink }}{{ .Params.image }}" alt="{{ .Title }}" />
+      </a>
+    {{ end }}
   {{ else }}
     {{ with .Resources.ByType "image" }}
       {{ with index . 0 }}

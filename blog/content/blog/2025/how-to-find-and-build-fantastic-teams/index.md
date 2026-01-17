@@ -7,6 +7,7 @@ categories: []
 tags: []
 highlight: true
 bsky: "https://bsky.app/profile/mirokeimioniemi.com/post/3mcgdxe673f2l"
+image: "clarvo-team-picture.jpg"
 ---
 
 Working in a fantastic team, such as the one here at [Clarvo](https://www.clarvo.ai/), is an incredible privilege. Many people never get to experience it at all; I've never heard of a school project with equal contribution and many an afterwork is spent complaining about office politics. 

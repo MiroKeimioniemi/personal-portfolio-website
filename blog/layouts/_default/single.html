@@ -1,6 +1,28 @@
 {{ define "main" }}
 <div class="blog-main-content">
   <article class="article-content">
+    {{/* Cover image from front matter or page resources */}}
+    {{ if .Params.image }}
+      {{ $imgResource := .Resources.GetMatch .Params.image }}
+      {{ if $imgResource }}
+        <div class="article-cover-image">
+          <img src="{{ $imgResource.RelPermalink }}" alt="{{ .Title }}" />
+        </div>
+      {{ else }}
+        <div class="article-cover-image">
+          <img src="{{ .RelPermalink }}{{ .Params.image }}" alt="{{ .Title }}" />
+        </div>
+      {{ end }}
+    {{ else }}
+      {{ with .Resources.ByType "image" }}
+        {{ with index . 0 }}
+          <div class="article-cover-image">
+            <img src="{{ .RelPermalink }}" alt="{{ $.Title }}" />
+          </div>
+        {{ end }}
+      {{ end }}
+    {{ end }}
+    
     <header class="article-header">
       <h1 class="article-title">{{ .Title }}</h1>
       <div class="article-meta">
