@@ -29,3 +29,5 @@ Candidates can demonstrate their expertise in response to challenges presented b
 The employment market will become more liquid than ever, giving top employees even more power with a constant stream of competing offers fulfilling all their criteria. It will then be more important than ever for recruiters to utilize the best tools and for employers to be open and honest about the experience of working at the company. Competition becomes not only about the best benefits and highest salaries, but about who has the most inspiring mission and the best culture.
 
 Hiring will be much faster and more human-centric, and the world will be a better place for it, for not only will everybody be more productive when working on what they are passionate about, but all will actually enjoy their work when satisficing ceases to be the default strategy. 2026 will see the first steps towards this becoming the new standard and most of the industry adopting these next-gen tools, so strap your seatbelts, for it will be a wild ride!
+
+Originally published on [clarvo.ai](https://www.clarvo.ai/blog/the-future-of-recruitment-in-2026).

@@ -2,7 +2,7 @@
 <div class="blog-main-content">
   <article class="article-content">
     {{/* Cover image from front matter or page resources */}}
-    {{ if .Params.image }}
+    {{ if and (isset .Params "image") (ne .Params.image nil) (ne .Params.image "") }}
       {{ $imgResource := .Resources.GetMatch .Params.image }}
       {{ if $imgResource }}
         <div class="article-cover-image">
@@ -13,7 +13,8 @@
           <img src="{{ .RelPermalink }}{{ .Params.image }}" alt="{{ .Title }}" />
         </div>
       {{ end }}
-    {{ else }}
+    {{ else if not (isset .Params "image") }}
+      {{/* Only auto-detect if image param is not set at all */}}
       {{ with .Resources.ByType "image" }}
         {{ with index . 0 }}
           <div class="article-cover-image">
