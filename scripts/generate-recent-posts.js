@@ -110,9 +110,8 @@ function getImagePath(filePath, imageName) {
 
 // Function to get post URL
 function getPostUrl(filePath, date) {
-    const relativePath = path.relative(path.join(__dirname, '../blog/content/blog'), filePath);
-    const parts = path.dirname(relativePath).split(path.sep);
-    const year = parts[0];
+    // Extract year from date (format: YYYY-MM-DD)
+    const year = date ? date.substring(0, 4) : '1970';
     
     // Check if it's a folder-based post (has index.md)
     const dir = path.dirname(filePath);
@@ -124,6 +123,16 @@ function getPostUrl(filePath, date) {
         slug = slugify(path.basename(dir));
     } else {
         slug = slugify(path.basename(filePath, '.md'));
+    }
+    
+    // For files in subdirectories like book-reviews, use the subdirectory in the URL
+    const relativePath = path.relative(path.join(__dirname, '../blog/content/blog'), filePath);
+    const pathParts = path.dirname(relativePath).split(path.sep);
+    
+    // If the file is in a subdirectory (not a year folder), include it in the URL
+    if (pathParts.length > 0 && pathParts[0] !== year && !isFolderPost) {
+        const subdir = pathParts[0];
+        return `/writing/blog/${subdir}/${slug}/`;
     }
     
     return `/writing/blog/${year}/${slug}/`;
