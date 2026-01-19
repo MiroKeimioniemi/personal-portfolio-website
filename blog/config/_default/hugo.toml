@@ -15,9 +15,6 @@ publishDir = '../writing'
 [pagination]
   pagerSize = 5
 
-[permalinks]
-  blog = "/blog/:sections/:filename/"
-
 [markup]
   [markup.highlight]
     anchorLineNos = false

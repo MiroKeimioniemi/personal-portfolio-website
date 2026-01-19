@@ -87,22 +87,39 @@ function getImagePath(filePath, imageName) {
     
     // Check if image exists
     if (fs.existsSync(imagePath)) {
-        // Return path relative to writing directory (Hugo output)
-        const relativePath = path.relative(path.join(__dirname, '../blog/content/blog'), dir);
-        const parts = relativePath.split(path.sep);
-        const year = parts[0];
+        // Use the same logic as getPostUrl to build the image path
+        const blogContentDir = path.join(__dirname, '../blog/content/blog');
+        const relativePath = path.relative(blogContentDir, filePath);
+        const pathParts = path.dirname(relativePath).split(path.sep).filter(p => p);
         
-        // Handle both folder-based and file-based posts
+        // Check if it's a folder-based post (has index.md)
         const isFolderPost = path.basename(filePath) === 'index.md';
-        let postSlug;
         
+        let slug;
         if (isFolderPost) {
-            postSlug = slugify(path.basename(dir));
+            // For folder-based posts, slugify the folder name
+            slug = slugify(path.basename(dir));
+            // Remove the last path part (the folder containing index.md) since we'll use slug instead
+            pathParts.pop();
         } else {
-            postSlug = slugify(path.basename(filePath, '.md'));
+            slug = slugify(path.basename(filePath, '.md'));
         }
         
-        return `/writing/blog/${year}/${postSlug}/${imageName}`;
+        // Build image path using the same structure as post URL
+        const urlParts = ['/writing/blog'];
+        
+        // Add all path segments
+        pathParts.forEach(part => {
+            if (part && part !== '.') {
+                urlParts.push(part);
+            }
+        });
+        
+        // Add the slug and image name
+        urlParts.push(slug);
+        urlParts.push(imageName);
+        
+        return urlParts.join('/');
     }
     
     return null;
@@ -110,8 +127,9 @@ function getImagePath(filePath, imageName) {
 
 // Function to get post URL
 function getPostUrl(filePath, date) {
-    // Extract year from date (format: YYYY-MM-DD)
-    const year = date ? date.substring(0, 4) : '1970';
+    const blogContentDir = path.join(__dirname, '../blog/content/blog');
+    const relativePath = path.relative(blogContentDir, filePath);
+    const pathParts = path.dirname(relativePath).split(path.sep).filter(p => p);
     
     // Check if it's a folder-based post (has index.md)
     const dir = path.dirname(filePath);
@@ -119,23 +137,32 @@ function getPostUrl(filePath, date) {
     
     let slug;
     if (isFolderPost) {
-        // Slugify the folder name
+        // For folder-based posts, slugify the folder name
+        // Don't include the folder name in pathParts since we'll use the slugified version
         slug = slugify(path.basename(dir));
+        // Remove the last path part (the folder containing index.md) since we'll use slug instead
+        pathParts.pop();
     } else {
+        // For file-based posts, slugify the filename
         slug = slugify(path.basename(filePath, '.md'));
     }
     
-    // For files in subdirectories like book-reviews, use the subdirectory in the URL
-    const relativePath = path.relative(path.join(__dirname, '../blog/content/blog'), filePath);
-    const pathParts = path.dirname(relativePath).split(path.sep);
+    // Build URL based on path structure
+    // Hugo's default permalink includes all path segments
+    const urlParts = ['/writing/blog'];
     
-    // If the file is in a subdirectory (not a year folder), include it in the URL
-    if (pathParts.length > 0 && pathParts[0] !== year && !isFolderPost) {
-        const subdir = pathParts[0];
-        return `/writing/blog/${subdir}/${slug}/`;
-    }
+    // Add all path segments (year folders, subdirectories, etc.)
+    pathParts.forEach(part => {
+        // Only add non-empty parts
+        if (part && part !== '.') {
+            urlParts.push(part);
+        }
+    });
     
-    return `/writing/blog/${year}/${slug}/`;
+    // Add the slug
+    urlParts.push(slug);
+    
+    return urlParts.join('/') + '/';
 }
 
 // Function to scan blog directory recursively
