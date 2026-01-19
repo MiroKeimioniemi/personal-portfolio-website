@@ -1,5 +1,5 @@
 ---
-title: Review of The Way of Kings
+title: Review of The Way of Kings Part 1
 date: 2024-01-28
 type: "blog"
 categories: ["Book Review"]
