@@ -1,6 +1,37 @@
-# Bluesky Comments Integration Setup
+# Scripts Directory
 
-This directory contains scripts for automatically posting blog posts to Bluesky and integrating Bluesky comments into your Hugo site.
+This directory contains various utility scripts for the website.
+
+## Scripts
+
+### `generate-recent-posts.js`
+Automatically generates `data/recent-posts.json` by scanning blog markdown files.
+
+**Usage:**
+```bash
+node scripts/generate-recent-posts.js
+```
+
+**What it does:**
+- Scans `blog/content/blog/` for all markdown files
+- Parses front matter (title, date, summary, highlight, image)
+- Generates URLs based on Hugo's URL structure
+- Sorts posts by date (newest first)
+- Extracts highlights (posts with `highlight: true`)
+- Outputs JSON to `data/recent-posts.json`
+
+**When to run:**
+- After adding new blog posts
+- After updating post metadata (highlight, summary, etc.)
+- Before deploying the site
+
+You can add this to your build process or run it manually when needed.
+
+---
+
+### Bluesky Comments Integration Setup
+
+This section covers automatically posting blog posts to Bluesky and integrating Bluesky comments into your Hugo site.
 
 ## Files
 

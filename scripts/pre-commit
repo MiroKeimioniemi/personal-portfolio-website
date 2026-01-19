@@ -1,11 +1,31 @@
 #!/bin/bash
 
-# Pre-commit hook: Post new blog posts to Bluesky before committing
+# Pre-commit hook: Post new blog posts to Bluesky and generate recent posts JSON
 # Copy this file to .git/hooks/pre-commit and make it executable
 
+# Colors for output
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+NC='\033[0m'
+
+echo -e "${YELLOW}Running pre-commit hooks...${NC}"
+
 # Run the Bluesky posting script
+echo -e "${GREEN}→ Posting to Bluesky...${NC}"
 ./scripts/post-to-bluesky.sh
+
+# Generate recent posts JSON
+echo -e "${GREEN}→ Generating recent posts JSON...${NC}"
+if command -v node &> /dev/null; then
+    node scripts/generate-recent-posts.js
+    # Stage the generated JSON file if it was modified
+    git add data/recent-posts.json 2>/dev/null || true
+else
+    echo -e "${YELLOW}Warning: Node.js not found. Skipping recent posts generation.${NC}"
+fi
 
 # The script already stages files with git add, but stage all modified .md files as backup
 # This ensures any front matter updates are included in the commit
 git add -u blog/content/ 2>/dev/null || true
+
+echo -e "${GREEN}Pre-commit hooks completed!${NC}"

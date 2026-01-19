@@ -1,0 +1,162 @@
+{
+  "recentPosts": [
+    {
+      "title": "Who am I?",
+      "date": "2026-01-15",
+      "url": "/writing/blog/2026/who-am-i/",
+      "summary": "I’m Miro, a proud generalist, boundless builder, analytical artist, caring critic, eager explorer, eternal inquirer, first-principles fool, agnostic absurdist, abstract intuiter, idealist realist, obvious oxymoron, hopeless optimist, relentless romantic, gritty go-getter, keen meta-observer, unreasonable rationalist, uncommitted athlete, trickster thinker, consistent contrarian, marshmallow test champion, rediscoverer and defender of old cliches, savor of simple things, sauna warrior, stargazer, wannabe modern renaissance man and an overall walking superposition of contradictory ideas.\r \r Othe...",
+      "highlight": false,
+      "tags": [
+        ""
+      ]
+    },
+    {
+      "title": "The Future of Recruitment in 2026",
+      "date": "2026-01-08",
+      "url": "/writing/blog/2026/the-future-of-recruitment-in-2026/",
+      "summary": "2026 will be the year of revolution in recruitment.\r \r Great things are built by great companies that are made up of great people. However, despite efficient and effective recruiting and hiring being...",
+      "highlight": false,
+      "image": "/writing/blog/2026/the-future-of-recruitment-in-2026/views-of-the-future-of-recruitment.jpg",
+      "tags": [
+        ""
+      ]
+    },
+    {
+      "title": "Review of Arcanum Unbounded: The Cosmere Collection",
+      "date": "2026-01-04",
+      "url": "/writing/blog/book-reviews/review-of-arcanum-unbounded-the-cosmere-collection/",
+      "summary": "A great collection of Cosmere \"short\" stories about very different but uniquely memorable characters in a wide variety of fantastical settings, each of which leaves you wanting more. I like how each story is very coherent with a tight set of implicit thematic questions that it explores almost systematically, while always leaving the reader with something to think about, such as the meaning of authenticity in \"The Emperor's Soul\" and whether we truly do get to control \"progress\" or not in \"Sixth of the Dusk\", both of which were my favorites along with \"Mistborn: Secret History\" due to its massi...",
+      "highlight": false,
+      "tags": [
+        "Book Review",
+        "Fiction",
+        "Fantasy",
+        "Cosmere"
+      ]
+    },
+    {
+      "title": "Review of A Brief History of Intelligence: Evolution, AI, and the Five Breakthroughs That Made Our Brains",
+      "date": "2025-12-30",
+      "url": "/writing/blog/book-reviews/review-of-a-brief-history-of-intelligence-evolution-ai-and-the-five-breakthroughs-that-made-our-brains/",
+      "summary": "A fascinating and very approachable treasure trove introduction to the evolution of the brain as a recursive prediction machine via a framework of five breakthroughs, each building on top of each other: valence associations and steering, reinforcement learning, simulation, mentalization and language.\r \r Max S. Bennet's \"A Brief History of Intelligence\" is a well-written mix of overview and detail about one of the most fascinating and relevant questions of our times; the nature of intelligence. The purely descriptive narrative starts all the way from the evolutionary pressures and enablers for...",
+      "highlight": false,
+      "tags": [
+        "Book Review",
+        "Non-Fiction",
+        "Science",
+        "Neuroscience",
+        "Artificial Intelligence",
+        "History",
+        "Evolution"
+      ]
+    },
+    {
+      "title": "How to find and build fantastic teams",
+      "date": "2025-11-13",
+      "url": "/writing/blog/2025/how-to-find-and-build-fantastic-teams/",
+      "summary": "what makes a team great and how can you ever hope to find yourself in such rare and precious a circumstance?",
+      "highlight": true,
+      "image": "/writing/blog/2025/how-to-find-and-build-fantastic-teams/clarvo-team-picture.jpg",
+      "tags": [
+        ""
+      ]
+    },
+    {
+      "title": "Hairdressing is the most AI-proof industry",
+      "date": "2025-11-10",
+      "url": "/writing/blog/2025/hairdressing-is-the-most-ai-proof-industry/",
+      "summary": "Hairdressing is the most AI-proof industry. \r \r We were talking at lunch the other day about having to go get our hair cut and, as it always does nowadays, our conversation turned to evaluating the impact of AI on our topic of discussion, which today happened to be our best and worst experiences at barbershops.\r \r After joking about different ways of doing this, each one more horrendous than the other, we concluded that hairdressing might just be one of, if not the most AI-proof industry, because it is an inherently human service. \r \r Unlike, for example, plumbing, which will likely be safe fo...",
+      "highlight": false,
+      "tags": [
+        "Artificial Intelligence"
+      ]
+    },
+    {
+      "title": "Optimizing filtered vector queries from tens of seconds to single-digit milliseconds in PostgreSQL",
+      "date": "2025-11-04",
+      "url": "/writing/blog/2025/optimizing-filtered-vector-queries-from-tens-of-seconds-to-single-digit-milliseconds-in-postgre-sql/",
+      "summary": "Vectors have exploded in popularity as the datatype enabling semantic search, which powers all kinds of AI applications ranging from standard RAG systems to fully agentic applications. Our job and can...",
+      "highlight": true,
+      "image": "/writing/blog/2025/optimizing-filtered-vector-queries-from-tens-of-seconds-to-single-digit-milliseconds-in-postgre-sql/SQLOptim.png",
+      "tags": [
+        "SQL",
+        "PostgreSQL",
+        "Optimization",
+        "pgvector",
+        "Python",
+        "SQLAlchemy"
+      ]
+    },
+    {
+      "title": "Review of The Hero of Ages",
+      "date": "2025-08-08",
+      "url": "/writing/blog/book-reviews/review-of-the-hero-of-ages/",
+      "summary": "Epic ending for a masterfully crafted trilogy! \r \r Sanderson strikes the perfect balance of promise, payoff and mystery for a satisfying ending of an epic arc with great growth, clever powerscaling and fascinating twists, while still leaving the door open for way more to come. With that, I cannot wait to begin reading the second era. \r \r A Hero of Ages picks up from (where) Well of Ascension left off and extrapolates and expands on all of its themes much further. <spoiler>Elend's arc is particularly brilliant, where first in Well of Ascension he must learn to be a strong, decisive and emblemat...",
+      "highlight": false,
+      "tags": [
+        "Book Review",
+        "Fiction",
+        "Fantasy",
+        "Cosmere",
+        "Mistborn"
+      ]
+    },
+    {
+      "title": "Review of The Well of Ascension",
+      "date": "2025-07-15",
+      "url": "/writing/blog/book-reviews/review-of-the-well-of-ascension/",
+      "summary": "For some reason the name \"The Well of Ascension\" had been distantly familiar to me long before ever even hearing about Brandon Sanderson. I associated it with what I thought to be the great fantasy classics such as \"The Wheel of Time\" and the like and I am now more than happy to report that the association was not in vain. \r \r \"The Well of Ascension\" was a near perfect fantasy book about the most fascinating aspect of the fight against evil: what happens after you win? Most stories leave it at the victory party and \"so they lived happily ever after\", but this is where the Mistborn series reall...",
+      "highlight": false,
+      "tags": [
+        "Book Review",
+        "Fiction",
+        "Fantasy",
+        "Cosmere",
+        "Mistborn"
+      ]
+    },
+    {
+      "title": "Review of Mistborn (The Final Empire)",
+      "date": "2025-06-22",
+      "url": "/writing/blog/book-reviews/review-of-mistborn/",
+      "summary": "Brandon Sanderson's Mistborn is a great piece of Dune-esque fiction with fantastic world building, a very original and interesting hard magic system that is simple enough on the surface but poses near limitless fascinating combinatorial possibilities, plenty of mystery, and a great cast of characters whom I would absolutely love to hang out with warmly bantering at a safe house kitchen after a successful gig. This was an integral part to the story too, which I always love, as it is often these moments that you can most relate to in any world - no matter how magical - and where often all the re...",
+      "highlight": false,
+      "tags": [
+        "Book Review",
+        "Fiction",
+        "Fantasy",
+        "Cosmere",
+        "Mistborn"
+      ]
+    }
+  ],
+  "highlights": [
+    {
+      "title": "How to find and build fantastic teams",
+      "date": "2025-11-13",
+      "url": "/writing/blog/2025/how-to-find-and-build-fantastic-teams/",
+      "summary": "what makes a team great and how can you ever hope to find yourself in such rare and precious a circumstance?",
+      "highlight": true,
+      "image": "/writing/blog/2025/how-to-find-and-build-fantastic-teams/clarvo-team-picture.jpg",
+      "tags": [
+        ""
+      ]
+    },
+    {
+      "title": "Optimizing filtered vector queries from tens of seconds to single-digit milliseconds in PostgreSQL",
+      "date": "2025-11-04",
+      "url": "/writing/blog/2025/optimizing-filtered-vector-queries-from-tens-of-seconds-to-single-digit-milliseconds-in-postgre-sql/",
+      "summary": "Vectors have exploded in popularity as the datatype enabling semantic search, which powers all kinds of AI applications ranging from standard RAG systems to fully agentic applications. Our job and can...",
+      "highlight": true,
+      "image": "/writing/blog/2025/optimizing-filtered-vector-queries-from-tens-of-seconds-to-single-digit-milliseconds-in-postgre-sql/SQLOptim.png",
+      "tags": [
+        "SQL",
+        "PostgreSQL",
+        "Optimization",
+        "pgvector",
+        "Python",
+        "SQLAlchemy"
+      ]
+    }
+  ]
+}
