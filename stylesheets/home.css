@@ -73,6 +73,17 @@ h3 {
 .highlight-projects {
     width: 100%;
     box-sizing: border-box;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 2rem;
+    margin-bottom: 0;
+    position: relative;
+    left: 0;
+    display: block;
 }
 
 .secondary-highlights {
@@ -82,6 +93,12 @@ h3 {
     align-items: flex-start;
     width: 100%;
     box-sizing: border-box;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 0;
+    margin-right: 0;
+    position: relative;
+    left: 0;
 }
 
 .highlight1 {
@@ -419,16 +436,41 @@ h1 {
 .highlights-section {
     margin-bottom: 4rem;
     text-align: left;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 0;
+    margin-right: 0;
+    display: block;
+    box-sizing: border-box;
 }
 
 .highlights-section h2,
 .section2.highlight-projects-section h2 {
     text-align: left;
+    margin-top: 0.1rem;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    text-indent: 0;
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    left: 0;
 }
 
 .section2.highlight-projects-section {
     margin-bottom: 0;
     width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 0;
+    margin-right: 0;
+    display: block;
+    box-sizing: border-box;
 }
 
 .highlights-container {
@@ -437,6 +479,13 @@ h1 {
     gap: 1.5rem;
     margin-top: 2rem;
     width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 0;
+    margin-right: 0;
+    box-sizing: border-box;
+    position: relative;
+    left: 0;
 }
 
 .highlight-post-item {
@@ -520,27 +569,63 @@ h1 {
 
     .highlights-container {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 2rem;
+        width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+        margin-left: 0;
+        margin-right: 0;
+        box-sizing: border-box;
+        position: relative;
+        left: 0;
+        align-content: start;
     }
 
     .highlight-post-item {
         width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        min-width: 0;
     }
 
     .secondary-highlights {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 2rem;
         width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 0;
+        box-sizing: border-box;
+        position: relative;
+        left: 0;
+        align-content: start;
     }
 
     .highlight-projects {
         width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 2rem;
+        margin-bottom: 0;
+        box-sizing: border-box;
+        position: relative;
+        left: 0;
+        display: block;
     }
 
     .highlight-item {
         width: 100%;
         margin-bottom: 0;
+        margin-left: 0;
+        margin-right: 0;
+        min-width: 0;
     }
 }
