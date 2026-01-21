@@ -1,0 +1,8 @@
+{{/* 
+  Usage: {{< text-column >}}
+    Your markdown content here
+  {{< /text-column >}}
+*/}}
+<div class="text-column">
+  {{ .Inner | markdownify }}
+</div>

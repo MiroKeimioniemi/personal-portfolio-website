@@ -1,0 +1,8 @@
+{{- $src := .Get "src" -}}
+{{- $alt := .Get "alt" -}}
+{{- $resource := $.Page.Resources.GetMatch $src -}}
+{{- if $resource -}}
+<img src="{{ $resource.RelPermalink }}" loading="lazy" alt="{{ $alt }}">
+{{- else -}}
+<img src="{{ $src | relURL }}" loading="lazy" alt="{{ $alt }}">
+{{- end -}}

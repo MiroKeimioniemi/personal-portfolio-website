@@ -1,12 +1,24 @@
 {{ define "main" }}
 <div class="blog-main-content">
-  <h2 class="blog-list-title">Academic Writing</h2>
-  <div class="blog-list blog-list-tile-grid">
-    {{ range where .Site.RegularPages "Type" "posts" }}
-      {{ if .Params.academic }}
-        {{ partial "list-tiles/academic-post-tile.html" . }}
-      {{ end }}
+  <section class="academic-grid">
+    {{ range where .Site.RegularPages "Type" "academic" }}
+      <article class="grid-item">
+        <a href="{{ .RelPermalink }}" class="grid-item-link">
+          {{ if .Params.image }}
+            {{ $imgResource := .Resources.GetMatch .Params.image }}
+            {{ if not $imgResource }}
+              {{ $imgResource = .Resources.GetMatch (printf "*%s*" .Params.image) }}
+            {{ end }}
+            {{ if $imgResource }}
+              <img src="{{ $imgResource.RelPermalink }}" loading="lazy" alt="{{ .Title }}" class="portfolio-item-frame grid-img">
+            {{ else }}
+              <img src="{{ .Params.image | relURL }}" loading="lazy" alt="{{ .Title }}" class="portfolio-item-frame grid-img">
+            {{ end }}
+          {{ end }}
+          <h3>{{ .Title }}</h3>
+        </a>
+      </article>
     {{ end }}
-  </div> 
+  </section>
 </div>
 {{ end }} 

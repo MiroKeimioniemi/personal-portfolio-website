@@ -1,0 +1,344 @@
+body .blog-main-content h1,
+body main.content .blog-main-content h1 {
+    text-align: left;
+    font-size: 1.953rem;
+    font-weight: 100;
+    margin-bottom: 3rem;
+    margin-top: 2rem;
+    width: 79vw;
+    position: static;
+    order: 0;
+    letter-spacing: normal;
+    top: 0;
+    color: #DDDDDD;
+    transition: color 0.3s ease;
+}
+
+body.light-mode .blog-main-content h1,
+body.light-mode main.content .blog-main-content h1 {
+    color: #111111;
+}
+
+h3 {
+    color: #DDDDDD;
+    margin-top: -3.5rem;
+    margin-bottom: -0.5rem;
+    padding-left: 1rem;
+    font-weight: lighter;
+    text-shadow: 0rem 0.1rem 0.15rem #000000;
+    text-align: left;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+body.light-mode h3 {
+    color: #222222;
+    text-shadow: none;
+}
+
+article {
+    margin-bottom: -3rem;
+}
+
+h3:hover {
+    text-decoration: underline;
+}
+
+li {
+    color: white;
+    text-align: left;
+    margin-bottom: 1rem;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    max-width: 100%;
+    transition: color 0.3s ease;
+}
+
+body.light-mode li {
+    color: #333333;
+}
+
+li a {
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+
+p {
+    color: #EEEEEE;
+    transition: color 0.3s ease;
+}
+
+body.light-mode p {
+    color: #333333;
+}
+
+img {
+    max-width: 100%;
+    margin-bottom: 2rem;
+}
+
+.blog-main-content {
+    width: 85%;
+    max-width: 100%;
+    overflow-wrap: break-word;
+}
+
+.content {
+    width: 85%;
+}
+
+.hyperlink-style {
+    color: #AAAAAA;
+    transition: color 0.3s ease;
+}
+
+body.light-mode .hyperlink-style {
+    color: #333333;
+}
+
+.hyperlink-style:hover {
+    text-decoration: underline;
+}
+
+body.light-mode .hyperlink-style:hover {
+    color: #111111;
+}
+
+.file-variant {
+    margin-top: 2rem;
+}
+
+.file-variant:first-child {
+    margin-top: 0;
+}
+
+.file-variant h3 {
+    margin-bottom: 0.5rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.file-variant.no-image h3 {
+    margin-top: 0;
+    margin-bottom: 1.4rem;
+}
+
+.file-variant .margin-y {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* Keep button text white in light mode */
+body.light-mode .button-text {
+    color: #EEEEEE;
+}
+
+/* Mobile: grid shows files first, then text */
+section.grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Mobile: reverse-grid shows text first, then files */
+section.reverse-grid {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+}
+
+.file-column {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    text-align: center;
+}
+
+.grid-img {
+    max-height: 20rem;
+}
+
+.text-column {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 2rem;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    text-align: left;
+}
+
+/* Mobile: Force all text-column children to wrap */
+.text-column > * {
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+
+/* Mobile: Instagram embeds */
+.text-column .instagram-media {
+    max-width: 100% !important;
+    width: 100% !important;
+    min-width: 0 !important;
+}
+
+.video-container {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding-top: 56.25%;
+    margin-bottom: 2rem;
+}
+
+.video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+@media screen and (min-width: 768px) {
+
+.blog-main-content {
+    width: 85%;
+    max-width: 64rem;
+}
+
+body .blog-main-content h1,
+body main.content .blog-main-content h1 {
+    width: 100%;
+    display: inline-block;
+    font-size: 1.953rem;
+    font-weight: 100;
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+    position: static;
+    order: 0;
+    letter-spacing: normal;
+    top: 0;
+}
+
+h2 {
+    display: inline-block;
+    overflow-wrap: normal;
+    color: #DDDDDD;
+    transition: color 0.3s ease;
+}
+
+body.light-mode h2 {
+    color: #222222;
+}
+
+.body-text {
+    text-align: left;
+    order: -1;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    max-width: 100%;
+    color: #EEEEEE;
+    transition: color 0.3s ease;
+}
+
+body.light-mode .body-text {
+    color: #333333;
+}
+
+.body-text a {
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+
+footer {
+    margin-top: 4rem;
+}
+
+.slim-heading {
+    font-weight: 100;
+    margin: 0;
+    margin-left: 0.6rem;
+}
+
+.composite-heading {
+    margin-left: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* Desktop: Both grid and reverse-grid look identical - text left, files right */
+.blog-main-content section.grid,
+.blog-main-content section.reverse-grid {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    text-align: center;
+    padding: 0;
+}
+
+/* Desktop: Files always on the right */
+.blog-main-content section.grid .file-column,
+.blog-main-content section.reverse-grid .file-column {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+    width: 45%;
+    margin-left: 5%;
+    order: 2;
+}
+
+/* Desktop: Text always on the left */
+.blog-main-content section.grid .text-column,
+.blog-main-content section.reverse-grid .text-column {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    margin-bottom: 2rem;
+    width: 50%;
+    min-width: 0;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    text-align: left;
+    order: 1;
+}
+
+/* Force all text-column children to respect container width */
+.blog-main-content section.grid .text-column > *,
+.blog-main-content section.reverse-grid .text-column > * {
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+
+/* Instagram embeds need explicit max-width */
+.blog-main-content .text-column .instagram-media {
+    max-width: 100% !important;
+    width: 100% !important;
+    min-width: 0 !important;
+}
+
+.grid-img {
+    max-height: 20rem;
+}
+
+}
+
+@media screen and (min-width: 1360px) {
+
+.grid-item {
+    max-width: 26rem;
+}
+
+.grid-img {
+    max-height: 25rem;
+}
+
+}

@@ -18,6 +18,10 @@
     <link rel="stylesheet" type="text/css" href="{{ "stylesheets/article.css" | relURL }}">
     <link rel="stylesheet" type="text/css" href="{{ "stylesheets/latest-thoughts.css" | relURL }}">
     <link rel="stylesheet" type="text/css" href="{{ "stylesheets/comments.css" | relURL }}">
+    {{ if eq .Type "academic" }}
+    <link rel="stylesheet" type="text/css" href="{{ "stylesheets/academic-writing.css" | relURL }}">
+    <link rel="stylesheet" type="text/css" href="{{ "stylesheets/writing-project.css" | relURL }}">
+    {{ end }}
 </head>
 <body>
     {{ partial "header.html" . }}

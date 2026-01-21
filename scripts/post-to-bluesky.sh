@@ -200,6 +200,10 @@ post_to_bluesky() {
     
     # Check for errors
     if echo "$response" | grep -q '"error"'; then
+        # Extract and show the error message
+        local error_msg=$(echo "$response" | grep -o '"message":"[^"]*"' | sed 's/"message":"\([^"]*\)"/\1/' || echo "Unknown error")
+        echo "ERROR: $error_msg" >&2
+        echo "$response" >&2  # Also output full response for debugging
         echo "ERROR"
         return 1
     fi
@@ -270,13 +274,16 @@ update_front_matter() {
 process_post() {
     local file="$1"
     
+    # Normalize file path (remove leading ./ if present)
+    file=$(echo "$file" | sed 's|^\./||')
+    
     # Skip creative writing posts
     if echo "$file" | grep -q "creative-writing"; then
         echo -e "${YELLOW}→ Skipping creative writing: $(basename "$file")${NC}"
         return 0
     fi
     
-    echo -e "${YELLOW}→ Processing: $(basename "$file")${NC}"
+    echo -e "${YELLOW}→ Processing: $file${NC}"
     
     # Skip if already has Bluesky URL
     if has_bluesky_url "$file"; then
@@ -293,8 +300,35 @@ process_post() {
     
     # Build post URL
     local post_url=$(build_post_url "$file")
+    
+    # Calculate max title length: 300 graphemes total - 2 newlines - URL length - some buffer
+    # Format is: "Title\n\nURL" = title + 2 bytes for newlines + URL
+    # We need to ensure total is <= 300 characters
+    local url_length=$(printf '%s' "$post_url" | wc -c)
+    local max_title_length=$((300 - url_length - 2 - 10))  # 2 for newlines, 10 buffer for safety
+    
+    # Truncate title if needed
+    local original_title="$title"
+    if [ ${#title} -gt $max_title_length ]; then
+        if [ $max_title_length -lt 20 ]; then
+            # If URL is extremely long, use a very short message
+            title="New post"
+        else
+            # Truncate title and add ellipsis
+            title="${title:0:$((max_title_length - 3))}..."
+        fi
+        echo -e "${YELLOW}  ⚠ Title truncated for Bluesky (300 char limit): \"$original_title\" -> \"$title\"${NC}"
+    fi
+    
     # Format: Title on first line, blank line, then link
     local post_text="$title"$'\n'$'\n'"$post_url"
+    
+    # Double-check total length (should be <= 300)
+    local total_length=$(printf '%s' "$post_text" | wc -c)
+    if [ $total_length -gt 300 ]; then
+        echo -e "${RED}  ✗ Post text still too long after truncation ($total_length chars)${NC}"
+        return 1
+    fi
     
     # Login to Bluesky
     echo -e "${YELLOW}  Logging in...${NC}"
@@ -309,9 +343,15 @@ process_post() {
     
     # Post to Bluesky
     echo -e "${YELLOW}  Posting...${NC}"
-    local bsky_url=$(post_to_bluesky "$token" "$did" "$post_text" "$post_url")
-    if [ "$bsky_url" = "ERROR" ]; then
-        echo -e "${RED}  ✗ Post failed${NC}"
+    local bsky_url=$(post_to_bluesky "$token" "$did" "$post_text" "$post_url" 2>&1)
+    if echo "$bsky_url" | grep -q "^ERROR"; then
+        # Extract error message (everything after "ERROR: ")
+        local error_detail=$(echo "$bsky_url" | sed -n 's/^ERROR: //p' | head -1)
+        if [ -n "$error_detail" ]; then
+            echo -e "${RED}  ✗ Post failed: $error_detail${NC}"
+        else
+            echo -e "${RED}  ✗ Post failed${NC}"
+        fi
         return 1
     fi
     
@@ -332,6 +372,13 @@ process_post() {
 # ============================================================================
 
 main() {
+    # Check if --all flag is provided
+    local process_all=false
+    if [ "$1" = "--all" ] || [ "$1" = "-a" ]; then
+        process_all=true
+        shift
+    fi
+    
     # Find all markdown files in content directories (including all subfolders)
     local content_dirs=("blog/content/blog" "blog/content/creative-writing" "blog/content/academic-writing")
     local files=()
@@ -340,18 +387,62 @@ main() {
     local temp_list=$(mktemp 2>/dev/null || echo "/tmp/bluesky_list_$$")
     > "$temp_list"
     
-    # Get staged files for each directory
-    for dir in "${content_dirs[@]}"; do
-        if [ -d "$dir" ]; then
-            # Use grep to find files starting with this directory path (handles subfolders)
-            git diff --cached --name-only 2>/dev/null | grep "^$dir/" | grep "\.md$" | while IFS= read -r file || [ -n "$file" ]; do
+    if [ "$process_all" = true ]; then
+        # Process ALL files in the directories
+        for dir in "${content_dirs[@]}"; do
+            if [ -d "$dir" ]; then
+                # Find all .md files recursively, excluding _index.md
+                find "$dir" -type f -name "*.md" ! -name "_index.md" 2>/dev/null | while IFS= read -r file || [ -n "$file" ]; do
+                    [ -z "$file" ] && continue
+                    if [ -f "$file" ]; then
+                        echo "$file" >> "$temp_list"
+                    fi
+                done
+            fi
+        done
+    else
+        # Get staged files for each directory (original behavior)
+        # Collect all staged .md files first to avoid subshell issues
+        local all_staged=$(git diff --cached --name-only 2>/dev/null | grep "\.md$" || true)
+        
+        if [ -n "$all_staged" ]; then
+            # Write staged files to temp file first, then read from it to avoid subshell issues
+            local staged_temp=$(mktemp 2>/dev/null || echo "/tmp/bluesky_staged_$$")
+            echo "$all_staged" > "$staged_temp"
+            
+            # Process each staged file
+            while IFS= read -r file || [ -n "$file" ]; do
                 [ -z "$file" ] && continue
-                if [ -f "$file" ] && [ "$(basename "$file")" != "_index.md" ]; then
-                    echo "$file" >> "$temp_list"
+                
+                # Normalize file path (remove leading ./ if present)
+                file=$(echo "$file" | sed 's|^\./||')
+                
+                # Check if file is in one of our content directories
+                local matched=false
+                local matched_dir=""
+                for dir in "${content_dirs[@]}"; do
+                    # Try both with and without leading ./
+                    if echo "$file" | grep -q "^$dir/" || echo "$file" | grep -q "^\./$dir/"; then
+                        matched=true
+                        matched_dir="$dir"
+                        break
+                    fi
+                done
+                
+                if [ "$matched" = true ]; then
+                    if [ ! -f "$file" ]; then
+                        echo -e "${YELLOW}  Warning: File not found: $file${NC}" >&2
+                    elif [ "$(basename "$file")" = "_index.md" ]; then
+                        echo -e "${YELLOW}  Skipping _index.md: $file${NC}" >&2
+                    else
+                        echo "$file" >> "$temp_list"
+                    fi
                 fi
-            done
+            done < "$staged_temp"
+            
+            rm -f "$staged_temp" 2>/dev/null
         fi
-    done
+    fi
     
     # Read from temp file into array (handle spaces correctly)
     if [ -s "$temp_list" ]; then
@@ -380,6 +471,17 @@ main() {
     fi
     
     if [ ${#unique_files[@]} -eq 0 ]; then
+        if [ "$process_all" != true ]; then
+            # When processing staged files, show debug info
+            echo -e "${YELLOW}Debug: Checking staged files...${NC}"
+            local all_staged=$(git diff --cached --name-only 2>/dev/null | grep "\.md$" || true)
+            if [ -n "$all_staged" ]; then
+                echo -e "${YELLOW}Staged .md files found:${NC}"
+                echo "$all_staged" | while IFS= read -r f; do
+                    echo -e "${YELLOW}  - $f${NC}"
+                done
+            fi
+        fi
         echo -e "${GREEN}No new posts to process${NC}"
         return 0
     fi

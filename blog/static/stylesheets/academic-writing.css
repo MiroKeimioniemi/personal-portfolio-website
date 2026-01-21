@@ -1,0 +1,176 @@
+h1 {
+    display: inline-block;
+    margin: 0;
+    text-align: left;
+    color: #DDDDDD;
+    transition: color 0.3s ease;
+}
+
+body.light-mode h1 {
+    color: #111111;
+}
+
+h2 {
+    display: inline-block;
+    overflow-wrap: normal;
+    color: #DDDDDD;
+    transition: color 0.3s ease;
+}
+
+body.light-mode h2 {
+    color: #222222;
+}
+
+h3 {
+    color: #DDDDDD;
+    margin-top: -1rem;
+    margin-bottom: 1rem;
+    font-weight: lighter;
+    text-shadow: 0rem 0.1rem 0.15rem #000000;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+body.light-mode h3 {
+    color: #222222;
+    text-shadow: none;
+}
+
+footer {
+    margin-top: 4rem;
+}
+
+.slim-heading {
+    font-weight: 100;
+    margin: 0;
+    margin-left: 0.6rem;
+}
+
+.composite-heading {
+    margin-left: 4%;
+    margin-top: -1.36rem;
+    max-width: 80.1vw;
+}
+
+/* Grid for listing pages (academic writing index) - Mobile first */
+.blog-main-content .academic-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.blog-main-content .academic-grid .grid-item {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 0;
+    width: 100%;
+    max-width: 20rem;
+    justify-self: center;
+}
+
+.blog-main-content .academic-grid .grid-item h3 {
+    margin-top: -3rem;
+    margin-bottom: 0;
+    padding: 0.5rem 1rem;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: lighter;
+    text-shadow: 0rem 0.1rem 0.15rem #000000;
+    width: 100%;
+    max-width: 24rem;
+}
+
+.blog-main-content .academic-grid .grid-item-link {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.blog-main-content .academic-grid .grid-img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.centered {
+    text-align: center;
+}
+
+/* Only target grid in article-content for regular blog posts */
+.article-content .grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    padding: 0;
+    gap: 2rem;
+}
+
+.article-content .grid-item {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 0;
+    width: 100%;
+    max-width: 20rem;
+}
+
+.grid-img {
+    max-height: 20rem;
+}
+
+@media screen and (min-width: 768px) {
+    
+.composite-heading {
+    margin-top: 2rem;
+    margin-left: 0rem;
+    padding-left: 0;
+}
+
+.content {
+    max-width: 64rem;
+}
+
+.blog-main-content .academic-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    align-items: start;
+}
+
+.article-content .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.blog-main-content .academic-grid .grid-item,
+.article-content .grid-item {
+    width: 100%;
+}
+
+}
+
+@media screen and (min-width: 1360px) {
+
+.blog-main-content .academic-grid .grid-item {
+    max-width: 18rem;
+}
+
+.article-content .grid-item {
+    max-width: 28rem;
+}
+
+.grid-img {
+    max-height: 25rem;
+}
+
+}

@@ -1,0 +1,20 @@
+{{/* 
+  Usage: 
+  {{< two-column reverse=false >}}
+    {{< file-variant title="..." url="..." downloadUrl="..." image="..." >}}
+    {{< file-variant title="..." url="..." downloadUrl="..." image="..." >}}
+  {{< /two-column >}}
+  
+  Or with markdown content:
+  {{< two-column >}}
+    {{< file-column >}}
+      {{< file-variant ... >}}
+    {{< /file-column >}}
+    {{< text-column >}}
+      Your markdown content here
+    {{< /text-column >}}
+  {{< /two-column >}}
+*/}}
+<section class="{{ if .Get "reverse" }}reverse-grid{{ else }}grid{{ end }}">
+  {{ .Inner }}
+</section>

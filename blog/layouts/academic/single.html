@@ -1,0 +1,55 @@
+{{ define "main" }}
+<div class="blog-main-content">
+  <h1>{{ .Title }}</h1>
+
+  <section class="{{ if .Params.reverseGrid }}reverse-grid{{ else }}grid{{ end }}">
+    
+    <div class="file-column">
+      {{ range .Params.fileVariants }}
+      <div class="file-variant{{ if not .image }} no-image{{ end }}">
+        {{ if .image }}
+        {{ $imgPath := .image }}
+        {{ $imgResource := $.Resources.GetMatch $imgPath }}
+        {{ if not $imgResource }}
+          {{ $imgResource = $.Resources.GetMatch (printf "*%s*" $imgPath) }}
+        {{ end }}
+        <a href="{{ .url }}" {{ if .target }}target="{{ .target }}"{{ end }} class="grid-item">
+          {{ if $imgResource }}
+            <img src="{{ $imgResource.RelPermalink }}" loading="lazy" alt="{{ .title }} document" class="portfolio-item-frame grid-img">
+          {{ else }}
+            <img src="{{ $imgPath | relURL }}" loading="lazy" alt="{{ .title }} document" class="portfolio-item-frame grid-img">
+          {{ end }}
+          <h3>{{ .title }}</h3>
+        </a>
+        {{ else }}
+        <a href="{{ .url }}" {{ if .target }}target="{{ .target }}"{{ end }}>
+          <h3>{{ .title }}</h3>
+        </a>
+        {{ end }}
+        <div class="centered">
+          <a href="{{ .downloadUrl }}">
+            <button class="general-button margin-y">
+              <div class="second-button-layer">
+                <div class="first-button-layer">
+                  <p class="button-text">Download</p>
+                </div>
+              </div>
+            </button>
+          </a>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+    
+    <div class="text-column">
+      {{ .Content }}
+    </div>
+  </section>
+
+  {{ if .Params.bsky }}
+  <div id="comments-section" data-bsky-uri="{{ .Params.bsky }}"></div>
+  <script src="{{ "scripts/comments.js" | relURL }}"></script>
+  {{ end }}
+
+</div>
+{{ end }}

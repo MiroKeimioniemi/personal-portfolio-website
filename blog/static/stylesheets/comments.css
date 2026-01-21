@@ -140,7 +140,7 @@ body.light-mode #comments-section hr {
 
 .comment {
     padding: 0;
-    margin-bottom: 0.75rem;
+    margin-bottom: 1rem;
 }
 
 .comment:last-child {
@@ -155,6 +155,7 @@ body.light-mode #comments-section hr {
     color: #e5e7eb;
     margin-bottom: 0.25rem;
     transition: color 0.3s ease;
+    line-height: 1;
 }
 
 body.light-mode .author {
@@ -165,6 +166,9 @@ body.light-mode .author {
     color: #e5e7eb;
     text-decoration: none;
     transition: color 0.3s ease;
+    line-height: 1;
+    display: flex;
+    align-items: center;
 }
 
 body.light-mode .author a {
@@ -192,16 +196,21 @@ body.light-mode .author span {
 }
 
 .avatar-link {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     margin-right: 8px;
     flex-shrink: 0;
+    line-height: 0;
 }
 
 .avatar {
     width: 24px;
     height: 24px;
     border-radius: 50%;
-    vertical-align: middle;
+    display: block;
+    object-fit: cover;
+    margin-bottom: 0;
 }
 
 .comment p {
@@ -231,7 +240,7 @@ body.light-mode .comment p {
 .nested-replies {
     margin-left: 16px;
     padding-left: 8px;
-    margin-top: 0.75rem;
+    margin-top: 1.5rem;
     margin-bottom: 0;
     padding-top: 0;
     padding-bottom: 0;
@@ -239,7 +248,7 @@ body.light-mode .comment p {
 
 .nested-replies .comment {
     padding: 0;
-    margin-bottom: 0.75rem;
+    margin-bottom: 1.5rem;
 }
 
 .nested-replies .comment:last-child {
