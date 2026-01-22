@@ -35,6 +35,23 @@ jobs:
         working-directory: blog
         run: hugo --minify
 
+      - name: Verify writing directory exists
+        run: |
+          if [ ! -d "writing" ]; then
+            echo "Error: writing directory not found after Hugo build"
+            exit 1
+          fi
+          if [ ! -f "writing/index.html" ]; then
+            echo "Error: writing/index.html not found"
+            exit 1
+          fi
+          echo "Writing directory verified successfully"
+          echo "Contents of writing directory:"
+          ls -la writing/ | head -20
+
+      - name: Ensure .nojekyll in writing directory
+        run: touch writing/.nojekyll
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
