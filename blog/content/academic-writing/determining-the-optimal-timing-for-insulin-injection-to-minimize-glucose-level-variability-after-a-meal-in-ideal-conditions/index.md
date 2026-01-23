@@ -1,9 +1,9 @@
 ---
 title: "Determining the optimal timing for insulin injection to minimize glucose level variability after a meal in ideal conditions"
-date: 2023-01-15
+date: 2022-01-15
 type: "academic"
-categories: ["Mathematics", "Research"]
-tags: ["Mathematics", "Diabetes", "Research", "IB"]
+categories: ["Mathematics", "Data Analysis", "Research"]
+tags: ["Mathematics", "Diabetes", "Research", "Data Analysis", "IB"]
 image: "Mathematics exploration-min.png"
 reverseGrid: false
 fileVariants:

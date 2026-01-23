@@ -3,7 +3,11 @@
   <section class="academic-grid">
     {{ range where .Site.RegularPages "Type" "academic" }}
       <article class="grid-item">
-        <a href="{{ .RelPermalink }}" class="grid-item-link">
+        {{ if .Params.externalUrl }}
+          <a href="{{ .Params.externalUrl }}" target="_blank" rel="noopener noreferrer" class="grid-item-link">
+        {{ else }}
+          <a href="{{ .RelPermalink }}" class="grid-item-link">
+        {{ end }}
           {{ if .Params.image }}
             {{ $imgResource := .Resources.GetMatch .Params.image }}
             {{ if not $imgResource }}

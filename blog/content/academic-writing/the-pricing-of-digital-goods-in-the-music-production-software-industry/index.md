@@ -1,9 +1,9 @@
 ---
 title: "The Pricing of Digital Goods in the Music Production Software Industry"
-date: 2022-01-15
+date: 2022-12-05
 type: "academic"
 categories: ["Economics", "Research"]
-tags: ["Economics", "Digital Goods", "Music Industry", "Research", "IB"]
+tags: ["Economics", "Digital Goods", "Music Industry", "Research", "Data Analysis", "Market Research", "Survey", "IB"]
 image: "EE/Compressed/Screenshot_20230107_132702-min.png"
 reverseGrid: true
 fileVariants:
