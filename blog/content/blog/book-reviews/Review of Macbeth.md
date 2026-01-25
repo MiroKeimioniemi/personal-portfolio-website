@@ -3,7 +3,7 @@ title: Review of Macbeth
 date: 2022-01-12
 type: "blog"
 categories: ["Book Review"]
-tags: ["Book Review", "Fiction", "Classics", "Play Script"]
+tags: ["Book Review", "Fiction", "Classics", "Play Script", "English A Language & Literature"]
 highlight: false
 bsky: "https://bsky.app/profile/mirokeimioniemi.com/post/3mcgaiw3nq22l"
 ---
