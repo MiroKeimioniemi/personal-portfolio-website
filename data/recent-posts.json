@@ -157,6 +157,36 @@
         "Python",
         "SQLAlchemy"
       ]
+    },
+    {
+      "title": "Rediscovering liquid democracy",
+      "date": "2024-11-16",
+      "url": "/writing/blog/2024/rediscovering-liquid-democracy/",
+      "summary": "We revolutionized democracy last weekend at Junction 2024 for Sitra’s Digital Democracy challenge - only to discover on Saturday evening with 14 hours to go, that we had accidentally plagiarized _liquid democracy_ while independently developing the same exact concept entirely in a vacuum.\r \r Not only had we come up with something similar but we actually built the entire theoretical framework from scratch ourselves using the same exact concepts, which we had even named exactly the same, except for the system itself, which we called Digital Distributive Democracy - what we then thought a more de...",
+      "highlight": true,
+      "tags": [
+        "Democracy",
+        "Governance",
+        "Liquid Democracy",
+        "Hackathon"
+      ]
+    },
+    {
+      "title": "The Human Legacy - How Should We Raise AGI?",
+      "date": "2023-06-16",
+      "url": "/writing/blog/2023/human-legacy-how-should-we-raise-agi/",
+      "summary": "The human race will most likely not continue existing indefinitely. As long as we are confined to a single planet, we are faced with various existential risks ranging from natural causes such as deadly pandemics or asteroid impacts to human creations such as nuclear weapons, nanotechnology or climate change as only a select few examples from Nick Bostrom’s exhaustive list of Existential Risks (2002), with some predicting the collapse of civilization due to issues of the latter category already within this century (Meadows et al., 1972). Even if we do manage to avoid all of these, Homo Sapiens...",
+      "highlight": true,
+      "tags": [
+        "Artificial Intelligence",
+        "AGI",
+        "Alignment",
+        "Digital Ethics",
+        "Ethics",
+        "Morality",
+        "Philosophy",
+        "Essay"
+      ]
     }
   ]
 }

@@ -4,7 +4,7 @@ date: 2023-06-16
 type: "blog"
 categories: ["Artificial Intelligence"]
 tags: ["Artificial Intelligence", "AGI", "Alignment", "Digital Ethics", "Ethics", "Morality", "Philosophy", "Essay"]
-highlight: false
+highlight: true
 bsky: "https://bsky.app/profile/mirokeimioniemi.com/post/3md6gdacnhy2x"
 ---
 

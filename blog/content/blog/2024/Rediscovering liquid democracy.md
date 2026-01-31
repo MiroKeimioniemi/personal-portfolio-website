@@ -4,7 +4,7 @@ date: 2024-11-16
 type: "blog"
 categories: []
 tags: ["Democracy", "Governance", "Liquid Democracy", "Hackathon"]
-highlight: false
+highlight: true
 bsky: "https://bsky.app/profile/mirokeimioniemi.com/post/3mcgdwzewzp2b"
 ---
 
