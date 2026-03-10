@@ -6,6 +6,7 @@ categories: []
 tags: []
 highlight: false
 image: "aalto-amphitheatre.jpg"
+bsky: "https://bsky.app/profile/mirokeimioniemi.com/post/3mgozrltvn222"
 ---
 
 Picture standing in the Olympics stadium as your nation's only representative competing in all the sports. Furthermore, it was you who enrolled yourself into all of them. 

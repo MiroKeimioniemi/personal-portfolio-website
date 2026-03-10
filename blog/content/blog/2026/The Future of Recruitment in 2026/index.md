@@ -6,6 +6,7 @@ categories: []
 tags: []
 highlight: false
 image: "views-of-the-future-of-recruitment.jpg"
+bsky: "https://bsky.app/profile/mirokeimioniemi.com/post/3mbvmtpmqxs2c"
 ---
 
 2026 will be the year of revolution in recruitment.
