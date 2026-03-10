@@ -6,12 +6,23 @@
 {{- $locale := .Site.LanguageCode | default "en_US" -}}
 
 {{- if .IsPage -}}
-  {{- $image := "" -}}
+  {{- $images := slice -}}
   {{- if .Params.image -}}
-    {{- $image = .Params.image | absURL -}}
-  {{- else if .Site.Params.image -}}
-    {{- $image = .Site.Params.image | absURL -}}
+    {{- $imgURL := (printf "%s%s" .Permalink .Params.image) | absURL -}}
+    {{- $images = $images | append $imgURL -}}
   {{- end -}}
+  {{- range .Resources.ByType "image" -}}
+    {{- $resURL := .Permalink | absURL -}}
+    {{- if not (in $images $resURL) -}}
+      {{- $images = $images | append $resURL -}}
+    {{- end -}}
+  {{- end -}}
+  {{- if and (eq (len $images) 0) .Site.Params.image -}}
+    {{- $images = $images | append (.Site.Params.image | absURL) -}}
+  {{- end -}}
+  {{- $hasImage := gt (len $images) 0 -}}
+  {{- $firstImage := "" -}}
+  {{- if $hasImage -}}{{- $firstImage = index $images 0 -}}{{- end -}}
   
   <!-- Open Graph / Facebook / LinkedIn -->
   <meta property="og:type" content="article">
@@ -20,8 +31,10 @@
   <meta property="og:description" content="{{ $description }}">
   <meta property="og:site_name" content="{{ $siteName }}">
   <meta property="og:locale" content="{{ $locale }}">
-  {{- if $image -}}
-  <meta property="og:image" content="{{ $image }}">
+  {{- range $images -}}
+  <meta property="og:image" content="{{ . }}">
+  {{- end -}}
+  {{- if $firstImage -}}
   <meta property="og:image:alt" content="{{ $title }}">
   {{- end -}}
   {{- if .Date -}}
@@ -40,12 +53,14 @@
   {{- end -}}
   
   <!-- Twitter Card -->
-  <meta name="twitter:card" content="{{ if $image }}summary_large_image{{ else }}summary{{ end }}">
+  <meta name="twitter:card" content="{{ if $hasImage }}summary_large_image{{ else }}summary{{ end }}">
   <meta name="twitter:url" content="{{ $url }}">
   <meta name="twitter:title" content="{{ $title }}">
   <meta name="twitter:description" content="{{ $description }}">
-  {{- if $image -}}
-  <meta name="twitter:image" content="{{ $image }}">
+  {{- range $images -}}
+  <meta name="twitter:image" content="{{ . }}">
+  {{- end -}}
+  {{- if $firstImage -}}
   <meta name="twitter:image:alt" content="{{ $title }}">
   {{- end -}}
 {{- else -}}
