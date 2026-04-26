@@ -1,6 +1,28 @@
 {
   "recentPosts": [
     {
+      "title": "The Forgotten Fear of an Empty Paper",
+      "date": "2026-04-26",
+      "url": "/writing/blog/2026/the-forgotten-fear-of-an-empty-paper/",
+      "summary": "Are you even human if you have not faced the fear of an empty paper?\r   \r I worry about the fading away of this valuable creativity-stimulating classic experience. Furthermore, I don't understand why...",
+      "highlight": false,
+      "image": "/writing/blog/2026/the-forgotten-fear-of-an-empty-paper/google-docs-new.png",
+      "tags": [
+        ""
+      ]
+    },
+    {
+      "title": "What to study as a generalist?",
+      "date": "2026-03-10",
+      "url": "/writing/blog/2026/what-to-study-as-a-generalist/",
+      "summary": "Picture standing in the Olympics stadium as your nation's only representative competing in all the sports. Furthermore, it was you who enrolled yourself into all of them. \r \r This is where many genera...",
+      "highlight": false,
+      "image": "/writing/blog/2026/what-to-study-as-a-generalist/aalto-amphitheatre.jpg",
+      "tags": [
+        ""
+      ]
+    },
+    {
       "title": "Who am I?",
       "date": "2026-01-15",
       "url": "/writing/blog/2026/who-am-i/",
@@ -100,34 +122,6 @@
         "Cosmere",
         "Mistborn"
       ]
-    },
-    {
-      "title": "Review of The Well of Ascension",
-      "date": "2025-07-15",
-      "url": "/writing/blog/book-reviews/review-of-the-well-of-ascension/",
-      "summary": "For some reason the name \"The Well of Ascension\" had been distantly familiar to me long before ever even hearing about Brandon Sanderson. I associated it with what I thought to be the great fantasy classics such as \"The Wheel of Time\" and the like and I am now more than happy to report that the association was not in vain. \r \r \"The Well of Ascension\" was a near perfect fantasy book about the most fascinating aspect of the fight against evil: what happens after you win? Most stories leave it at the victory party and \"so they lived happily ever after\", but this is where the Mistborn series reall...",
-      "highlight": false,
-      "tags": [
-        "Book Review",
-        "Fiction",
-        "Fantasy",
-        "Cosmere",
-        "Mistborn"
-      ]
-    },
-    {
-      "title": "Review of Mistborn (The Final Empire)",
-      "date": "2025-06-22",
-      "url": "/writing/blog/book-reviews/review-of-mistborn/",
-      "summary": "Brandon Sanderson's Mistborn is a great piece of Dune-esque fiction with fantastic world building, a very original and interesting hard magic system that is simple enough on the surface but poses near limitless fascinating combinatorial possibilities, plenty of mystery, and a great cast of characters whom I would absolutely love to hang out with warmly bantering at a safe house kitchen after a successful gig. This was an integral part to the story too, which I always love, as it is often these moments that you can most relate to in any world - no matter how magical - and where often all the re...",
-      "highlight": false,
-      "tags": [
-        "Book Review",
-        "Fiction",
-        "Fantasy",
-        "Cosmere",
-        "Mistborn"
-      ]
     }
   ],
   "highlights": [
@@ -175,7 +169,7 @@
       "title": "The Human Legacy - How Should We Raise AGI?",
       "date": "2023-06-16",
       "url": "/writing/blog/2023/human-legacy-how-should-we-raise-agi/",
-      "summary": "The human race will most likely not continue existing indefinitely. As long as we are confined to a single planet, we are faced with various existential risks ranging from natural causes such as deadly pandemics or asteroid impacts to human creations such as nuclear weapons, nanotechnology or climate change as only a select few examples from Nick Bostrom’s exhaustive list of Existential Risks (2002), with some predicting the collapse of civilization due to issues of the latter category already within this century (Meadows et al., 1972). Even if we do manage to avoid all of these, Homo Sapiens...",
+      "summary": "The human race will most likely not continue existing indefinitely. As long as we are\r confined to a single planet, we are faced with various existential risks ranging from\r natural causes such as deadly pandemics or asteroid impacts to human creations such\r as nuclear weapons, nanotechnology or climate change as only a select few examples\r from Nick Bostrom’s exhaustive list of Existential Risks (2002), with some predicting the\r collapse of civilization due to issues of the latter category already within this century\r (Meadows et al., 1972). Even if we do manage to avoid all of these, Homo Sa...",
       "highlight": true,
       "tags": [
         "Artificial Intelligence",

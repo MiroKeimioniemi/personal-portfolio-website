@@ -140,7 +140,13 @@ login_to_bluesky() {
     
     # Check for errors
     if echo "$response" | grep -q '"error"'; then
-        echo "ERROR"
+        local error_name=$(echo "$response" | grep -o '"error":"[^"]*"' | sed 's/"error":"\([^"]*\)"/\1/')
+        local error_msg=$(echo "$response" | grep -o '"message":"[^"]*"' | sed 's/"message":"\([^"]*\)"/\1/')
+        if [ -n "$error_msg" ]; then
+            echo "ERROR: ${error_name:-Unknown error}: $error_msg"
+        else
+            echo "ERROR: ${error_name:-Unknown error}"
+        fi
         return 1
     fi
     
@@ -149,7 +155,7 @@ login_to_bluesky() {
     local did=$(echo "$response" | grep -o '"did":"[^"]*"' | sed 's/"did":"\([^"]*\)"/\1/')
     
     if [ -z "$token" ] || [ -z "$did" ]; then
-        echo "ERROR"
+        echo "ERROR: Login response did not include accessJwt or did: $response"
         return 1
     fi
     
@@ -201,10 +207,13 @@ post_to_bluesky() {
     # Check for errors
     if echo "$response" | grep -q '"error"'; then
         # Extract and show the error message
+        local error_name=$(echo "$response" | grep -o '"error":"[^"]*"' | sed 's/"error":"\([^"]*\)"/\1/')
         local error_msg=$(echo "$response" | grep -o '"message":"[^"]*"' | sed 's/"message":"\([^"]*\)"/\1/' || echo "Unknown error")
-        echo "ERROR: $error_msg" >&2
-        echo "$response" >&2  # Also output full response for debugging
-        echo "ERROR"
+        printf 'ERROR: %s: %s\n' "${error_name:-Unknown error}" "${error_msg:-Unknown error}" >&2
+        printf 'Response: %s\n' "$response" >&2
+        printf 'Post URL: %s\n' "$url" >&2
+        printf 'Post text: %s\n' "$text" >&2
+        printf 'ERROR: %s: %s\n' "${error_name:-Unknown error}" "${error_msg:-Unknown error}"
         return 1
     fi
     
@@ -333,8 +342,13 @@ process_post() {
     # Login to Bluesky
     echo -e "${YELLOW}  Logging in...${NC}"
     local session=$(login_to_bluesky "$BSKY_HANDLE" "$BSKY_APP_PASSWORD")
-    if [ "$session" = "ERROR" ]; then
-        echo -e "${RED}  ✗ Login failed${NC}"
+    if echo "$session" | grep -q "^ERROR"; then
+        local error_detail=$(echo "$session" | sed -n 's/^ERROR: //p' | head -1)
+        if [ -n "$error_detail" ]; then
+            printf '  ✗ Login failed: %s\n' "$error_detail"
+        else
+            echo -e "${RED}  ✗ Login failed${NC}"
+        fi
         return 1
     fi
     
@@ -348,7 +362,7 @@ process_post() {
         # Extract error message (everything after "ERROR: ")
         local error_detail=$(echo "$bsky_url" | sed -n 's/^ERROR: //p' | head -1)
         if [ -n "$error_detail" ]; then
-            echo -e "${RED}  ✗ Post failed: $error_detail${NC}"
+            printf '  ✗ Post failed: %s\n' "$error_detail"
         else
             echo -e "${RED}  ✗ Post failed${NC}"
         fi

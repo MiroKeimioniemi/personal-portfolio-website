@@ -6,7 +6,7 @@ categories: []
 tags: []
 highlight: false
 image: "google-docs-new.png"
-bsky: "https://bsky.app/profile/mirokeimioniemi.com/post/3mgozrltvn222"
+bsky: "https://bsky.app/profile/mirokeimioniemi.com/post/3mkg2meeaak2k"
 ---
 
 Are you even human if you have not faced the fear of an empty paper?
