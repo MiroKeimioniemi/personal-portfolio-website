@@ -1,6 +1,17 @@
 {
   "recentPosts": [
     {
+      "title": "The Intentional Networking Playbook",
+      "date": "2026-05-08",
+      "url": "/writing/blog/2026/the-intentional-networking-playbook/",
+      "summary": "On the flight back from the Y Combinator event at Stockholm that my good friend Hannes skillfully used as a great excuse to get me to fly over and be not-so-subtly recruited at Strawberry, I found mys...",
+      "highlight": false,
+      "image": "/writing/blog/2026/the-intentional-networking-playbook/y-combinator-stockholm-networking.jpg",
+      "tags": [
+        ""
+      ]
+    },
+    {
       "title": "The Forgotten Fear of an Empty Paper",
       "date": "2026-04-26",
       "url": "/writing/blog/2026/the-forgotten-fear-of-an-empty-paper/",
@@ -107,20 +118,6 @@
         "pgvector",
         "Python",
         "SQLAlchemy"
-      ]
-    },
-    {
-      "title": "Review of The Hero of Ages",
-      "date": "2025-08-08",
-      "url": "/writing/blog/book-reviews/review-of-the-hero-of-ages/",
-      "summary": "Epic ending for a masterfully crafted trilogy! \r \r Sanderson strikes the perfect balance of promise, payoff and mystery for a satisfying ending of an epic arc with great growth, clever powerscaling and fascinating twists, while still leaving the door open for way more to come. With that, I cannot wait to begin reading the second era. \r \r A Hero of Ages picks up from (where) Well of Ascension left off and extrapolates and expands on all of its themes much further. <spoiler>Elend's arc is particularly brilliant, where first in Well of Ascension he must learn to be a strong, decisive and emblemat...",
-      "highlight": false,
-      "tags": [
-        "Book Review",
-        "Fiction",
-        "Fantasy",
-        "Cosmere",
-        "Mistborn"
       ]
     }
   ],
