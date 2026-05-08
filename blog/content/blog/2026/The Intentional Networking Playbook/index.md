@@ -6,6 +6,7 @@ categories: []
 tags: []
 highlight: false
 image: "y-combinator-stockholm-networking.jpg"
+bsky: "https://bsky.app/profile/mirokeimioniemi.com/post/3mldn2r5t4s24"
 ---
 
 On the flight back from the Y Combinator event at Stockholm that my good friend Hannes skillfully used as a great excuse to get me to fly over and be not-so-subtly recruited at Strawberry, I found myself in introspection about what I was left with after the main event. 
