@@ -57,4 +57,4 @@ bsky: "https://bsky.app/profile/mirokeimioniemi.com/post/3mdbv4hbdjr2q"
 <p class="body-text">Learning diary entries for the Design Thinking and Electronic Prototyping course at Aalto University documenting my first real touch with electronics.</p>
 
 
-<p class="body-text">See the Networking Bracelets final project <a href="http://mirokeimioniemi.com/writing/academic-writing/networking-bracelet-prototypes/" target="_blank" class="hyperlink-style">here</a>.</p>
+<p class="body-text">See the Networking Bracelets final project <a href="{{< ref "academic-writing/networking-bracelet-prototypes/index.md" >}}" class="hyperlink-style">here</a>.</p>

@@ -61,6 +61,8 @@ Great teams are composed of great individuals with great chemistry. Exceptional 
    You never know who is going to be the perfect co-founder, collaborator or co-conspirator until you talk with them and discover that they too have been bothered by the same things that you have. Many people with builder's mindset do not share these frustrations publicly until they are ready to do something about them. Bonding over these can be very powerful, but you cannot find them unless you ask and expose your own. 
    
    People in these kinds of environments are usually there for a reason and often building their own side projects regardless of their current role. They might also tell you about other opportunities that you would not and could not find in any other way, especially if you ask. You can learn something from anyone, whether it is confirmation or challenge for your intuitions and observations or the first step towards a long-lasting mentorship sparked by a unique question not many could successfully answer. Finally, they may know other people that you might be interested in talking to and the mere act of growing your network itself can bring valuable benefits in the future via the [strength of weak ties](https://news.stanford.edu/stories/2023/07/strength-weak-ties), which implies that a person's weakest connections are often the most helpful for their career advancement. 
+
+   I have written much more extensively about my philosophy and approach to networking here: [The Intentional Networking Playbook]({{< ref "blog/2026/The Intentional Networking Playbook/index.md" >}}).
    
 4. **Be Open About Your Ideas and Direct About Alignment**
    

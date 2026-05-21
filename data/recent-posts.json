@@ -1,6 +1,17 @@
 {
   "recentPosts": [
     {
+      "title": "You can just invite yourself to things",
+      "date": "2026-05-20",
+      "url": "/writing/blog/2026/you-can-just-invite-yourself-to-things/",
+      "summary": "If you ever feel like you would want to expand your circle or try something new, remember that you can always just invite yourself to things.\r \r Relationships are built on shared experiences, which ca...",
+      "highlight": false,
+      "image": "/writing/blog/2026/you-can-just-invite-yourself-to-things/footsal-group-picture.jpg",
+      "tags": [
+        ""
+      ]
+    },
+    {
       "title": "The Intentional Networking Playbook",
       "date": "2026-05-08",
       "url": "/writing/blog/2026/the-intentional-networking-playbook/",
@@ -102,22 +113,6 @@
       "highlight": false,
       "tags": [
         "Artificial Intelligence"
-      ]
-    },
-    {
-      "title": "Optimizing filtered vector queries from tens of seconds to single-digit milliseconds in PostgreSQL",
-      "date": "2025-11-04",
-      "url": "/writing/blog/2025/optimizing-filtered-vector-queries-from-tens-of-seconds-to-single-digit-milliseconds-in-postgre-sql/",
-      "summary": "Vectors have exploded in popularity as the datatype enabling semantic search, which powers all kinds of AI applications ranging from standard RAG systems to fully agentic applications. Our job and can...",
-      "highlight": true,
-      "image": "/writing/blog/2025/optimizing-filtered-vector-queries-from-tens-of-seconds-to-single-digit-milliseconds-in-postgre-sql/SQLOptim.png",
-      "tags": [
-        "SQL",
-        "PostgreSQL",
-        "Optimization",
-        "pgvector",
-        "Python",
-        "SQLAlchemy"
       ]
     }
   ],
